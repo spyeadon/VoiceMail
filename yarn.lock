@@ -1836,6 +1836,10 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
+eslint-config-fullstack@^2.8.1:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-fullstack/-/eslint-config-fullstack-2.8.1.tgz#5777594ca80d147559f8096e5148aa3760524b75"
+
 eslint-config-standard@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-10.2.1.tgz#c061e4d066f379dc17cd562c64e819b4dd454591"

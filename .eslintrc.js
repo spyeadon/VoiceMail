@@ -1,5 +1,5 @@
 module.exports = {
-  extends: "eslint-config-standard",
+  extends: "eslint-config-fullstack",
   root: true,
   parser: "babel-eslint",
   parserOptions: {
@@ -16,7 +16,7 @@ module.exports = {
     "comma-dangle": ["error", "only-multiline"],
     "space-infix-ops": "off",      // Until eslint #7489 lands
     "new-cap": "off",
-    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }],    
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }],
     "no-return-assign": "off",
     "no-unused-expressions": "off",
     "one-var": "off",
