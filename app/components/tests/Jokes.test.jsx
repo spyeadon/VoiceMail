@@ -4,7 +4,7 @@ chai.use(require('chai-enzyme')())
 
 import {shallow} from 'enzyme'
 
-import Jokes from './Jokes'
+import Jokes from '../Jokes'
 
 /* global describe it beforeEach */
 describe('<Jokes />', () => {

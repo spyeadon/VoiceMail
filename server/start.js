@@ -52,7 +52,7 @@ module.exports = app
   .use(express.static(resolve(__dirname, '..', 'public')))
 
   // Serve our api - ./api also requires in ../db, which syncs with our database
-  .use('/api', require('./api'))
+  .use('/api', require('./routes/api.js'))
 
   // any requests with an extension (.js, .css, etc.) turn into 404
   .use((req, res, next) => {
