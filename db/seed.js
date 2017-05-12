@@ -15,15 +15,20 @@ function seedEverything() {
 
 const users = seed(User, {
   god: {
-    email: 'god@example.com',
+    email: 'god@voicemail.com',
     name: 'So many names',
     password: '1234',
   },
   barack: {
     name: 'Barack Obama',
-    email: 'barack@example.gov',
+    email: 'barack@voicemail.com',
     password: '1234'
   },
+  soren: {
+    name: 'Soren Philip Yeadon',
+    email: 'soren@voicemail.com',
+    password: 'spy'
+  }
 })
 
 if (module === require.main) {
