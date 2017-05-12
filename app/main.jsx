@@ -9,27 +9,16 @@ import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
-
-const ExampleApp = connect(
-  ({ auth }) => ({ user: auth })
-)(
-  ({ user, children }) =>
-    <div>
-      <nav>
-        {user ? <WhoAmI/> : <Login/>}
-      </nav>
-      {children}
-    </div>
-)
+import App from './App.jsx';
 
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={ExampleApp}>
+      <Route path="/" component={App}>
         <IndexRedirect to="/jokes" />
         <Route path="/jokes" component={Jokes} />
       </Route>
-      <Route path='*' component={NotFound} />
+      <Route path="*" component={NotFound} />
     </Router>
   </Provider>,
   document.getElementById('main')
