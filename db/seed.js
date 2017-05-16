@@ -1,12 +1,13 @@
 'use strict'
 
 const db = require('APP/db')
-    , {User, Promise} = db
+    , {User, Message, Promise} = db
     , {mapValues} = require('lodash')
 
 function seedEverything() {
   const seeded = {
     users: users(),
+    messages: messages()
   }
 
 
@@ -28,6 +29,33 @@ const users = seed(User, {
     name: 'Soren Philip Yeadon',
     email: 'soren@voicemail.com',
     password: 'spy'
+  }
+})
+
+const messages = seed(Message, {
+  message1: {
+    subject: 'seeded test #1 woohoo',
+    body: 'I could not really think of a great message body to add to the seed list so instead I just wrote this. Enjoy!',
+    // to_id: '1',
+    // from_id: '3'
+  },
+  message2: {
+    subject: 'seeded test #2 please work',
+    body: 'And what is love? It is a doll dressed up For idleness to cosset, nurse, and dandle; A thing of soft misnomers, so divine That silly youth doth think to make itself Divine by loving, and so goes on Yawning and doting a whole summer long',
+    // to_id: 3,
+    // from_id: 1
+  },
+  message3: {
+    subject: 'seeded test #3 lets gooo',
+    body: "I wandered lonely as a cloud That floats on high o'er vales and hills, When all at once I saw a crowd, A host, of golden daffodils; Beside the lake, beneath the trees, Fluttering and dancing in the breeze.",
+    // to_id: 2,
+    // from_id: 1
+  },
+  message4: {
+    subject: 'seeded test #4 show me the money',
+    body: 'The waves beside them danced, but they Out-did the sparkling leaves in glee; A poet could not be but gay, In such a jocund company! I gazed—and gazed—but little thought What wealth the show to me had brought:',
+    // to_id: 3,
+    // from_id: 1
   }
 })
 

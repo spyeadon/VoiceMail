@@ -38,7 +38,9 @@ module.exports = db => db.define('message', {
     allowNull: false
   },
   audio: {
-    type: BLOB
+    type: BLOB,
+    allowNull: true,
+    defaultValue: null
   }
 }, {
   instanceMethods: {
