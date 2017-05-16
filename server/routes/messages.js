@@ -18,8 +18,8 @@ module.exports = require('express').Router()
     (req, res, next) =>
       Message.findAll({
         where: {
-          to_id: req.params.userId,
-          from_id: req.params.userId
+          $or: [{to_id: req.params.userId},
+          {from_id: req.params.userId}]
         }
       })
       .then(msgs => res.status(200).json(msgs))
