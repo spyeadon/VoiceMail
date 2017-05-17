@@ -57,3 +57,9 @@ export const deleteMessage = message =>
     .then(res => console.log(res.status))
     .then(() => dispatch(deleteMsgFromDB(message)))
     .catch(err => console.error(err))
+
+export const CHANGE_FOLDER = 'CHANGE_FOLDER'
+export const changeFolder = folder => ({
+  type: CHANGE_FOLDER,
+  folder: folder
+})

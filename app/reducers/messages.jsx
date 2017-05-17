@@ -1,8 +1,9 @@
-import {GET_MESSAGES, CURRENT_MESSAGE, UPDATE_MESSAGE, CREATE_MESSAGE, DELETE_MESSAGE} from '../action-creators/messages.jsx'
+import {GET_MESSAGES, CURRENT_MESSAGE, UPDATE_MESSAGE, CREATE_MESSAGE, DELETE_MESSAGE, CHANGE_FOLDER} from '../action-creators/messages.jsx'
 
 const initialState = {
   messages: [],
-  currentMessage: {}
+  currentMessage: {},
+  folder: 'inbox'
 }
 
 const messages = (state = initialState, action) => {
@@ -37,6 +38,10 @@ const messages = (state = initialState, action) => {
     updatedMessages = newState.messages.slice();
     updatedMessages.unshift(action.newMessage)
     newState.messages = updatedMessages;
+    return newState;
+
+  case CHANGE_FOLDER:
+    newState.folder = action.folder;
     return newState;
 
   default:
