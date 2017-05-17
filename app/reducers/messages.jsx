@@ -3,7 +3,14 @@ import {GET_MESSAGES, CURRENT_MESSAGE, UPDATE_MESSAGE, CREATE_MESSAGE, DELETE_ME
 const initialState = {
   messages: [],
   currentMessage: {},
-  folder: 'inbox'
+  currentFolder: 'Inbox',
+  folders: [
+    'Inbox',
+    'Drafts',
+    'Sent Mail',
+    'Important',
+    'Trash'
+  ]
 }
 
 const messages = (state = initialState, action) => {
@@ -22,6 +29,7 @@ const messages = (state = initialState, action) => {
   case UPDATE_MESSAGE:
     updatedMessages = newState.messages.map(msg => {
       if (msg.id === action.updatedMessage.id) return action.updatedMessage;
+      else return msg;
     })
     newState.messages = updatedMessages;
     return newState;
@@ -41,7 +49,7 @@ const messages = (state = initialState, action) => {
     return newState;
 
   case CHANGE_FOLDER:
-    newState.folder = action.folder;
+    newState.currentFolder = action.currentFolder;
     return newState;
 
   default:

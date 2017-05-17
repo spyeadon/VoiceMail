@@ -1,33 +1,28 @@
 import React from 'react'
 import {Link} from 'react-router'
-import changeFolder from '../action-creators/messages.jsx'
+import {changeFolder} from '../action-creators/messages.jsx'
 import {connect} from 'react-redux'
 
 const SidebarComponent = props => {
   return (
     <div id="sidebar-container" >
-      <button
-        className="mailbox-list"
-        onClick={() => (props.switchFolder('inbox'))}
-      >Inbox</button>
-      <button
-        className="mailbox-list"
-        onClick={() => (props.switchFolder('drafts'))}
-      >Drafts</button>
-      <button
-        className="mailbox-list"
-        onClick={() => (props.switchFolder('sentMail'))}
-      >Sent Mail</button>
-      <button
-        className="mailbox-list"
-        onClick={() => (props.switchFolder('important'))}
-      >Important</button>
-      <button
-        className="mailbox-list"
-        onClick={() => (props.switchFolder('trash'))}
-      >Trash</button>
+    {
+      props.folders.map(folder =>
+        <button
+          key={folder}
+          className="mailbox-list"
+          onClick={() => (props.switchFolder(`${folder}`))}
+        >{folder}</button>
+      )
+    }
     </div>
   )
+}
+
+function mapStateToProps(state) {
+  return {
+    folders: state.messages.folders
+  }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -38,6 +33,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const Sidebar = connect(null, mapDispatchToProps)(SidebarComponent);
+const Sidebar = connect(mapStateToProps, mapDispatchToProps)(SidebarComponent);
 
 export default Sidebar

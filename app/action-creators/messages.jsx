@@ -59,7 +59,7 @@ export const deleteMessage = message =>
     .catch(err => console.error(err))
 
 export const CHANGE_FOLDER = 'CHANGE_FOLDER'
-export const changeFolder = folder => ({
+export const changeFolder = currentFolder => ({
   type: CHANGE_FOLDER,
-  folder: folder
+  currentFolder: currentFolder
 })
