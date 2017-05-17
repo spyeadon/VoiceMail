@@ -1,6 +1,6 @@
 'use strict'
 
-const {BLOB, STRING, BOOLEAN} = require('sequelize')
+const {BLOB, STRING, BOOLEAN, ARRAY} = require('sequelize')
 
 module.exports = db => db.define('message', {
   subject: {
@@ -36,6 +36,14 @@ module.exports = db => db.define('message', {
     type: BOOLEAN,
     defaultValue: false,
     allowNull: false
+  },
+  sender_tags: {
+    type: ARRAY(STRING),
+    defaultValue: []
+  },
+  recipient_tags: {
+    type: ARRAY(STRING),
+    defaultValue: []
   },
   audio: {
     type: BLOB,
