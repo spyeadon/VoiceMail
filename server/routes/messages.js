@@ -17,11 +17,7 @@ module.exports = require('express').Router()
   .get('/:userId',
     (req, res, next) =>
       Message.findAll({
-        where: {
-          $or: [{to_id: req.params.userId},
-          {from_id: req.params.userId}]
-        }
-      })
+        where: {owner_id: req.params.userId}})
       .then(msgs => res.status(200).json(msgs))
       .catch(next))
   .delete('/:messageId', (req, res, next) =>
