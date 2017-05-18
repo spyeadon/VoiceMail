@@ -13,7 +13,8 @@ function mapStateToProps(state) {
   return {
     messages: state.messages.messages,
     currentFolder: state.messages.currentFolder,
-    auth: state.auth
+    auth: state.auth,
+    userList: state.users.userList
   }
 }
 
