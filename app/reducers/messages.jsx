@@ -42,6 +42,8 @@ const messages = (state = initialState, action) => {
     newState.messages = updatedMessages;
     return newState;
 
+  /*NOTE: might need to update this due to changes with messages
+  DB table schema, specifically as it concerns new msg ID*/
   case CREATE_MESSAGE:
     updatedMessages = newState.messages.slice();
     updatedMessages.unshift(action.newMessage)
