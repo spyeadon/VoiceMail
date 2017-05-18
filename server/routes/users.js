@@ -17,3 +17,7 @@ module.exports = require('express').Router()
       User.findById(req.params.id)
       .then(user => res.json(user))
       .catch(next))
+  .get('/', (req, res, next) =>
+    User.findAll()
+    .then(userList => res.json(userList))
+    .catch(next))
