@@ -1,6 +1,6 @@
 'use strict'
 
-const {BLOB, STRING, BOOLEAN} = require('sequelize')
+const {BLOB, STRING, BOOLEAN, ARRAY} = require('sequelize')
 
 module.exports = db => db.define('message', {
   subject: {
@@ -37,6 +37,10 @@ module.exports = db => db.define('message', {
     defaultValue: false,
     allowNull: false
   },
+  tags: {
+    type: ARRAY(STRING),
+    defaultValue: []
+  },
   audio: {
     type: BLOB,
     allowNull: true,
@@ -61,4 +65,5 @@ module.exports = db => db.define('message', {
 module.exports.associations = (Message, {User, OAuth}) => {
   Message.belongsTo(User, { as: 'to' });
   Message.belongsTo(User, { as: 'from' });
+  Message.belongsTo(User, { as: 'owner'})
 }
