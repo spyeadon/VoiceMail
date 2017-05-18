@@ -1,8 +1,16 @@
-import {GET_MESSAGES, CURRENT_MESSAGE, UPDATE_MESSAGE, CREATE_MESSAGE, DELETE_MESSAGE} from '../action-creators/messages.jsx'
+import {GET_MESSAGES, CURRENT_MESSAGE, UPDATE_MESSAGE, CREATE_MESSAGE, DELETE_MESSAGE, CHANGE_FOLDER} from '../action-creators/messages.jsx'
 
 const initialState = {
   messages: [],
-  currentMessage: {}
+  currentMessage: {},
+  currentFolder: 'Inbox',
+  folders: [
+    'Inbox',
+    'Drafts',
+    'Sent Mail',
+    'Important',
+    'Trash'
+  ]
 }
 
 const messages = (state = initialState, action) => {
@@ -21,6 +29,7 @@ const messages = (state = initialState, action) => {
   case UPDATE_MESSAGE:
     updatedMessages = newState.messages.map(msg => {
       if (msg.id === action.updatedMessage.id) return action.updatedMessage;
+      else return msg;
     })
     newState.messages = updatedMessages;
     return newState;
@@ -33,10 +42,16 @@ const messages = (state = initialState, action) => {
     newState.messages = updatedMessages;
     return newState;
 
+  /*NOTE: might need to update this due to changes with messages
+  DB table schema, specifically as it concerns new msg ID*/
   case CREATE_MESSAGE:
     updatedMessages = newState.messages.slice();
     updatedMessages.unshift(action.newMessage)
     newState.messages = updatedMessages;
+    return newState;
+
+  case CHANGE_FOLDER:
+    newState.currentFolder = action.currentFolder;
     return newState;
 
   default:
