@@ -13,6 +13,13 @@ module.exports = db => db.define('users', {
       notEmpty: true,
     }
   },
+  sender_email: {
+    type: STRING,
+    validate: {
+      isEmail: true,
+      notEmpty: true,
+    }
+  },
 
   // We support oauth, so users may or may not have passwords.
   password_digest: STRING, // This column stores the hashed password in the DB, via the beforeCreate/beforeUpdate hooks

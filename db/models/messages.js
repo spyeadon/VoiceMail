@@ -37,11 +37,7 @@ module.exports = db => db.define('message', {
     defaultValue: false,
     allowNull: false
   },
-  sender_tags: {
-    type: ARRAY(STRING),
-    defaultValue: []
-  },
-  recipient_tags: {
+  tags: {
     type: ARRAY(STRING),
     defaultValue: []
   },
@@ -69,4 +65,5 @@ module.exports = db => db.define('message', {
 module.exports.associations = (Message, {User, OAuth}) => {
   Message.belongsTo(User, { as: 'to' });
   Message.belongsTo(User, { as: 'from' });
+  Message.belongsTo(User, { as: 'owner'})
 }
