@@ -9,6 +9,7 @@ const initialState = {
     'Drafts',
     'Sent Mail',
     'Important',
+    'Spam',
     'Trash'
   ]
 }
@@ -35,6 +36,12 @@ const messages = (state = initialState, action) => {
     return newState;
 
   case DELETE_MESSAGE:
+  //Could be this instead???
+  /*
+    updatedMessages.filter( msg => {
+      return msg.id !== action.msgToDelete.id
+    })
+  */
     updatedMessages = newState.messages.slice();
     updatedMessages.forEach((msg, index, arr) => {
       if (msg.id === action.msgToDelete.id) arr.splice(index, 1)
