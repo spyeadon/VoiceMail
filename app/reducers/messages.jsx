@@ -36,21 +36,12 @@ const messages = (state = initialState, action) => {
     return newState;
 
   case DELETE_MESSAGE:
-  //Could be this instead???
-  /*
-    updatedMessages.filter( msg => {
+    updatedMessages = newState.messages.filter( msg => {
       return msg.id !== action.msgToDelete.id
-    })
-  */
-    updatedMessages = newState.messages.slice();
-    updatedMessages.forEach((msg, index, arr) => {
-      if (msg.id === action.msgToDelete.id) arr.splice(index, 1)
     })
     newState.messages = updatedMessages;
     return newState;
 
-  /*NOTE: might need to update this due to changes with messages
-  DB table schema, specifically as it concerns new msg ID*/
   case CREATE_MESSAGE:
     updatedMessages = newState.messages.slice();
     updatedMessages.unshift(action.newMessage)

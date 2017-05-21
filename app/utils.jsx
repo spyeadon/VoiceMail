@@ -1,4 +1,9 @@
-const decisionTable = (message, folderName, user) => {
+function customFolderFilter(message, folderName) {
+  if (message.tags.indexOf(folderName) !== -1) return true
+  else false
+}
+
+function filterDecisionTable(message, folderName, user) {
   const folders = {
     Inbox: {isSent: false, isTrash: false, isSpam: false, to_id: user.id},
     Drafts: {isSent: false, isTrash: false, from_id: user.id},
@@ -8,6 +13,10 @@ const decisionTable = (message, folderName, user) => {
     Trash: {isTrash: true}
   }
 
+  if (Object.keys(folders).indexOf(folderName) === -1) {
+    return customFolderFilter(message, folderName)
+  }
+
   for (var prop in folders[folderName]) {
     if (message[prop] !== folders[folderName][prop]) return false
   }
@@ -15,20 +24,6 @@ const decisionTable = (message, folderName, user) => {
   return true
 }
 
-export function filterByFolder(messages, folderName, user) {
-  return messages.filter(message => {
-    return decisionTable(message, folderName, user)
-  })
-}
-
-export function filterByMessageId(messages, messageId) {
-
-}
-
-export function sortMessagesBy(sortParam) {
-
-}
-
-export function folderNameToDbProp(folderName) {
-
+export default function filterByFolder(messages, folderName, user) {
+  return messages.filter(message => filterDecisionTable(message, folderName, user))
 }

@@ -63,3 +63,9 @@ export const changeFolder = currentFolder => ({
   type: CHANGE_FOLDER,
   currentFolder: currentFolder
 })
+
+export const GET_CUSTOM_FOLDERS = 'GET_CUSTOM_FOLDERS'
+export const getCustomFolders = (customFolders) => ({
+  type: GET_CUSTOM_FOLDERS,
+  customFolders: customFolders
+})
