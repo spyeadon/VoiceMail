@@ -36,9 +36,7 @@ const messages = (state = initialState, action) => {
     return newState;
 
   case DELETE_MESSAGE:
-    updatedMessages = newState.messages.filter( msg => {
-      return msg.id !== action.msgToDelete.id
-    })
+    updatedMessages = newState.messages.filter(msg => msg.id !== action.msgToDelete.id)
     newState.messages = updatedMessages;
     return newState;
 

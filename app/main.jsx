@@ -12,15 +12,13 @@ import UserProfileContainer from './components/UserProfile.jsx'
 
 import {retrieveUserMessages} from './action-creators/messages.jsx'
 
-function onEnterMessages() {
-  console.log("on enter is occurring")
-  console.log("auth in onEnter is: ", store.getState().auth)
-  setTimeout(function() {
-    if (store.getState().auth) {
-      console.log("right before dispatch request")
-      store.dispatch(retrieveUserMessages(store.getState().auth.id))
-    }
-  }, 1000)
+function onEnterMailbox(nextState, replace) {
+  if (nextState.auth || store.getState().auth) store.dispatch(retrieveUserMessages(nextState.auth.id))
+  else replace({pathname: '/login'})
+}
+
+function onEnterAccountPage(nextState, replace) {
+  if (!nextState.auth) replace({pathname: '/login'})
 }
 
 render(
@@ -29,8 +27,8 @@ render(
       <Route path="/" component={App}>
         <IndexRedirect to="/login" />
         <Route path="/login" component={LandingPageContainer} />
-        <Route path="/mailbox" component={Mailbox} onEnter={onEnterMessages} />
-        <Route path ="/account" component={UserProfileContainer} />
+        <Route path="/mailbox" component={Mailbox} onEnter={onEnterMailbox} />
+        <Route path ="/account" component={UserProfileContainer} onEnter={onEnterAccountPage} />
       </Route>
     </Router>
   </Provider>,

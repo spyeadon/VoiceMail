@@ -15,15 +15,6 @@ const Mail = props => {
           <span>{message.subject}</span>
           <span>{message.body}</span>
           </div>
-          /*<input
-            type="button"
-            key={message.id}
-            className="message-list"
-          ><div>
-              <span>{message.subject}</span>
-              <span>{message.body}</span>
-            </div>
-        </input>*/
         )
       }
     </div>
