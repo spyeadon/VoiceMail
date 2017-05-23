@@ -13,7 +13,7 @@ export class Login extends React.Component{
   onLogin(evt) {
     evt.preventDefault()
     this.props.login(evt.target.username.value, evt.target.password.value)
-    browserHistory.push('/mailbox')
+    // browserHistory.push('/mailbox')
     // this.setState({mailboxRedirect: true})
   }
 
