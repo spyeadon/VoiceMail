@@ -11,14 +11,23 @@ import LandingPageContainer from './components/LandingPage.jsx'
 import UserProfileContainer from './components/UserProfile.jsx'
 
 import {retrieveUserMessages} from './action-creators/messages.jsx'
+import {retrieveUserList} from './action-creators/users.jsx'
 
 function onEnterMailbox(nextState, replace) {
-  if (nextState.auth || store.getState().auth) store.dispatch(retrieveUserMessages(nextState.auth.id))
-  else replace({pathname: '/login'})
+  if (store.getState().auth) {
+    store.dispatch(retrieveUserMessages(store.getState().auth.id))
+    store.dispatch(retrieveUserList())
+  }
+  else {replace({pathname: '/login'})}
 }
 
 function onEnterAccountPage(nextState, replace) {
-  if (!nextState.auth) replace({pathname: '/login'})
+  if (!store.getState().auth) replace({pathname: '/login'})
+}
+
+function onEnterLogin(nextState, replace) {
+  console.log('entering login component hook')
+  if (store.getState().auth || nextState.auth) replace({pathname: '/mailbox'})
 }
 
 render(
@@ -26,10 +35,11 @@ render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRedirect to="/login" />
-        <Route path="/login" component={LandingPageContainer} />
+        <Route path="/login" component={LandingPageContainer} onEnter={onEnterLogin} />
         <Route path="/mailbox" component={Mailbox} onEnter={onEnterMailbox} />
         <Route path ="/account" component={UserProfileContainer} onEnter={onEnterAccountPage} />
       </Route>
+      {/*<Route path="*" component={LandingPageContainer} />*/}
     </Router>
   </Provider>,
   document.getElementById('main')

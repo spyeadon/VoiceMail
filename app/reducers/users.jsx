@@ -1,4 +1,4 @@
-import GET_USERLIST from '../action-creators/users.jsx'
+import {GET_USERLIST} from '../action-creators/users.jsx'
 
 const initialState = {
   userList: []

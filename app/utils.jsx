@@ -13,9 +13,7 @@ function filterDecisionTable(message, folderName, user) {
     Trash: {isTrash: true}
   }
 
-  if (Object.keys(folders).indexOf(folderName) === -1) {
-    return customFolderFilter(message, folderName)
-  }
+  if (Object.keys(folders).indexOf(folderName) === -1) return customFolderFilter(message, folderName)
 
   for (var prop in folders[folderName]) {
     if (message[prop] !== folders[folderName][prop]) return false
@@ -24,6 +22,14 @@ function filterDecisionTable(message, folderName, user) {
   return true
 }
 
+function sortByLastUpdate(messages) {
+  return messages.sort((msg1, msg2) => {
+    if (msg1.updated_at > msg2.updated_at) return 1
+    if (msg2.updated_at > msg1.updated_at) return -1
+    else return 0
+  })
+}
+
 export default function filterByFolder(messages, folderName, user) {
-  return messages.filter(message => filterDecisionTable(message, folderName, user))
+  return sortByLastUpdate(messages.filter(message => filterDecisionTable(message, folderName, user)))
 }
