@@ -15,6 +15,12 @@ class UserProfile extends React.Component{
   }
 }
 
-const UserProfileContainer = connect(null, null)(UserProfile)
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+
+const UserProfileContainer = connect(mapStateToProps, null)(UserProfile)
 
 export default UserProfileContainer

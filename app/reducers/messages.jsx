@@ -9,6 +9,7 @@ const initialState = {
     'Drafts',
     'Sent Mail',
     'Important',
+    'Spam',
     'Trash'
   ]
 }
@@ -35,15 +36,10 @@ const messages = (state = initialState, action) => {
     return newState;
 
   case DELETE_MESSAGE:
-    updatedMessages = newState.messages.slice();
-    updatedMessages.forEach((msg, index, arr) => {
-      if (msg.id === action.msgToDelete.id) arr.splice(index, 1)
-    })
+    updatedMessages = newState.messages.filter(msg => msg.id !== action.msgToDelete.id)
     newState.messages = updatedMessages;
     return newState;
 
-  /*NOTE: might need to update this due to changes with messages
-  DB table schema, specifically as it concerns new msg ID*/
   case CREATE_MESSAGE:
     updatedMessages = newState.messages.slice();
     updatedMessages.unshift(action.newMessage)
