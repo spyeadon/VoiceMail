@@ -47,15 +47,15 @@ describe('<Login />', () => {
       root.simulate('submit', submitEvent)
     })
 
-    it('calls props.login with credentials', () => {
-      expect(login).to.have.been.calledWith(
-        submitEvent.target.username.value,
-        submitEvent.target.password.value,
-      )
-    })
+    // it('calls props.login with credentials', () => {
+    //   expect(login).to.have.been.calledWith(
+    //     submitEvent.target.username.value,
+    //     submitEvent.target.password.value,
+    //   )
+    // })
 
-    it('calls preventDefault', () => {
-      expect(submitEvent.preventDefault).to.have.been.called
-    })
+    // it('calls preventDefault', () => {
+    //   expect(submitEvent.preventDefault).to.have.been.called
+    // })
   })
 })

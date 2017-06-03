@@ -1,30 +1,40 @@
 import React from 'react'
-import {login} from 'APP/app/reducers/auth'
+import {loginLocal, loginOAUTH} from 'APP/app/reducers/auth'
 import {connect} from 'react-redux'
 
 export class Login extends React.Component{
   constructor(props) {
     super();
-    this.onLogin = this.onLogin.bind(this);
+    this.onLocalLogin = this.onLocalLogin.bind(this);
   }
 
-  onLogin(evt) {
+  onLocalLogin(evt) {
     evt.preventDefault()
     this.props.login(evt.target.username.value, evt.target.password.value)
   }
 
   render(){
     return (
-      <form onSubmit={this.onLogin} >
+      <div>
+      <form onSubmit={this.onLocalLogin} >
         <input name="username" />
         <input name="password" type="password" />
         <input type="submit" value="Login" />
       </form>
+      <a target="_self" href="/api/auth/login/google">
+        <span>Log in with Google</span>
+      </a>
+      </div>
     )
   }
 }
 
-export default connect(
-  state => ({}),
-  {login},
-)(Login)
+const mapDispatchToProps = dispatch => {
+  return {
+    login(username, password) {
+      dispatch(loginLocal(username, password))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

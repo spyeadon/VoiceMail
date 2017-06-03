@@ -50,8 +50,8 @@ OAuth.setupStrategy({
   provider: 'google',
   strategy: require('passport-google-oauth').OAuth2Strategy,
   config: {
-    clientID: env.GOOGLE_CLIENT_ID,
-    clientSecret: env.GOOGLE_CLIENT_SECRET,
+    clientID: require('../../google_strategy.json').web.client_id,
+    clientSecret: require('../../google_strategy.json').web.client_secret,
     callbackURL: `${app.baseUrl}/api/auth/login/google`,
   },
   passport
@@ -123,7 +123,10 @@ passport.use(new (require('passport-local').Strategy)(
 auth.get('/whoami', (req, res) => res.send(req.user))
 
 // POST requests for local login:
-auth.post('/login/local', passport.authenticate('local', {successRedirect: '/'}))
+auth.post('/login/local', passport.authenticate('local', {
+  successRedirect: '/mailbox',
+  failureRedirect: '/login'
+}))
 
 // GET requests for OAuth login:
 // Register this route as a callback URL with OAuth provider
@@ -132,7 +135,8 @@ auth.get('/login/:strategy', (req, res, next) =>
     scope: 'email', // You may want to ask for additional OAuth scopes. These are
                     // provider specific, and let you access additional data (like
                     // their friends or email), or perform actions on their behalf.
-    successRedirect: '/',
+    successRedirect: '/mailbox',
+    failureRedirect: '/'
     // Specify other config here
   })(req, res, next)
 )
