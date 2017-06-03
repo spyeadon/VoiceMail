@@ -14,7 +14,14 @@ export const authenticated = user => ({
   type: AUTHENTICATED, user
 })
 
-export const login = (username, password) =>
+export const whoami = (redirectPage = '/mailbox') =>
+  dispatch =>
+    axios.get('/api/auth/whoami')
+      .then(response => dispatch(authenticated(response.data)))
+      .then(() => browserHistory.push(redirectPage))
+      .catch(failed => dispatch(authenticated(null)))
+
+export const loginLocal = (username, password) =>
   dispatch =>
     axios.post('/api/auth/login/local',
       {username, password})
@@ -26,12 +33,5 @@ export const logout = () =>
     axios.post('/api/auth/logout')
       .then(() => dispatch(whoami('/login')))
       .catch(() => dispatch(whoami('/login')))
-
-export const whoami = (redirectPage = '/mailbox') =>
-  dispatch =>
-    axios.get('/api/auth/whoami')
-      .then(response => dispatch(authenticated(response.data)))
-      .then(() => browserHistory.push(redirectPage))
-      .catch(failed => dispatch(authenticated(null)))
 
 export default reducer

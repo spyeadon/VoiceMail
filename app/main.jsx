@@ -26,7 +26,6 @@ function onEnterAccountPage(nextState, replace) {
 }
 
 function onEnterLogin(nextState, replace) {
-  console.log('entering login component hook')
   if (store.getState().auth || nextState.auth) replace({pathname: '/mailbox'})
 }
 
@@ -39,7 +38,6 @@ render(
         <Route path="/mailbox" component={Mailbox} onEnter={onEnterMailbox} />
         <Route path ="/account" component={UserProfileContainer} onEnter={onEnterAccountPage} />
       </Route>
-      {/*<Route path="*" component={LandingPageContainer} />*/}
     </Router>
   </Provider>,
   document.getElementById('main')

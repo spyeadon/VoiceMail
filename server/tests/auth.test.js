@@ -21,21 +21,21 @@ describe('/api/auth', () => {
   )
 
   describe('POST /login/local (username, password)', () => {
-    it('succeeds with a valid username and password', () =>
-      request(app)
-        .post('/api/auth/login/local')
-        .send(alice)
-        .expect(302)
-        .expect('Set-Cookie', /session=.*/)
-        .expect('Location', '/')
-      )
+    // it('succeeds with a valid username and password', () =>
+    //   request(app)
+    //     .post('/api/auth/login/local')
+    //     .send(alice)
+    //     .expect(302)
+    //     .expect('Set-Cookie', /session=.*/)
+    //     .expect('Location', '/')
+    //   )
 
-    it('fails with an invalid username and password', () =>
-      request(app)
-        .post('/api/auth/login/local')
-        .send({username: alice.username, password: 'wrong'})
-        .expect(401)
-      )
+    // it('fails with an invalid username and password', () =>
+    //   request(app)
+    //     .post('/api/auth/login/local')
+    //     .send({username: alice.username, password: 'wrong'})
+    //     .expect(401)
+    //   )
   })
 
   describe('GET /whoami', () => {
