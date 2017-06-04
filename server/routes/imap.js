@@ -1,0 +1,15 @@
+const db = require('APP/db')
+const User = db.model('users')
+const OAuth = db.model('oauths')
+const router = require('express').Router()
+const getMessagesViaImap = require('../imap.utils.js')
+
+router.get('/:folder', (req, res, next) => {
+  OAuth.findOne({where: {user_id: req.user.id}})
+  .then(user => {
+    getMessagesViaImap(req.params.folder, user.accessToken)
+  })
+  .catch(next)
+})
+
+module.exports = router

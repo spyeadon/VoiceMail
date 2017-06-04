@@ -12,11 +12,13 @@ import UserProfileContainer from './components/UserProfile.jsx'
 
 import {retrieveUserMessages} from './action-creators/messages.jsx'
 import {retrieveUserList} from './action-creators/users.jsx'
+import {retrieveImapMessages} from './action-creators/imap.jsx'
 
 function onEnterMailbox(nextState, replace) {
   if (store.getState().auth) {
     store.dispatch(retrieveUserMessages(store.getState().auth.id))
     store.dispatch(retrieveUserList())
+    store.dispatch(retrieveImapMessages('INBOX'))
   }
   else {replace({pathname: '/login'})}
 }

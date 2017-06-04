@@ -41,6 +41,7 @@ module.exports = db => {
         profile.displayName,
         profile.id
       )
+      // oauth.refreshToken = refreshToken
       oauth.profileJson = profile
       oauth.accessToken = accessToken
 
