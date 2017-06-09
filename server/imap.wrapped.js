@@ -14,26 +14,27 @@ function imapConnection(email, refreshToken, accessToken, folder) {
     clientSecret: clientSecret,
     refreshToken: refreshToken,
     accessToken: accessToken,
-    customPayload: {
-      "access_type": "offline"
-    }
-  });
+  })
 
-  xoauth2Gen.getToken((tokenErr, token, newAccess, arg4) => {
-  // xoauth2Gen.generateToken((tokenErr, token, newAccess, arg4) => {
+  xoauth2Gen.getToken((tokenErr, b64Token, accessTok) => {
     if (tokenErr) return console.error(tokenErr)
-    console.log('formatted b64 SASL/xoauth2 token is: ', token)
-    console.log('new access token is: ', newAccess)
-    console.log('arg4 is: ', arg4)
-
+    console.log('formatted b64 SASL/xoauth2 token is: ', b64Token)
+    console.log('access token is: ', accessTok)
 
     const imap = new Imap({
-      xoauth2: token,
+      xoauth2: b64Token,
       host: 'imap.gmail.com',
       port: 993,
-      tls: 1,
-      debug: console.log
-      // tls: true
+      // ssl: true,
+      // autotls: 'always',
+      debug: console.log,
+      authTimeout: 30000,
+      connTimeout: 30000,
+      // keepalive: {
+      //   interval: 30000,
+      //   idleInterval: 30000,
+      //   forceNoop: true
+      // }
     });
 
     function openFolder(callback) {
@@ -41,7 +42,7 @@ function imapConnection(email, refreshToken, accessToken, folder) {
     }
 
     imap.once('ready', function() {
-      console.log('imap ready event has been emitted')
+      console.log('imap ready/connected event has been emitted')
       openFolder(function(preErr, box) {
         if (preErr) throw preErr;
         var messages = imap.seq.fetch('1:5', {
