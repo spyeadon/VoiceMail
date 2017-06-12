@@ -128,6 +128,19 @@ auth.post('/login/local', passport.authenticate('local', {
   failureRedirect: '/login'
 }))
 
+//oauth login callback for just google strategy
+auth.get('/login/google', (req, res, next) =>
+  passport.authenticate('google', {
+    scope:
+      ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/gmail.readonly'],
+    accessType: 'offline',
+    prompt: 'consent',
+    successRedirect: '/mailbox',
+    failureRedirect: '/'
+    // Specify other config here
+  })(req, res, next)
+)
+
 // GET requests for OAuth login:
 // Register this route as a callback URL with OAuth provider
 auth.get('/login/:strategy', (req, res, next) =>

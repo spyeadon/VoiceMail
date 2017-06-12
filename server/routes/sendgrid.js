@@ -5,12 +5,12 @@ module.exports = require('express').Router()
   .post('/audio', (req, res, next) => {
 
     const encodedData = req.body.message.data;
-    const from_email = new helper.Email(req.body.message.fromAddress);
-    const to_email = new helper.Email(req.body.message.toAddress);
+    const fromEmail = new helper.Email(req.body.message.fromAddress);
+    const toEmail = new helper.Email(req.body.message.toAddress);
     const subject = req.body.message.subjectLine;
     const content = new helper.Content('text/plain', req.body.message.bodyContent);
 
-    const mail = new helper.Mail(from_email, subject, to_email, content);
+    const mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
     const attachment = new helper.Attachment();
     attachment.setContent(encodedData);
@@ -38,11 +38,11 @@ module.exports = require('express').Router()
 
 .post('/text', (req, res, next) => {
   //test route of sendgrid server/browser integration without any audio
-  const from_email = new helper.Email(req.body.message.fromAddress);
-  const to_email = new helper.Email(req.body.message.toAddress);
+  const fromEmail = new helper.Email(req.body.message.fromAddress);
+  const toEmail = new helper.Email(req.body.message.toAddress);
   const subject = req.body.message.subjectLine;
   const content = new helper.Content('text/plain', req.body.message.bodyContent);
-  const mail = new helper.Mail(from_email, subject, to_email, content);
+  const mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
   const request = sg.emptyRequest({
     method: 'POST',
