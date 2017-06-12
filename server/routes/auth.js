@@ -132,7 +132,7 @@ auth.post('/login/local', passport.authenticate('local', {
 auth.get('/login/google', (req, res, next) =>
   passport.authenticate('google', {
     scope:
-      ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'], /*'https://www.googleapis.com/auth/gmail.readonly'],*/
+      ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/gmail.readonly'],
     accessType: 'offline',
     prompt: 'consent',
     successRedirect: '/mailbox',

@@ -38,6 +38,7 @@ function imapConnection(email, refreshToken, accessToken, folder) {
     });
 
     function openFolder(callback) {
+      console.log('open folder function is running!')
       imap.openBox(folder, true, callback);
     }
 
