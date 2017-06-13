@@ -61,6 +61,7 @@
     "googleapis": "^19.0.0",
     "homedir": "^0.6.0",
     "imap": "^0.8.19",
+    "node-gmail-api": "^0.6.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-github2": "^0.1.10",

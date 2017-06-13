@@ -1,44 +1,32 @@
-const xoauth2 = require('xoauth2')
-const clientId = require('../google_strategy.json').web.client_id
-const clientSecret = require('../google_strategy.json').web.client_secret
 const google = require('googleapis')
+const OAuth2 = google.auth.OAuth2
+const oauth2Client = new OAuth2();
 
 function connectGmail(email, refreshToken, accessToken, folder) {
+  oauth2Client.credentials = {access_token: accessToken, refresh_token: refreshToken};
 
-  const xoauth2Gen = xoauth2.createXOAuth2Generator({
-    user: email,
-    clientId: clientId,
-    clientSecret: clientSecret,
-    refreshToken: refreshToken,
-    accessToken: accessToken,
+  const gmail = google.gmail({
+    auth: oauth2Client,
+    version: 'v1'
+  });
+  gmail.users.labels.list({
+    userId: email
+  }, function(err, response) {
+    if (err) {
+      console.log('The API returned an error: ' + err);
+      return;
+    }
+    console.log('connection to gmail account has been made')
+    var labels = response.labels;
+    if (labels.length === 0) console.log('No labels found.');
+    else {
+      console.log('Labels:');
+      for (var i = 0; i < labels.length; i++) {
+        console.log('- %s', labels[i].name);
+      }
+    }
   })
 
-  xoauth2Gen.getToken((tokenErr, b64Token, accessTok) => {
-    if (tokenErr) return console.error(tokenErr)
-    console.log('formatted b64 SASL/xoauth2 token is: ', b64Token)
-    console.log('access token is: ', accessTok)
-
-    const gmail = google.gmail('v1');
-    gmail.users.labels.list({
-      auth: accessTok,
-      userId: 'spyeadon@gmail.com',
-    }, function(err, response) {
-      if (err) {
-        console.log('The API returned an error: ' + err);
-        return;
-      }
-      console.log('connection to gmail account has been made')
-      var labels = response.labels;
-      if (labels.length === 0) console.log('No labels found.');
-      else {
-        console.log('Labels:');
-        for (var i = 0; i < labels.length; i++) {
-          console.log('- %s', labels[i].name);
-        }
-      }
-    });
-
-  })
 
 }
 
