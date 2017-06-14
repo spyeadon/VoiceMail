@@ -6,10 +6,16 @@ export const getFolderLabels = labels => ({
   labels
 })
 
-export const getMessageWithLabel = label =>
+export const GMAIL_MESSAGES = 'GMAIL_MESSAGES'
+export const getGmailMessages = messages => ({
+  type: GMAIL_MESSAGES,
+  messages
+})
+
+export const getMessages = options =>
   dispatch =>
-    axios.get(`/api/gmail/messages/:${label}`)
-    .then(res => dispatch())
+    axios.post('/api/gmail/messages', options)
+    .then(res => dispatch(getGmailMessages(res.data)))
     .catch(err => console.error(err))
 
 export const getLabels = () =>

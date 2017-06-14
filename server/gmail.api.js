@@ -1,5 +1,6 @@
 const google = require('googleapis')
 const OAuth2 = google.auth.OAuth2
+const {filterLabels} = require('./utils.js')
 
 class gmailAPI {
   constructor(email, accessToken, refreshToken, res){
@@ -14,6 +15,7 @@ class gmailAPI {
       version: 'v1'
     })
     this.res = res
+    this.messages = []
   }
 
   getLabels() {
@@ -21,9 +23,16 @@ class gmailAPI {
       userId: this.email
     }, (err, response) => {
       if (err) return console.log('The API returned an error: ' + err);
-      const labelsToRemove = ['CATEGORY_PERSONAL', 'CATEGORY_SOCIAL', 'CATEGORY_FORUMS', 'CATEGORY_PROMOTIONS', 'CATEGORY_UPDATES']
-      const labels = response.labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => label.name)
+      const labels = filterLabels(response.labels)
       this.res.json(labels)
+    })
+  }
+
+  getMessages(options) {
+    options.userId = this.email
+    this.gmail.users.messages.list(options, (err, response) => {
+      if (err) return console.log('The API returned an error: ' + err);
+      console.log(response.messages)
     })
   }
 

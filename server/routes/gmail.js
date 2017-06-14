@@ -18,8 +18,10 @@ router.get('/labels', (req, res, next) => {
   gmailInstance.getLabels()
 })
 
-router.get('/messages/:label', (req, res, next) => {
-  const label = req.params.label
+router.post('/messages', (req, res, next) => {
+  const options = req.body
+  options.maxResults = 50
+  gmailInstance.getMessages(options)
 })
 
 module.exports = router
