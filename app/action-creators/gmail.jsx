@@ -12,10 +12,26 @@ export const getGmailMessages = messages => ({
   messages
 })
 
+export const GMAIL_THREADS = 'GMAIL_THREADS'
+export const getGmailThreads = threads => ({
+  type: GMAIL_THREADS,
+  threads
+})
+
 export const getMessages = options =>
   dispatch =>
     axios.post('/api/gmail/messages', options)
-    .then(res => dispatch(getGmailMessages(res.data)))
+    .then(res => {
+      const decodedData = atob(res.data[2].body.payload.parts[0].body.data)
+      console.log('decoded message part data is: ', decodedData)
+      dispatch(getGmailMessages(res.data))
+    })
+    .catch(err => console.error(err))
+
+export const getThreads = options =>
+  dispatch =>
+    axios.post('/api/gmail/threads', options)
+    .then(res => dispatch(getGmailThreads(res.data)))
     .catch(err => console.error(err))
 
 export const getLabels = () =>

@@ -12,14 +12,15 @@ import UserProfileContainer from './components/UserProfile.jsx'
 
 import {retrieveUserMessages} from './action-creators/messages.jsx'
 import {retrieveUserList} from './action-creators/users.jsx'
-import {getLabels, getMessages} from './action-creators/gmail.jsx'
+import {getLabels, getMessages, getThreads} from './action-creators/gmail.jsx'
 
 function onEnterMailbox(nextState, replace) {
   if (store.getState().auth) {
     // store.dispatch(retrieveUserMessages(store.getState().auth.id))
     // store.dispatch(retrieveUserList())
-    store.dispatch(getLabels())
+    // store.dispatch(getLabels())
     store.dispatch(getMessages({labelIds: 'INBOX'}))
+    // store.dispatch(getThreads({labelIds: 'INBOX'}))
   }
   else {replace({pathname: '/login'})}
 }
