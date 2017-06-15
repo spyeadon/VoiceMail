@@ -16,8 +16,8 @@ import {getLabels, getMessages} from './action-creators/gmail.jsx'
 
 function onEnterMailbox(nextState, replace) {
   if (store.getState().auth) {
-    store.dispatch(retrieveUserMessages(store.getState().auth.id))
-    store.dispatch(retrieveUserList())
+    // store.dispatch(retrieveUserMessages(store.getState().auth.id))
+    // store.dispatch(retrieveUserList())
     store.dispatch(getLabels())
     store.dispatch(getMessages({labelIds: 'INBOX'}))
   }

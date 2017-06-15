@@ -2453,6 +2453,13 @@ google-auth-library@~0.10.0:
     lodash.noop "^3.0.1"
     request "^2.74.0"
 
+google-batch@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/google-batch/-/google-batch-0.0.7.tgz#54b3a47a3553d634cdb1b13f1cfb7823a3f82128"
+  dependencies:
+    http-string-parser "0.0.4"
+    request "^2.55.0"
+
 google-p12-pem@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/google-p12-pem/-/google-p12-pem-0.1.2.tgz#33c46ab021aa734fa0332b3960a9a3ffcb2f3177"
@@ -2641,6 +2648,10 @@ http-signature@~1.1.0:
     assert-plus "^0.2.0"
     jsprim "^1.2.2"
     sshpk "^1.7.0"
+
+http-string-parser@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/http-string-parser/-/http-string-parser-0.0.4.tgz#6b2538e3520d42b349a0ac4b7234e0e39476c5b3"
 
 https-browserify@0.0.1:
   version "0.0.1"
@@ -4305,7 +4316,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@^2.40.0, request@^2.72.0, request@^2.74.0, request@^2.79.0:
+request@^2.40.0, request@^2.55.0, request@^2.72.0, request@^2.74.0, request@^2.79.0:
   version "2.79.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
   dependencies:

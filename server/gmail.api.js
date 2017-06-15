@@ -28,12 +28,25 @@ class gmailAPI {
     })
   }
 
+  getMessage(messageID) {
+    return this.gmail.users.messages.get({
+      userId: this.email,
+      id: messageID
+    })
+  }
+
   getMessages(options) {
     options.userId = this.email
-    this.gmail.users.messages.list(options, (err, response) => {
-      if (err) return console.log('The API returned an error: ' + err);
-      console.log(response.messages)
-    })
+    // const batch = google.newBatch()
+    // this.gmail.users.messages.list(options, (err, response) => {
+    //   if (err) return console.log('The API returned an error: ' + err);
+    //   response.messages.forEach(message => {
+    //     batch.add(this.getMessage(message.id))
+    //   })
+    //   batch.then(resp => {
+    //     console.log('response from message batch is: ', resp)
+    //   }).catch(err => console.error(err))
+    // })
   }
 
 }

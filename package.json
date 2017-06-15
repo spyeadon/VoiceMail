@@ -57,6 +57,7 @@
     "eslint-config-fullstack": "^2.8.1",
     "express": "^4.14.0",
     "finalhandler": "^1.0.0",
+    "google-batch": "^0.0.7",
     "googleapis": "^19.0.0",
     "homedir": "^0.6.0",
     "node-gmail-api": "^0.6.0",
