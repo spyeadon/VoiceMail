@@ -19,8 +19,8 @@ function onEnterMailbox(nextState, replace) {
     // store.dispatch(retrieveUserMessages(store.getState().auth.id))
     // store.dispatch(retrieveUserList())
     // store.dispatch(getLabels())
-    store.dispatch(getMessages({labelIds: 'INBOX'}))
-    // store.dispatch(getThreads({labelIds: 'INBOX'}))
+    // store.dispatch(getMessages({labelIds: 'INBOX'}))
+    store.dispatch(getThreads({labelIds: 'INBOX'}))
   }
   else {replace({pathname: '/login'})}
 }

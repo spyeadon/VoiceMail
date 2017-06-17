@@ -29,6 +29,29 @@ const filterLabels = labels => {
   return labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => correctCase(label.name))
 }
 
+const decodeAndFmtThreads = (rawThreads, googleBatch) => {
+  const formattedThreads = []
+  rawThreads.forEach(thread => {
+    var newThread = {messages: []}
+    var threadLength = thread.body.messages.length;
+    // console.log('thread length is: ', threadLength)
+    newThread.snippet = thread.body.messages[threadLength-1].snippet
+    for (var i = threadLength - 1; i >= 0; i--) {
+      var message = {
+        snippet: thread.body.messages[i].snippet,
+        headers: thread.body.messages[i].payload.headers,
+        plainText: googleBatch.decodeRawData(thread.body.messages[i].payload.parts[0].body.data),
+        // html: googleBatch.decodeRawData(thread.body.messages[i].payload.parts[1].body.data),
+        threadId: thread.body.messages[i].threadId
+      }
+      // console.log(`message #${i} is: `, message)
+      newThread.messages.push(message)
+    }
+    formattedThreads.push(newThread)
+  })
+  return formattedThreads
+}
+
 // Feel free to add more filters here (suggested: something that keeps out non-admins)
 
-module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels}
+module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels, decodeAndFmtThreads}
