@@ -1,5 +1,11 @@
 import axios from 'axios'
 
+export const CURRENT_LABEL = 'CURRENT_LABEL'
+export const setCurrentLabel = currentLabel => ({
+  type: CURRENT_LABEL,
+  currentLabel
+})
+
 export const GMAIL_LABELS = 'GMAIL_LABELS'
 export const getFolderLabels = labels => ({
   type: GMAIL_LABELS,

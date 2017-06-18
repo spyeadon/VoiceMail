@@ -1,18 +1,18 @@
 import React from 'react'
 import {Link} from 'react-router'
-import {changeFolder} from '../action-creators/messages.jsx'
 import {connect} from 'react-redux'
+import {setCurrentLabel} from '../action-creators/gmail.jsx'
 
 const SidebarComponent = props => {
   return (
     <div id="sidebar-container" >
     {
-      props.folders.map(folder =>
+      props.labels.map(label =>
         <button
-          key={folder}
+          key={label}
           className="mailbox-list"
-          onClick={() => (props.switchFolder(`${folder}`))}
-        >{folder}</button>
+          onClick={() => (props.switchlabel(`${label}`))}
+        >{label}</button>
       )
     }
     <Link to="/account">
@@ -24,14 +24,14 @@ const SidebarComponent = props => {
 
 function mapStateToProps(state) {
   return {
-    folders: state.messages.folders
+    labels: state.gmail.labels
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    switchFolder(folder) {
-      dispatch(changeFolder(folder))
+    switchlabel(label) {
+      dispatch(setCurrentLabel(label))
     }
   }
 }

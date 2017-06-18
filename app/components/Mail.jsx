@@ -4,7 +4,7 @@ import filterByFolder from '../utils.jsx'
 
 const Mail = props => {
 
-  const messages = filterByFolder(props.messages, props.currentFolder, props.auth)
+  const messages = []
 
   return (
     <div id="mail-container">
@@ -23,10 +23,9 @@ const Mail = props => {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages.messages,
-    currentFolder: state.messages.currentFolder,
+    messages: state.gmail.messages,
+    currentLabel: state.gmail.currentLabel,
     auth: state.auth,
-    userList: state.users.userList
   }
 }
 
