@@ -29,29 +29,29 @@ const filterLabels = labels => {
   return labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => correctCase(label.name))
 }
 
-const decodeAndFmtThreads = (rawThreads, googleBatch) => {
-  const formattedThreads = []
-  rawThreads.forEach(thread => {
-    var newThread = {messages: []}
-    var threadLength = thread.body.messages.length;
-    // console.log('thread length is: ', threadLength)
-    newThread.snippet = thread.body.messages[threadLength-1].snippet
-    for (var i = threadLength - 1; i >= 0; i--) {
-      var message = {
-        snippet: thread.body.messages[i].snippet,
-        headers: thread.body.messages[i].payload.headers,
-        plainText: googleBatch.decodeRawData(thread.body.messages[i].payload.parts[0].body.data),
-        // html: googleBatch.decodeRawData(thread.body.messages[i].payload.parts[1].body.data),
-        threadId: thread.body.messages[i].threadId
-      }
-      // console.log(`message #${i} is: `, message)
-      newThread.messages.push(message)
+//not all messages have html data. need to add logic for that detection
+const formatThreadMessages = (messages, googleBatch) =>
+  messages.map(message => {
+    console.log('formatting messages now happening')
+    return {
+      snippet: message.snippet,
+      headers: message.headers,
+      plainText: googleBatch.decodeRawData(message.payload.parts[0].body.data),
+      // html: googleBatch.decodeRawData(message.payload.parts[1].body.data),
+      threadId: message.threadId
     }
-    formattedThreads.push(newThread)
+  }).reverse()
+
+const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
+  rawThreads.map(thread => {
+    console.log('re-formatting of threads is now executing')
+    const lastMessage = thread.body.messages.length - 1
+    return {
+      snippet: thread.body.messages[lastMessage].snippet,
+      messages: formatThreadMessages(thread.body.messages, googleBatch)
+    }
   })
-  return formattedThreads
-}
 
 // Feel free to add more filters here (suggested: something that keeps out non-admins)
 
-module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels, decodeAndFmtThreads}
+module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels, decodeAndFmtThreadsMap}

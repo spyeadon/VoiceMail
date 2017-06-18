@@ -1,4 +1,4 @@
-const {filterLabels, decodeAndFmtThreads} = require('./utils.js')
+const {correctCase, filterLabels, decodeAndFmtThreadsMap} = require('./utils.js')
 var googleBatch = require('google-batch');
 var google = googleBatch.require('googleapis');
 
@@ -51,12 +51,10 @@ class gmailBatchAPI {
   getThreads(opts) {
     var getOptions = {userId: this.email, googleBatch: true}
     var listOptions = Object.assign({userId: this.email, googleBatch: true}, opts)
-    const formattedThreadList = {labelId: listOptions.labelIds};
-
+    const formattedThreadList = {labelId: correctCase(listOptions.labelIds)};
     this.batch.add(this.gmail.users.threads.list(listOptions))
     this.batch.exec((err, responses, errorDetails) => {
       if (err) return console.log('The batch API returned an error: ' + err)
-      console.log('thread LIST responses: ', responses[0].body)
       formattedThreadList.nextPageToken = responses[0].body.nextPageToken
       this.batch.clear()
       responses[0].body.threads.forEach(thread => {
@@ -65,7 +63,8 @@ class gmailBatchAPI {
       })
       this.batch.exec((error, resps, errorDeets) => {
         if (error) return console.log('The batch API returned an error: ' + error)
-        formattedThreadList.threads = decodeAndFmtThreads(resps, googleBatch)
+        console.log('batch for all threads now executing')
+        formattedThreadList.threads = decodeAndFmtThreadsMap(resps, googleBatch)
         this.res.json(formattedThreadList)
       })
       this.batch.clear()
