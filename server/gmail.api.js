@@ -1,45 +1,54 @@
-const xoauth2 = require('xoauth2')
-const clientId = require('../google_strategy.json').web.client_id
-const clientSecret = require('../google_strategy.json').web.client_secret
 const google = require('googleapis')
+const OAuth2 = google.auth.OAuth2
+const {filterLabels} = require('./utils.js')
 
-function connectGmail(email, refreshToken, accessToken, folder) {
+class gmailAPI {
+  constructor(email, accessToken, refreshToken, res){
+    this.email = email
+    this.Oauth2Inst = new OAuth2()
+    this.Oauth2Inst.credentials = {
+      access_token: accessToken,
+      refresh_token: refreshToken
+    }
+    this.gmail = google.gmail({
+      auth: this.Oauth2Inst,
+      version: 'v1'
+    })
+    this.res = res
+    this.messages = []
+  }
 
-  const xoauth2Gen = xoauth2.createXOAuth2Generator({
-    user: email,
-    clientId: clientId,
-    clientSecret: clientSecret,
-    refreshToken: refreshToken,
-    accessToken: accessToken,
-  })
+  getLabels() {
+    this.gmail.users.labels.list({
+      userId: this.email
+    }, (err, response) => {
+      if (err) return console.log('The API returned an error: ' + err);
+      const labels = filterLabels(response.labels)
+      this.res.json(labels)
+    })
+  }
 
-  xoauth2Gen.getToken((tokenErr, b64Token, accessTok) => {
-    if (tokenErr) return console.error(tokenErr)
-    console.log('formatted b64 SASL/xoauth2 token is: ', b64Token)
-    console.log('access token is: ', accessTok)
+  getMessage(messageID) {
+    return this.gmail.users.messages.get({
+      userId: this.email,
+      id: messageID
+    })
+  }
 
-    const gmail = google.gmail('v1');
-    gmail.users.labels.list({
-      auth: accessTok,
-      userId: 'spyeadon@gmail.com',
-    }, function(err, response) {
-      if (err) {
-        console.log('The API returned an error: ' + err);
-        return;
-      }
-      console.log('connection to gmail account has been made')
-      var labels = response.labels;
-      if (labels.length === 0) console.log('No labels found.');
-      else {
-        console.log('Labels:');
-        for (var i = 0; i < labels.length; i++) {
-          console.log('- %s', labels[i].name);
-        }
-      }
-    });
-
-  })
+  getMessages(options) {
+    options.userId = this.email
+    // const batch = google.newBatch()
+    // this.gmail.users.messages.list(options, (err, response) => {
+    //   if (err) return console.log('The API returned an error: ' + err);
+    //   response.messages.forEach(message => {
+    //     batch.add(this.getMessage(message.id))
+    //   })
+    //   batch.then(resp => {
+    //     console.log('response from message batch is: ', resp)
+    //   }).catch(err => console.error(err))
+    // })
+  }
 
 }
 
-module.exports = connectGmail
+module.exports = gmailAPI

@@ -136,7 +136,7 @@ auth.get('/login/google', (req, res, next) =>
     accessType: 'offline',
     prompt: 'consent',
     successRedirect: '/mailbox',
-    failureRedirect: '/'
+    failureRedirect: '/login'
     // Specify other config here
   })(req, res, next)
 )

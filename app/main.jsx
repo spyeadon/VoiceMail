@@ -12,13 +12,15 @@ import UserProfileContainer from './components/UserProfile.jsx'
 
 import {retrieveUserMessages} from './action-creators/messages.jsx'
 import {retrieveUserList} from './action-creators/users.jsx'
-import {retrieveImapMessages} from './action-creators/imap.jsx'
+import {getLabels, getMessages, getThreads} from './action-creators/gmail.jsx'
 
 function onEnterMailbox(nextState, replace) {
   if (store.getState().auth) {
-    store.dispatch(retrieveUserMessages(store.getState().auth.id))
-    store.dispatch(retrieveUserList())
-    store.dispatch(retrieveImapMessages('INBOX'))
+    // store.dispatch(retrieveUserMessages(store.getState().auth.id))
+    // store.dispatch(retrieveUserList())
+    // store.dispatch(getLabels())
+    // store.dispatch(getMessages({labelIds: 'INBOX'}))
+    store.dispatch(getThreads({labelIds: 'INBOX'}))
   }
   else {replace({pathname: '/login'})}
 }
@@ -35,7 +37,6 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRedirect to="/login" />
         <Route path="/login" component={LandingPageContainer} onEnter={onEnterLogin} />
         <Route path="/mailbox" component={Mailbox} onEnter={onEnterMailbox} />
         <Route path ="/account" component={UserProfileContainer} onEnter={onEnterAccountPage} />
