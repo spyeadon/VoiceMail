@@ -2,7 +2,9 @@ import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL} from '../act
 
 const initialState = {
   labels: [],
-  messages: { Inbox: [] },
+  threads: {
+    Inbox: { threads: [] }
+  },
   currentLabel: 'Inbox'
 }
 
@@ -19,7 +21,9 @@ function gmailReducer(state = initialState, action) {
     return newState
 
   case GMAIL_THREADS:
-    newState.messages[action.labelId] = action.threads
+    const newThreads = Object.assign({}, newState.threads)
+    newThreads[action.labelId] = action.threads
+    newState.threads = newThreads
     return newState
 
   default:

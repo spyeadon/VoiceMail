@@ -59,6 +59,7 @@ const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
     const lastMessage = thread.body.messages.length - 1
     return {
       snippet: thread.body.messages[lastMessage].snippet,
+      threadId: thread.body.messages[lastMessage].threadId,
       messages: formatThreadMessages(thread.body.messages, googleBatch)
     }
   })

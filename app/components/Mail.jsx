@@ -1,19 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {getHeaderData} from '../utils.jsx'
 
 const Mail = props => {
 
-  // const messages = props.messages.currentLabel
-  const messages = [{id: 'testID', subject: 'test Subject', body: 'test Body'}]
+  const threads = props.threads[props.currentLabel].threads
 
   return (
     <div id="mail-container">
       Test Mail Inbox, Drafts etc...
       {
-        messages.map(message =>
-          <div key={message.id}>
-          <span>{message.subject}</span>
-          <span>{message.body}</span>
+        threads.map(thread =>
+          <div key={thread.threadId} className="thread-LI">
+          <span>{getHeaderData(thread.messages[0].headers, 'Subject')}</span>
+          <span>{thread.snippet}</span>
           </div>
         )
       }
@@ -23,7 +23,7 @@ const Mail = props => {
 
 function mapStateToProps(state) {
   return {
-    messages: state.gmail.messages,
+    threads: state.gmail.threads,
     currentLabel: state.gmail.currentLabel,
     auth: state.auth,
   }
