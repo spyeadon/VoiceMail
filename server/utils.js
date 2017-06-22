@@ -29,22 +29,33 @@ const filterLabels = labels => {
   return labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => correctCase(label.name))
 }
 
-//not all messages have html data. need to add logic for that detection
+const messageBodyDecoder = (payload, googleBatch, mimeType) => {
+  const multipartMimeTypes = ['multipart/related', 'multipart/alternative', 'multipart/mixed', 'multipart/digest']
+  if (payload.mimeType === mimeType) {
+    return googleBatch.decodeRawData(payload.body.data)
+  }
+  else if (multipartMimeTypes.indexOf(payload.mimeType) !== -1 && payload.parts.length) {
+    for (var i = 0; i < payload.parts.length; i++) {
+      var decoded = messageBodyDecoder(payload.parts[i], googleBatch, mimeType)
+      if (decoded) return decoded
+    }
+  }
+}
+
 const formatThreadMessages = (messages, googleBatch) =>
   messages.map(message => {
-    console.log('formatting messages now happening')
     return {
       snippet: message.snippet,
-      headers: message.headers,
-      plainText: googleBatch.decodeRawData(message.payload.parts[0].body.data),
-      // html: googleBatch.decodeRawData(message.payload.parts[1].body.data),
+      headers: message.payload.headers,
+      messagePayload: message.payload,
+      'text/plain': messageBodyDecoder(message.payload, googleBatch, 'text/plain'),
+      'text/html': messageBodyDecoder(message.payload, googleBatch, 'text/html'),
       threadId: message.threadId
     }
   }).reverse()
 
 const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
   rawThreads.map(thread => {
-    console.log('re-formatting of threads is now executing')
     const lastMessage = thread.body.messages.length - 1
     return {
       snippet: thread.body.messages[lastMessage].snippet,

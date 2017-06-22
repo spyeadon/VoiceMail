@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import filterByFolder from '../utils.jsx'
 
 const Mail = props => {
 
-  const messages = []
+  // const messages = props.messages.currentLabel
+  const messages = [{id: 'testID', subject: 'test Subject', body: 'test Body'}]
 
   return (
     <div id="mail-container">
