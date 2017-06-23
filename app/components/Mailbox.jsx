@@ -7,7 +7,6 @@ const Mailbox = props => {
     <div id="mailbox-container" >
     <Sidebar />
     <MailContainer />
-    TEST MAILBOX
     </div>
   )
 }

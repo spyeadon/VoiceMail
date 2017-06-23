@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getHeaderData} from '../utils.jsx'
 
 const Mail = props => {
 
@@ -8,11 +7,11 @@ const Mail = props => {
 
   return (
     <div id="mail-container">
-      Test Mail Inbox, Drafts etc...
       {
         threads.map(thread =>
           <div key={thread.threadId} className="thread-LI">
-          <span>{getHeaderData(thread.messages[0].headers, 'Subject')}</span>
+          <span>{thread.messages[0].headers['From'].split('<')[0]}</span>
+          <span>{thread.messages[0].headers['Subject']}</span>
           <span>{thread.snippet}</span>
           </div>
         )

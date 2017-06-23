@@ -29,12 +29,32 @@ const filterLabels = labels => {
   return labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => correctCase(label.name))
 }
 
+const formatHeaders = listOfHeaders => {
+  const headersToReturn = ['To', 'From', 'Date', 'Subject', 'Delivered-To', 'Return-Path']
+  const filteredHeaders = listOfHeaders.filter(header => headersToReturn.indexOf(header.name) !== -1).map(header => {
+    var formattedHeader = {}
+    formattedHeader[header.name] = header.value
+    return formattedHeader
+  })
+  // console.log('filtered headers in the formatHeaders func: ', filteredHeaders)
+  // const returnHeaders = {}
+  // for (const prop in filteredHeaders) {
+  //   if (filteredHeaders.hasOwnProperty(prop)) returnHeaders[prop] = filteredHeaders[prop]
+  // }
+  const returnHeaders = filteredHeaders.reduce((obj, item) => {
+    var keys = Object.keys(item)
+    obj[item[keys[0]]] = item[keys[1]]
+    return obj
+  }, {})
+
+  return returnHeaders
+}
+
 const messageBodyDecoder = (payload, googleBatch, mimeType) => {
-  const multipartMimeTypes = ['multipart/related', 'multipart/alternative', 'multipart/mixed', 'multipart/digest']
   if (payload.mimeType === mimeType) {
     return googleBatch.decodeRawData(payload.body.data)
   }
-  else if (multipartMimeTypes.indexOf(payload.mimeType) !== -1 && payload.parts.length) {
+  else if (payload.mimeType.slice(0, 9) === 'multipart' && payload.parts.length) {
     for (var i = 0; i < payload.parts.length; i++) {
       var decoded = messageBodyDecoder(payload.parts[i], googleBatch, mimeType)
       if (decoded) return decoded
@@ -44,9 +64,10 @@ const messageBodyDecoder = (payload, googleBatch, mimeType) => {
 
 const formatThreadMessages = (messages, googleBatch) =>
   messages.map(message => {
+    console.log('formatted headers object looks like: ', formatHeaders(message.payload.headers))
     return {
       snippet: message.snippet,
-      headers: message.payload.headers,
+      headers: formatHeaders(message.payload.headers),
       messagePayload: message.payload,
       'text/plain': messageBodyDecoder(message.payload, googleBatch, 'text/plain'),
       'text/html': messageBodyDecoder(message.payload, googleBatch, 'text/html'),
