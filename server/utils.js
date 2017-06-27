@@ -31,23 +31,15 @@ const filterLabels = labels => {
 
 const formatHeaders = listOfHeaders => {
   const headersToReturn = ['To', 'From', 'Date', 'Subject', 'Delivered-To', 'Return-Path']
-  const filteredHeaders = listOfHeaders.filter(header => headersToReturn.indexOf(header.name) !== -1).map(header => {
+  return listOfHeaders.filter(header => headersToReturn.indexOf(header.name) !== -1).map(header => {
     var formattedHeader = {}
     formattedHeader[header.name] = header.value
     return formattedHeader
-  })
-  // console.log('filtered headers in the formatHeaders func: ', filteredHeaders)
-  // const returnHeaders = {}
-  // for (const prop in filteredHeaders) {
-  //   if (filteredHeaders.hasOwnProperty(prop)) returnHeaders[prop] = filteredHeaders[prop]
-  // }
-  const returnHeaders = filteredHeaders.reduce((obj, item) => {
+  }).reduce((obj, item) => {
     var keys = Object.keys(item)
-    obj[item[keys[0]]] = item[keys[1]]
+    obj[keys[0]] = item[keys[0]]
     return obj
   }, {})
-
-  return returnHeaders
 }
 
 const messageBodyDecoder = (payload, googleBatch, mimeType) => {
@@ -64,7 +56,6 @@ const messageBodyDecoder = (payload, googleBatch, mimeType) => {
 
 const formatThreadMessages = (messages, googleBatch) =>
   messages.map(message => {
-    console.log('formatted headers object looks like: ', formatHeaders(message.payload.headers))
     return {
       snippet: message.snippet,
       headers: formatHeaders(message.payload.headers),

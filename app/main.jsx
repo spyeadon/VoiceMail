@@ -10,7 +10,6 @@ import Mailbox from './components/Mailbox.jsx'
 import LandingPageContainer from './components/LandingPage.jsx'
 import UserProfileContainer from './components/UserProfile.jsx'
 
-import {retrieveUserList} from './action-creators/users.jsx'
 import {getLabels, getThreads} from './action-creators/gmail.jsx'
 
 function onEnterMailbox(nextState, replace) {
