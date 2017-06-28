@@ -10,7 +10,7 @@ const SidebarComponent = props => {
       props.labels.map(label =>
         <button
           key={label}
-          className="mailbox-list"
+          className="label-LI"
           onClick={() => (props.switchlabel(`${label}`))}
         >{label}</button>
       )

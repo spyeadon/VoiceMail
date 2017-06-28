@@ -10,9 +10,16 @@ const Mail = props => {
       {
         threads.map(thread =>
           <div key={thread.threadId} className="thread-LI">
-          <span>{thread.messages[0].headers['From'].split('<')[0]}</span>
-          <span>{thread.messages[0].headers['Subject']}</span>
-          <span>{thread.snippet}</span>
+          <span className="from-address">
+            {thread.messages[0].headers.From.split('<')[0]}
+          </span>
+          <span className="subject-line">
+            {thread.messages[0].headers.Subject}
+          </span>
+          <span className="thread-snippet">
+            {thread.snippet}
+          </span>
+          <hr />
           </div>
         )
       }

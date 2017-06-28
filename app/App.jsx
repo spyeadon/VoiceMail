@@ -9,10 +9,13 @@ const App = connect(
 )(
   ({ user, children }) =>
     <div>
-      <nav>
+      <nav className="navbar">
+        <img src="mail-icon.ico" id="logo" />
         {user ? <WhoAmI /> : <Login />}
       </nav>
-      {children}
+      <div id="content-container">
+        {children}
+      </div>
     </div>
 )
 
