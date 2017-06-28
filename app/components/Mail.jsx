@@ -1,19 +1,25 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import filterByFolder from '../utils.jsx'
 
 const Mail = props => {
 
-  const messages = filterByFolder(props.messages, props.currentFolder, props.auth)
+  const threads = props.threads[props.currentLabel].threads
 
   return (
     <div id="mail-container">
-      Test Mail Inbox, Drafts etc...
       {
-        messages.map(message =>
-          <div key={message.id}>
-          <span>{message.subject}</span>
-          <span>{message.body}</span>
+        threads.map(thread =>
+          <div key={thread.threadId} className="thread-LI">
+          <span className="from-address">
+            {thread.messages[0].headers.From.split('<')[0]}
+          </span>
+          <span className="subject-line">
+            {thread.messages[0].headers.Subject} &mdash;
+          </span>
+          <span className="thread-snippet">
+            {thread.snippet}
+          </span>
+          <hr />
           </div>
         )
       }
@@ -23,10 +29,9 @@ const Mail = props => {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages.messages,
-    currentFolder: state.messages.currentFolder,
+    threads: state.gmail.threads,
+    currentLabel: state.gmail.currentLabel,
     auth: state.auth,
-    userList: state.users.userList
   }
 }
 

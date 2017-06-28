@@ -29,25 +29,49 @@ const filterLabels = labels => {
   return labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => correctCase(label.name))
 }
 
-//not all messages have html data. need to add logic for that detection
+const formatHeaders = listOfHeaders => {
+  const headersToReturn = ['To', 'From', 'Date', 'Subject', 'Delivered-To', 'Return-Path']
+  return listOfHeaders.filter(header => headersToReturn.indexOf(header.name) !== -1).map(header => {
+    var formattedHeader = {}
+    formattedHeader[header.name] = header.value
+    return formattedHeader
+  }).reduce((obj, item) => {
+    var keys = Object.keys(item)
+    obj[keys[0]] = item[keys[0]]
+    return obj
+  }, {})
+}
+
+const messageBodyDecoder = (payload, googleBatch, mimeType) => {
+  if (payload.mimeType === mimeType) {
+    return googleBatch.decodeRawData(payload.body.data)
+  }
+  else if (payload.mimeType.slice(0, 9) === 'multipart' && payload.parts.length) {
+    for (var i = 0; i < payload.parts.length; i++) {
+      var decoded = messageBodyDecoder(payload.parts[i], googleBatch, mimeType)
+      if (decoded) return decoded
+    }
+  }
+}
+
 const formatThreadMessages = (messages, googleBatch) =>
   messages.map(message => {
-    console.log('formatting messages now happening')
     return {
       snippet: message.snippet,
-      headers: message.headers,
-      plainText: googleBatch.decodeRawData(message.payload.parts[0].body.data),
-      // html: googleBatch.decodeRawData(message.payload.parts[1].body.data),
+      headers: formatHeaders(message.payload.headers),
+      messagePayload: message.payload,
+      'text/plain': messageBodyDecoder(message.payload, googleBatch, 'text/plain'),
+      'text/html': messageBodyDecoder(message.payload, googleBatch, 'text/html'),
       threadId: message.threadId
     }
   }).reverse()
 
 const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
   rawThreads.map(thread => {
-    console.log('re-formatting of threads is now executing')
     const lastMessage = thread.body.messages.length - 1
     return {
       snippet: thread.body.messages[lastMessage].snippet,
+      threadId: thread.body.messages[lastMessage].threadId,
       messages: formatThreadMessages(thread.body.messages, googleBatch)
     }
   })

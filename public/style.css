@@ -1,9 +1,143 @@
 #mailbox-container {
-  border: 10px solid black;
+  display: flex;
 }
 
 #sidebar-container {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 13em;
+  font-size: 15px;
+  padding-right: 1.5em;
+  height: 100%;
+}
 
+.label-LI {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  font-size: 15px;
+  text-align: left;
+  padding-bottom: 0.75em;
+}
+
+.label-LI:hover {
+  background-color: #ededed
+}
+
+#content-container {
+  margin-top: 4em;
+}
+
+#mail-container {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.thread-LI {
+  display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 2.7em;
+  line-height: 2.7em;
+  border-bottom: 1px solid #ededed;
+}
+
+.thread-LI:hover {
+  background-color: #ededed;
+}
+
+.from-address {
+  margin-right: 1.6em;
+  max-width: 11em;
+  min-width: 11em;
+  display: inline-flex;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: clip;
+  font-weight: bold;
+}
+
+.subject-line {
+  padding-right: 1.6em;
+  position: relative;
+  font-weight: bold;
+}
+
+.thread-snippet {
+  position: relative;
+  width: auto;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 4em;
+  background-color: #ededed;
+}
+
+#search-form {
+  width: 40%;
+  display: inline-block;
+}
+
+#search-input {
+  width: 80%;
+}
+
+#search-btn {
+  width: auto;
+}
+
+#login {
+
+}
+
+#account-settings-btn {
+
+}
+
+#navbar-left {
+  display: flex;
+  align-items: center;
+  width: 65%;
+}
+
+#navbar-left > *{
+  padding-right: 1.5em;
+}
+
+#navbar-right {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+}
+
+#profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  float: right;
+  margin-left: 1.75em;
+}
+
+.whoami {
+  margin-right: 5em;
 }
 
 #userProfile-container {
@@ -11,17 +145,5 @@
 }
 
 #LP-container {
-
-}
-
-.mailbox-list {
-
-}
-
-#mail-container {
-
-}
-
-.message-list {
 
 }

@@ -28,4 +28,8 @@ router.post('/threads', (req, res, next) => {
   gmailInstance.getThreads(options)
 })
 
+router.get('/account', (req, res, next) => {
+
+})
+
 module.exports = router

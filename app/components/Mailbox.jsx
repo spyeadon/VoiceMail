@@ -5,9 +5,8 @@ import MailContainer from './Mail.jsx'
 const Mailbox = props => {
   return (
     <div id="mailbox-container" >
-    <Sidebar />
-    <MailContainer />
-    TEST MAILBOX
+      <Sidebar />
+      <MailContainer />
     </div>
   )
 }

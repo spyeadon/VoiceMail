@@ -1,5 +1,11 @@
 import axios from 'axios'
 
+export const CURRENT_LABEL = 'CURRENT_LABEL'
+export const setCurrentLabel = currentLabel => ({
+  type: CURRENT_LABEL,
+  currentLabel: currentLabel.toUpperCase()
+})
+
 export const GMAIL_LABELS = 'GMAIL_LABELS'
 export const getFolderLabels = labels => ({
   type: GMAIL_LABELS,
@@ -13,9 +19,10 @@ export const getGmailMessages = messages => ({
 })
 
 export const GMAIL_THREADS = 'GMAIL_THREADS'
-export const getGmailThreads = threads => ({
+export const getGmailThreads = (threads, labelId) => ({
   type: GMAIL_THREADS,
-  threads
+  threads: threads,
+  labelId: labelId
 })
 
 export const getMessages = options =>
@@ -31,7 +38,7 @@ export const getMessages = options =>
 export const getThreads = options =>
   dispatch =>
     axios.post('/api/gmail/threads', options)
-    .then(res => dispatch(getGmailThreads(res.data)))
+    .then(res => dispatch(getGmailThreads(res.data, res.data.labelId)))
     .catch(err => console.error(err))
 
 export const getLabels = () =>

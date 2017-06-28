@@ -1,18 +1,16 @@
 import {connect} from 'react-redux'
 import React from 'react';
-
-import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
+import Navbar from './components/Navbar.jsx'
 
 const App = connect(
   ({ auth }) => ({ user: auth })
 )(
   ({ user, children }) =>
     <div>
-      <nav>
-        {user ? <WhoAmI /> : <Login />}
-      </nav>
-      {children}
+      <Navbar />
+      <div id="content-container">
+        {children}
+      </div>
     </div>
 )
 
