@@ -14,7 +14,7 @@ const Mail = props => {
             {thread.messages[0].headers.From.split('<')[0]}
           </span>
           <span className="subject-line">
-            {thread.messages[0].headers.Subject}
+            {thread.messages[0].headers.Subject} &mdash;
           </span>
           <span className="thread-snippet">
             {thread.snippet}

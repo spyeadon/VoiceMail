@@ -15,9 +15,6 @@ const SidebarComponent = props => {
         >{label}</button>
       )
     }
-    <Link to="/account">
-      <button>Account Settings</button>
-    </Link>
     </div>
   )
 }

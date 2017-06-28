@@ -16,14 +16,9 @@ export class Login extends React.Component{
   render(){
     return (
       <div>
-      <form onSubmit={this.onLocalLogin} >
-        <input name="username" />
-        <input name="password" type="password" />
-        <input type="submit" value="Login" />
-      </form>
-      <a target="_self" href="/api/auth/login/google">
-        <span>Log in with Google</span>
-      </a>
+        <a id="login" target="_self" href="/api/auth/login/google">
+          <span>Log in with Google</span>
+        </a>
       </div>
     )
   }

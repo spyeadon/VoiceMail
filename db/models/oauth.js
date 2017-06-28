@@ -39,7 +39,8 @@ module.exports = db => {
       debug('provider:%s will log in user:{name=%s uid=%s}',
         profile.provider,
         profile.displayName,
-        profile.id
+        profile.id,
+        profile.photos[0].value
       )
       oauth.refreshToken = refreshToken
       oauth.profileJson = profile
@@ -56,6 +57,7 @@ module.exports = db => {
     .then(({ oauth, user }) => user ||
       OAuth.User.create({
         name: profile.displayName,
+        img_url: profile.photos[0].value
       })
       .then(user => db.Promise.props({
         user,
