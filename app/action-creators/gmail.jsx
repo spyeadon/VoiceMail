@@ -3,7 +3,7 @@ import axios from 'axios'
 export const CURRENT_LABEL = 'CURRENT_LABEL'
 export const setCurrentLabel = currentLabel => ({
   type: CURRENT_LABEL,
-  currentLabel: currentLabel.toUpperCase()
+  currentLabel: currentLabel
 })
 
 export const GMAIL_LABELS = 'GMAIL_LABELS'
@@ -25,20 +25,23 @@ export const getGmailThreads = (threads, labelId) => ({
   labelId: labelId
 })
 
+export const THREAD_COUNT_PER_PAGE = 'THREAD_COUNT_PER_PAGE'
+export const setPageThreadCount = count => ({
+  type: THREAD_COUNT_PER_PAGE,
+  count: count
+})
+
 export const getMessages = options =>
   dispatch =>
     axios.post('/api/gmail/messages', options)
-    .then(res => {
-      const decodedData = atob(res.data[2].body.payload.parts[0].body.data)
-      console.log('decoded message part data is: ', decodedData)
-      dispatch(getGmailMessages(res.data))
-    })
+    .then(res => dispatch(getGmailMessages(res.data)))
     .catch(err => console.error(err))
 
 export const getThreads = options =>
   dispatch =>
     axios.post('/api/gmail/threads', options)
     .then(res => dispatch(getGmailThreads(res.data, res.data.labelId)))
+    .then(() => dispatch(setCurrentLabel(options.labelIds)))
     .catch(err => console.error(err))
 
 export const getLabels = () =>

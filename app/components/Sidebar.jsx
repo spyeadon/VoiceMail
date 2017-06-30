@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import {setCurrentLabel} from '../action-creators/gmail.jsx'
+import {getThreads} from '../action-creators/gmail.jsx'
 
 const SidebarComponent = props => {
   return (
@@ -11,7 +11,7 @@ const SidebarComponent = props => {
         <button
           key={label}
           className="label-LI"
-          onClick={() => (props.switchlabel(`${label}`))}
+          onClick={() => props.getLabelThreads({ labelIds: `${label}`})}
         >{label}</button>
       )
     }
@@ -27,8 +27,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    switchlabel(label) {
-      dispatch(setCurrentLabel(label))
+    getLabelThreads(labelIds, label) {
+      dispatch(getThreads(labelIds, label))
     }
   }
 }

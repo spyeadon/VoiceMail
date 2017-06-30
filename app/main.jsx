@@ -14,10 +14,8 @@ import {getLabels, getThreads} from './action-creators/gmail.jsx'
 
 function onEnterMailbox(nextState, replace) {
   if (store.getState().auth) {
-    const currentLabel = store.getState().gmail.currentLabel
-    console.log('currentLabel in mailbox enter hook is: ', currentLabel)
     if (!store.getState().gmail.labels.length) store.dispatch(getLabels())
-    store.dispatch(getThreads({labelIds: currentLabel.toUpperCase()}))
+    store.dispatch(getThreads({labelIds: 'Inbox'}))
   }
   else {replace({pathname: '/login'})}
 }
