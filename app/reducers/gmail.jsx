@@ -32,7 +32,7 @@ export default function gmailReducer(state = initialState, action) {
     return newState
 
   case SET_CURRENT_MESSAGE:
-    newState.currentMessageId = action.threadId + action.messageId
+    newState.currentMessageId = action.messageId
     return newState
 
   case GMAIL_THREADS:

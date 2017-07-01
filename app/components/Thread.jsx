@@ -1,5 +1,4 @@
 import React from 'react'
-import Message from './Message.jsx'
 import MessageHeader from './MessageHeader.jsx'
 
 export default function Thread(props) {
@@ -12,6 +11,9 @@ export default function Thread(props) {
           <MessageHeader
             key={message.messageId}
             openMessage={message}
+            setCurrentMessage={props.setCurrentMessage}
+            currentMessageId={props.currentMessageId}
+            currentThreadId={props.currentThreadId}
           />
       )
     }
