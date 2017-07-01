@@ -1,3 +1,9 @@
+body, html {
+  margin: 0px;
+  overflow: hidden;
+  height: 100%;
+}
+
 #mailbox-container {
   display: flex;
 }
@@ -9,7 +15,7 @@
   justify-content: flex-start;
   min-width: 13em;
   font-size: 15px;
-  padding-right: 1.5em;
+  padding: 1em 1.5em 0em 1.5em;
   height: 100%;
 }
 
@@ -27,8 +33,17 @@
   background-color: #ededed
 }
 
+#audio-container {
+
+}
+
 #content-container {
   margin-top: 4em;
+  border-top: 1px solid black;
+}
+
+#mail-loading-container {
+  order: 2;
 }
 
 #mail-container {
@@ -36,6 +51,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-top: 0.5em;
+  overflow-y: scroll;
 }
 
 .thread-LI {
@@ -46,6 +63,7 @@
   max-height: 2.7em;
   line-height: 2.7em;
   border-bottom: 1px solid #ededed;
+  padding-left: 0.75em;
 }
 
 .thread-LI:hover {
@@ -67,11 +85,31 @@
   padding-right: 1.6em;
   position: relative;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .thread-snippet {
   position: relative;
   width: auto;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.thread-container {
+  overflow-y: scroll;
+}
+
+.thread {
+  border: 10px solid orange;
+}
+
+.message-container {
+  border: 3px solid blue;
+}
+
+.message-header {
+  border: 3px solid green;
 }
 
 .navbar {
@@ -83,6 +121,7 @@
   align-items: center;
   height: 4em;
   background-color: #ededed;
+  z-index: 1;
 }
 
 #search-form {
@@ -110,6 +149,7 @@
   display: flex;
   align-items: center;
   width: 65%;
+  padding-left: 1.5em;
 }
 
 #navbar-left > *{
@@ -145,5 +185,5 @@
 }
 
 #LP-container {
-
+  padding: 1em;
 }

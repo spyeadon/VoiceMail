@@ -2,9 +2,10 @@ import React from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {getThreads} from '../action-creators/gmail.jsx'
+import AudioContainer from './AudioContainer.jsx'
 
-const SidebarComponent = props => {
-  return (
+const SidebarComponent = props =>
+  (
     <div id="sidebar-container" >
     {
       props.labels.map(label =>
@@ -15,9 +16,9 @@ const SidebarComponent = props => {
         >{label}</button>
       )
     }
+      <AudioContainer />
     </div>
   )
-}
 
 function mapStateToProps(state) {
   return {

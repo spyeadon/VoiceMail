@@ -55,23 +55,24 @@ const messageBodyDecoder = (payload, googleBatch, mimeType) => {
 }
 
 const formatThreadMessages = (messages, googleBatch) =>
-  messages.map(message => {
+  messages.reverse().map((message, index) => {
     return {
       snippet: message.snippet,
       headers: formatHeaders(message.payload.headers),
       messagePayload: message.payload,
       'text/plain': messageBodyDecoder(message.payload, googleBatch, 'text/plain'),
       'text/html': messageBodyDecoder(message.payload, googleBatch, 'text/html'),
-      threadId: message.threadId
+      threadId: message.threadId,
+      messageId: index
     }
-  }).reverse()
+  })
 
 const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
   rawThreads.map(thread => {
-    const lastMessage = thread.body.messages.length - 1
+    const latestMessage = thread.body.messages.length - 1
     return {
-      snippet: thread.body.messages[lastMessage].snippet,
-      threadId: thread.body.messages[lastMessage].threadId,
+      snippet: thread.body.messages[latestMessage].snippet,
+      threadId: thread.body.messages[latestMessage].threadId,
       messages: formatThreadMessages(thread.body.messages, googleBatch)
     }
   })

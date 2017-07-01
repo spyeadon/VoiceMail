@@ -31,6 +31,19 @@ export const setPageThreadCount = count => ({
   count: count
 })
 
+export const SET_CURRENT_THREAD = 'SET_CURRENT_THREAD'
+export const setCurrentThreadId = (threadId = null) => ({
+  type: SET_CURRENT_THREAD,
+  threadId
+})
+
+export const SET_CURRENT_MESSAGE = 'SET_CURRENT_MESSAGE'
+export const setCurrentMessageId = (threadId = null, messageId = null) => ({
+  type: SET_CURRENT_MESSAGE,
+  threadId: threadId,
+  messageId: messageId
+})
+
 export const getMessages = options =>
   dispatch =>
     axios.post('/api/gmail/messages', options)
@@ -41,6 +54,8 @@ export const getThreads = options =>
   dispatch =>
     axios.post('/api/gmail/threads', options)
     .then(res => dispatch(getGmailThreads(res.data, res.data.labelId)))
+    .then(() => dispatch(setCurrentThreadId()))
+    .then(() => dispatch(setCurrentMessageId()))
     .then(() => dispatch(setCurrentLabel(options.labelIds)))
     .catch(err => console.error(err))
 
