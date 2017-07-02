@@ -14,9 +14,9 @@ const Mail = props => {
     <div id="mail-container">
       {
         threads.map(thread =>
-        <div className="thread-container" key={thread.threadId} >
+        <div className="threads-container" key={thread.threadId} >
           <div
-            className="thread-LI"
+            className="threads-LI"
             onClick={() => {
               if (props.currentThreadId === thread.threadId){
                 props.setCurrentThread()
@@ -27,13 +27,13 @@ const Mail = props => {
                 props.setCurrentMessage()
               }
             }}>
-            <span className="from-address">
+            <span className="threads-from-address">
               {thread.messages[0].headers.From.split('<')[0]}
             </span>
-            <span className="subject-line">
+            <span className="threads-subject-line">
               {thread.messages[0].headers.Subject} &mdash;
             </span>
-            <span className="thread-snippet">
+            <span className="threads-snippet">
               {thread.snippet}
             </span>
             <hr />

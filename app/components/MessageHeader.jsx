@@ -17,6 +17,7 @@ export default function MessageHeader(props) {
       <span className="message-body-text-body">
         {props.openMessage['text/plain'] || props.openMessage['text/html']}
       </span>
+      <hr />
     </div>
     )
   }
@@ -35,6 +36,7 @@ export default function MessageHeader(props) {
       <span className="message-header-snippet">
         {props.openMessage.snippet}
       </span>
+      <hr />
     </div>
   )
 }
