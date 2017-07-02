@@ -34,16 +34,16 @@ body, html {
 }
 
 #audio-container {
-
+  padding: 0.5em;
 }
 
 #content-container {
   margin-top: 4em;
-  border-top: 1px solid black;
 }
 
 #mail-loading-container {
   order: 2;
+  padding: 1em;
 }
 
 #mail-container {
@@ -53,6 +53,7 @@ body, html {
   width: 100%;
   padding-top: 0.5em;
   overflow-y: scroll;
+  height: 100%;
 }
 
 .thread-LI {
@@ -97,19 +98,39 @@ body, html {
 }
 
 .thread-container {
-  overflow-y: scroll;
+  overflow-wrap: break-word;
 }
 
 .thread {
   border: 10px solid orange;
 }
 
-.message-container {
+.thread-subject {
+
+}
+
+.message-body {
   border: 3px solid blue;
+}
+
+.message-body-from-address {
+
+}
+
+.message-body-text-body {
+
 }
 
 .message-header {
   border: 3px solid green;
+}
+
+.message-header-from-address {
+
+}
+
+.message-header-snippet {
+
 }
 
 .navbar {
@@ -122,6 +143,7 @@ body, html {
   height: 4em;
   background-color: #ededed;
   z-index: 1;
+  border-bottom: 1px solid black;
 }
 
 #search-form {
@@ -181,7 +203,7 @@ body, html {
 }
 
 #userProfile-container {
-
+  padding: 1em;
 }
 
 #LP-container {

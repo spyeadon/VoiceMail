@@ -38,9 +38,8 @@ export const setCurrentThreadId = (threadId = null) => ({
 })
 
 export const SET_CURRENT_MESSAGE = 'SET_CURRENT_MESSAGE'
-export const setCurrentMessageId = (threadId = null, messageId = null) => ({
+export const setCurrentMessageId = (messageId = null) => ({
   type: SET_CURRENT_MESSAGE,
-  threadId: threadId,
   messageId: messageId
 })
 

@@ -18,8 +18,14 @@ const Mail = props => {
           <div
             className="thread-LI"
             onClick={() => {
-              if (props.currentThreadId === thread.threadId) props.setCurrentThread()
-              else props.setCurrentThread(thread.threadId)
+              if (props.currentThreadId === thread.threadId){
+                props.setCurrentThread()
+                props.setCurrentMessage()
+              }
+              else {
+                props.setCurrentThread(thread.threadId)
+                props.setCurrentMessage()
+              }
             }}>
             <span className="from-address">
               {thread.messages[0].headers.From.split('<')[0]}
@@ -64,8 +70,8 @@ function mapStateToDispatch(dispatch) {
     setCurrentThread(threadId = null) {
       dispatch(setCurrentThreadId(threadId))
     },
-    setCurrentMessage(threadId = null, messageId = null) {
-      dispatch(setCurrentMessageId(threadId, messageId))
+    setCurrentMessage(messageId = null) {
+      dispatch(setCurrentMessageId(messageId))
     }
   }
 }

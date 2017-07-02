@@ -5,7 +5,9 @@ export default function Thread(props) {
 
   return (
     <div className="thread">
-    {props.currentThread.messages[0].headers.Subject}
+    <span className="thread-subject">
+      {props.currentThread.messages[0].headers.Subject}
+    </span>
     {
       props.currentThread.messages.map(message =>
           <MessageHeader
