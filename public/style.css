@@ -53,7 +53,7 @@ body, html {
   width: 100%;
   padding-top: 0.5em;
   overflow-y: scroll;
-  height: 80vh;
+  height: calc(100vh - 5em);
   margin-bottom: 3em;
 }
 
@@ -112,12 +112,13 @@ body, html {
   top: 4em;
   z-index: 1;
   background-color: white;
-  height: 100vh;
+  height: calc(100vh - 4.5em);
   overflow-y: scroll;
 }
 
 .thread-subject-line {
   font-weight: bold;
+  font-size: 17px;
 }
 
 .message-body {

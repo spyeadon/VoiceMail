@@ -1,17 +1,19 @@
 import React from 'react'
-import MessageHeader from './MessageHeader.jsx'
+import Message from './Message.jsx'
 
 export default function Thread(props) {
 
   return (
     <div className="thread">
-    <span className="thread-subject-line">
+    <span
+      onClick={() => props.setCurrentThread()}
+      className="thread-subject-line">
       {props.currentThread.messages[0].headers.Subject}
     </span>
     <hr />
     {
       props.currentThread.messages.map(message =>
-        <MessageHeader
+        <Message
           key={message.messageId}
           openMessage={message}
           setCurrentMessage={props.setCurrentMessage}
