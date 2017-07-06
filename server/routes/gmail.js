@@ -19,12 +19,13 @@ router.get('/labels', (req, res, next) => {
 })
 
 router.post('/messages', (req, res, next) => {
-  const options = Object.assign({maxResults: 10}, req.body)
+  const options = Object.assign({maxResults: 15}, req.body)
   gmailInstance.getMessages(options)
 })
 
 router.post('/threads', (req, res, next) => {
-  const options = Object.assign({maxResults: 10}, req.body)
+  const options = Object.assign({maxResults: 20}, req.body)
+  options.labelIds = options.labelIds.toUpperCase()
   gmailInstance.getThreads(options)
 })
 
