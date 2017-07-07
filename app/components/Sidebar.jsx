@@ -12,7 +12,7 @@ const SidebarComponent = props =>
         <button
           key={label}
           className="label-LI"
-          onClick={() => props.getLabelThreads({ labelIds: `${label}`})}
+          onClick={() => props.getLabelThreads({ labelIds: `${label}`, maxResults: props.numThreads})}
         >{label}</button>
       )
     }
@@ -22,14 +22,15 @@ const SidebarComponent = props =>
 
 function mapStateToProps(state) {
   return {
-    labels: state.gmail.labels
+    labels: state.gmail.labels,
+    numThreads: state.gmail.threadsPerPage
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getLabelThreads(labelIds, label) {
-      dispatch(getThreads(labelIds, label))
+    getLabelThreads(options) {
+      dispatch(getThreads(options))
     }
   }
 }

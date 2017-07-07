@@ -18,6 +18,15 @@ const Navbar = connect(
         </div>
         <div id="navbar-right">
           {user ?
+              <Link to="/mailbox">
+                <button
+                  className="btn btn-default btn-lg"
+                  id="mailbox-btn">
+                  Inbox
+                </button>
+              </Link>:
+            null}
+          {user ?
             <Link to="/account">
               <button
                 className="btn btn-default btn-lg"

@@ -4,10 +4,16 @@ body, html {
   height: 100%;
 }
 
+/*Main content component CSS (includes sidebar and mailbox)*/
 #mailbox-container {
   display: flex;
 }
 
+#content-container {
+  margin-top: 4em;
+}
+
+/*Sidebar component css*/
 #sidebar-container {
   order: 1;
   display: flex;
@@ -37,10 +43,7 @@ body, html {
   padding: 0.5em;
 }
 
-#content-container {
-  margin-top: 4em;
-}
-
+/*Thread list (inbox) component CSS*/
 #mail-loading-container {
   order: 2;
   padding: 1em;
@@ -103,6 +106,7 @@ body, html {
   overflow-wrap: break-word;
 }
 
+/*Thread component CSS*/
 .thread {
   border-left: 1px solid black;
   padding: 1em;
@@ -145,6 +149,7 @@ body, html {
 
 }
 
+/*Navbar component css*/
 .navbar {
   position: fixed;
   top: 0;
@@ -176,6 +181,10 @@ body, html {
 }
 
 #account-settings-btn {
+  margin-left: 1em;
+}
+
+#mailbox-btn {
 
 }
 
@@ -214,10 +223,16 @@ body, html {
   margin-right: 5em;
 }
 
+/*Account settings component CSS*/
 #userProfile-container {
   padding: 1em;
 }
 
+#thread-count-form {
+
+}
+
+/*Login page CSS*/
 #LP-container {
   padding: 1em;
 }

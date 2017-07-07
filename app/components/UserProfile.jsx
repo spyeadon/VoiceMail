@@ -1,15 +1,48 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {setPageThreadCount} from '../action-creators/gmail.jsx'
 
 class UserProfile extends React.Component{
   constructor(props){
     super();
+    this.state = {
+      threadCount: props.numThreads
+    }
+    this.threadCountChange = this.threadCountChange.bind(this)
+    this.threadCountSubmission = this.threadCountSubmission.bind(this)
+  }
+
+  threadCountChange(evt) {
+    evt.preventDefault()
+    this.setState({threadCount: evt.target.value})
+  }
+
+  threadCountSubmission(evt) {
+    evt.preventDefault()
+    this.props.setThreadCount(this.state.threadCount)
   }
 
   render() {
     return (
       <div id="userProfile-container">
-      TEST USER PROFILE PAGE
+        <p>Number of threads per page: </p>
+        <form
+          id="thread-count-form"
+          onSubmit={this.threadCountSubmission}
+        >
+          <input
+            placeholder={this.props.numThreads}
+            value={this.state.threadCount}
+            onChange={this.threadCountChange}
+            className="form-control input-lg"
+          />
+          <button
+            type="submit"
+            className="btn btn-default btn-lg"
+          >
+          Change
+          </button>
+        </form>
       </div>
     )
   }
@@ -17,10 +50,19 @@ class UserProfile extends React.Component{
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+    auth: state.auth,
+    numThreads: state.gmail.threadsPerPage
   }
 }
 
-const UserProfileContainer = connect(mapStateToProps, null)(UserProfile)
+function mapDispatchToProps(dispatch) {
+  return {
+    setThreadCount(count) {
+      dispatch(setPageThreadCount(count))
+    }
+  }
+}
+
+const UserProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UserProfile)
 
 export default UserProfileContainer

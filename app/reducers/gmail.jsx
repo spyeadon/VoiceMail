@@ -6,7 +6,7 @@ const initialState = {
     Inbox: { threads: [] }
   },
   currentLabel: 'Inbox',
-  threadsPerPage: 10,
+  threadsPerPage: 20,
   currentThreadId: null,
   currentMessageId: null
 }

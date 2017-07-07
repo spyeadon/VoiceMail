@@ -15,7 +15,7 @@ import {getLabels, getThreads} from './action-creators/gmail.jsx'
 function onEnterMailbox(nextState, replace) {
   if (store.getState().auth) {
     if (!store.getState().gmail.labels.length) store.dispatch(getLabels())
-    store.dispatch(getThreads({labelIds: 'Inbox'}))
+    store.dispatch(getThreads({labelIds: 'Inbox', maxResults: store.getState().gmail.threadsPerPage}))
   }
   else {replace({pathname: '/login'})}
 }
