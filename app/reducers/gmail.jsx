@@ -3,7 +3,10 @@ import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT
 const initialState = {
   labels: [],
   threads: {
-    Inbox: { threads: [] }
+    Inbox: {
+      threads: {},
+      threadGroup: 1
+    }
   },
   currentLabel: 'Inbox',
   threadsPerPage: 20,
@@ -19,7 +22,7 @@ export default function gmailReducer(state = initialState, action) {
   case GMAIL_LABELS:
     newState.labels = action.labels
     action.labels.forEach(label => {
-      newState.threads[label] = {threads: []}
+      newState.threads[label] = {threads: {}, threadGroup: 1}
     })
     return newState
 
@@ -35,11 +38,9 @@ export default function gmailReducer(state = initialState, action) {
     newState.currentMessageId = action.messageId
     return newState
 
+  //will need to refactor so the NextPageToken is overwritten only if the previous NPT was used to fetch this new batch of threads
   case GMAIL_THREADS:
-    if (newThreads[action.labelId].length) {
-      newThreads[action.labelId] = newThreads[action.labelId].concat(action.threads)
-    }
-    else newThreads[action.labelId] = action.threads
+    newThreads[action.labelId] = Object.assign({}, newThreads[action.labelId], action.threads)
     newState.threads = newThreads
     return newState
 

@@ -2,12 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Thread from './Thread.jsx'
 import {setCurrentThreadId, setCurrentMessageId} from '../action-creators/gmail.jsx'
+import {threadsToRender} from '../utils.jsx'
 
 const Mail = props => {
 
-  const threads = props.threads[props.currentLabel].threads
+  const threads = threadsToRender(props.threads[props.currentLabel].threads, props.numThreads, props.threads[props.currentLabel].threadGroup)
 
-  if (!props.threads[props.currentLabel].threads.length) {
+  if (!threads.length) {
     return <div id="mail-loading-container">Mail Loading...</div>
   }
   return (
@@ -51,6 +52,10 @@ const Mail = props => {
         </div>
         )
       }
+      <div id="thread-group-toggle" >
+        <button id="previous-btn">Previous</button>
+        <button id="next-btn">Next</button>
+      </div>
     </div>
   )
 }
@@ -61,7 +66,8 @@ function mapStateToProps(state) {
     currentLabel: state.gmail.currentLabel,
     auth: state.auth,
     currentThreadId: state.gmail.currentThreadId,
-    currentMessageId: state.gmail.currentMessageId
+    currentMessageId: state.gmail.currentMessageId,
+    numThreads: state.gmail.threadsPerPage
   }
 }
 

@@ -7,15 +7,15 @@ import AudioContainer from './AudioContainer.jsx'
 const SidebarComponent = props =>
   (
     <div id="sidebar-container" >
-    {
-      props.labels.map(label =>
-        <button
-          key={label}
-          className="label-LI"
-          onClick={() => props.getLabelThreads({ labelIds: `${label}`, maxResults: props.numThreads})}
-        >{label}</button>
-      )
-    }
+      {
+        props.labels.map(label =>
+          <button
+            key={label}
+            className="label-LI"
+            onClick={() => props.getLabelThreads({ labelIds: `${label}`, maxResults: props.numThreads})}
+          >{label}</button>
+        )
+      }
       <AudioContainer />
     </div>
   )
@@ -35,6 +35,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const Sidebar = connect(mapStateToProps, mapDispatchToProps)(SidebarComponent);
+const Sidebar = connect(mapStateToProps, mapDispatchToProps)(SidebarComponent)
 
 export default Sidebar

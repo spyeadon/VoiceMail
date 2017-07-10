@@ -102,6 +102,18 @@ body, html {
   text-overflow: clip;
 }
 
+#thread-group-toggle {
+
+}
+
+#previous-btn {
+
+}
+
+#next-btn {
+
+}
+
 .threads-container {
   overflow-wrap: break-word;
 }
