@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Thread from './Thread.jsx'
-import {setCurrentThreadId, setCurrentMessageId} from '../action-creators/gmail.jsx'
+import {setCurrentThreadId, setCurrentMessageId, changeThreadGroup, getThreads} from '../action-creators/gmail.jsx'
 import {threadsToRender} from '../utils.jsx'
 
 const Mail = props => {
@@ -53,8 +53,37 @@ const Mail = props => {
         )
       }
       <div id="thread-group-toggle" >
-        <button id="previous-btn">Previous</button>
-        <button id="next-btn">Next</button>
+        <button
+          id="previous-btn"
+          onClick={() => {
+            if (props.threads[props.currentLabel].threadGroup === 2) {
+              props.getLabelThreads({
+                labelIds: props.currentLabel,
+                maxResults: props.numThreads
+              }, false)
+            }
+            props.setThreadGroup('previous', props.currentLabel)
+          }}
+          disabled={props.threads[props.currentLabel].threadGroup === 1}
+        >
+          Previous
+        </button>
+        <button
+          id="next-btn"
+          onClick={() => {
+            const labelThreads = props.threads[props.currentLabel]
+            if (labelThreads.maxThreadGroup === labelThreads.threadGroup) {
+              props.getLabelThreads({
+                labelIds: props.currentLabel,
+                maxResults: props.numThreads,
+                pageToken: labelThreads.nextPageToken
+              })
+            }
+            props.setThreadGroup('next', props.currentLabel)
+          }}
+        >
+          Next
+        </button>
       </div>
     </div>
   )
@@ -78,6 +107,12 @@ function mapStateToDispatch(dispatch) {
     },
     setCurrentMessage(messageId = null) {
       dispatch(setCurrentMessageId(messageId))
+    },
+    setThreadGroup(pageDelta, labelId) {
+      dispatch(changeThreadGroup(pageDelta, labelId))
+    },
+    getLabelThreads(options, token) {
+      dispatch(getThreads(options, token))
     }
   }
 }

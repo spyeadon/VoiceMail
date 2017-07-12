@@ -79,6 +79,7 @@ rawThreads.reduce((accumObj, thread) => {
   return accumObj
 }, {})
 
+//refactored to only use the reduce version of this above ^
 const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
   rawThreads.map(thread => {
     const latestMessage = thread.body.messages.length - 1

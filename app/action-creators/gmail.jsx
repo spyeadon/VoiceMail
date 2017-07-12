@@ -43,15 +43,22 @@ export const setCurrentMessageId = (messageId = null) => ({
   messageId: messageId
 })
 
+export const CHANGE_THREAD_GROUP = 'CHANGE_THREAD_GROUP'
+export const changeThreadGroup = (pageDelta, labelId) => ({
+  type: CHANGE_THREAD_GROUP,
+  pageDelta,
+  labelId
+})
+
 export const getMessages = options =>
   dispatch =>
     axios.post('/api/gmail/messages', options)
     .then(res => dispatch(getGmailMessages(res.data)))
     .catch(err => console.error(err))
 
-export const getThreads = options =>
+export const getThreads = (options, token = true) =>
   dispatch =>
-    axios.post('/api/gmail/threads', options)
+    axios.post('/api/gmail/threads', {options, token})
     .then(res => dispatch(getGmailThreads(res.data, res.data.labelId)))
     .then(() => dispatch(setCurrentThreadId()))
     .then(() => dispatch(setCurrentMessageId()))
