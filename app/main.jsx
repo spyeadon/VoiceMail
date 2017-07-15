@@ -10,12 +10,25 @@ import Mailbox from './components/Mailbox.jsx'
 import LandingPageContainer from './components/LandingPage.jsx'
 import UserProfileContainer from './components/UserProfile.jsx'
 
-import {getLabels, getThreads} from './action-creators/gmail.jsx'
+import {getLabels, getThreads, changeThreadGroup} from './action-creators/gmail.jsx'
 
 function onEnterMailbox(nextState, replace) {
+  const gmail = store.getState().gmail
   if (store.getState().auth) {
-    if (!store.getState().gmail.labels.length) store.dispatch(getLabels())
-    store.dispatch(getThreads({labelIds: 'Inbox'}))
+    if (!gmail.labels.length) store.dispatch(getLabels())
+    if (gmail.threads[gmail.currentLabel].maxThreadGroup > 1) {
+      store.dispatch(getThreads({
+        labelIds: gmail.currentLabel || 'Inbox',
+        maxResults: gmail.threadsPerPage
+      }, false))
+    }
+    else {
+      store.dispatch(getThreads({
+        labelIds: gmail.currentLabel || 'Inbox',
+        maxResults: gmail.threadsPerPage
+      }))
+    }
+    store.dispatch(changeThreadGroup('firstPage', gmail.currentLabel))
   }
   else {replace({pathname: '/login'})}
 }

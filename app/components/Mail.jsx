@@ -1,13 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Thread from './Thread.jsx'
-import {setCurrentThreadId, setCurrentMessageId} from '../action-creators/gmail.jsx'
+import {setCurrentThreadId, setCurrentMessageId, changeThreadGroup, getThreads} from '../action-creators/gmail.jsx'
+import {threadsToRender} from '../utils.jsx'
 
 const Mail = props => {
 
-  const threads = props.threads[props.currentLabel].threads
+  const threads = threadsToRender(props.threads[props.currentLabel].threads, props.numThreads, props.threads[props.currentLabel].threadGroup)
 
-  if (!props.threads[props.currentLabel].threads.length) {
+  if (!threads.length) {
     return <div id="mail-loading-container">Mail Loading...</div>
   }
   return (
@@ -51,6 +52,39 @@ const Mail = props => {
         </div>
         )
       }
+      <div id="thread-group-toggle" >
+        <button
+          id="previous-btn"
+          onClick={() => {
+            if (props.threads[props.currentLabel].threadGroup === 2) {
+              props.getLabelThreads({
+                labelIds: props.currentLabel,
+                maxResults: props.numThreads
+              }, false)
+            }
+            props.setThreadGroup('previous', props.currentLabel)
+          }}
+          disabled={props.threads[props.currentLabel].threadGroup === 1}
+        >
+          Previous
+        </button>
+        <button
+          id="next-btn"
+          onClick={() => {
+            const labelThreads = props.threads[props.currentLabel]
+            if (labelThreads.maxThreadGroup === labelThreads.threadGroup) {
+              props.getLabelThreads({
+                labelIds: props.currentLabel,
+                maxResults: props.numThreads,
+                pageToken: labelThreads.nextPageToken
+              })
+            }
+            props.setThreadGroup('next', props.currentLabel)
+          }}
+        >
+          Next
+        </button>
+      </div>
     </div>
   )
 }
@@ -61,7 +95,8 @@ function mapStateToProps(state) {
     currentLabel: state.gmail.currentLabel,
     auth: state.auth,
     currentThreadId: state.gmail.currentThreadId,
-    currentMessageId: state.gmail.currentMessageId
+    currentMessageId: state.gmail.currentMessageId,
+    numThreads: state.gmail.threadsPerPage
   }
 }
 
@@ -72,6 +107,12 @@ function mapStateToDispatch(dispatch) {
     },
     setCurrentMessage(messageId = null) {
       dispatch(setCurrentMessageId(messageId))
+    },
+    setThreadGroup(pageDelta, labelId) {
+      dispatch(changeThreadGroup(pageDelta, labelId))
+    },
+    getLabelThreads(options, token) {
+      dispatch(getThreads(options, token))
     }
   }
 }

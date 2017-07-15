@@ -1,12 +1,16 @@
-import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE} from '../action-creators/gmail.jsx'
+import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP} from '../action-creators/gmail.jsx'
 
 const initialState = {
   labels: [],
   threads: {
-    Inbox: { threads: [] }
+    Inbox: {
+      threads: {},
+      threadGroup: 1,
+      maxThreadGroup: 1
+    }
   },
   currentLabel: 'Inbox',
-  threadsPerPage: 10,
+  threadsPerPage: 20,
   currentThreadId: null,
   currentMessageId: null
 }
@@ -19,7 +23,11 @@ export default function gmailReducer(state = initialState, action) {
   case GMAIL_LABELS:
     newState.labels = action.labels
     action.labels.forEach(label => {
-      newState.threads[label] = {threads: []}
+      newState.threads[label] = {
+        threads: {},
+        threadGroup: 1,
+        maxThreadGroup: 1
+      }
     })
     return newState
 
@@ -36,10 +44,18 @@ export default function gmailReducer(state = initialState, action) {
     return newState
 
   case GMAIL_THREADS:
-    if (newThreads[action.labelId].length) {
-      newThreads[action.labelId] = newThreads[action.labelId].concat(action.threads)
-    }
-    else newThreads[action.labelId] = action.threads
+    const aggrLabelThreads = Object.assign({}, newThreads[action.labelId].threads, action.threads.threads)
+    newThreads[action.labelId] = Object.assign({}, newThreads[action.labelId], action.threads)
+    newThreads[action.labelId].threads = aggrLabelThreads
+    newState.threads = newThreads
+    return newState
+
+  case CHANGE_THREAD_GROUP:
+    newThreads[action.labelId] = Object.assign({}, newThreads[action.labelId])
+    if (action.pageDelta === 'previous') newThreads[action.labelId].threadGroup--
+    else if (action.pageDelta === 'next') newThreads[action.labelId].threadGroup++
+    else if (action.pageDelta === 'firstPage') newThreads[action.labelId].threadGroup = 1
+    if (newThreads[action.labelId].threadGroup > newThreads[action.labelId].maxThreadGroup) newThreads[action.labelId].maxThreadGroup = newThreads[action.labelId].threadGroup
     newState.threads = newThreads
     return newState
 

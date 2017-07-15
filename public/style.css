@@ -4,10 +4,16 @@ body, html {
   height: 100%;
 }
 
+/*Main content component CSS (includes sidebar and mailbox)*/
 #mailbox-container {
   display: flex;
 }
 
+#content-container {
+  margin-top: 4em;
+}
+
+/*Sidebar component css*/
 #sidebar-container {
   order: 1;
   display: flex;
@@ -37,10 +43,7 @@ body, html {
   padding: 0.5em;
 }
 
-#content-container {
-  margin-top: 4em;
-}
-
+/*Thread list (inbox) component CSS*/
 #mail-loading-container {
   order: 2;
   padding: 1em;
@@ -99,10 +102,23 @@ body, html {
   text-overflow: clip;
 }
 
+#thread-group-toggle {
+
+}
+
+#previous-btn {
+
+}
+
+#next-btn {
+
+}
+
 .threads-container {
   overflow-wrap: break-word;
 }
 
+/*Thread component CSS*/
 .thread {
   border-left: 1px solid black;
   padding: 1em;
@@ -145,6 +161,7 @@ body, html {
 
 }
 
+/*Navbar component css*/
 .navbar {
   position: fixed;
   top: 0;
@@ -171,11 +188,11 @@ body, html {
   width: auto;
 }
 
-#login {
-
+#account-settings-btn {
+  margin-left: 1em;
 }
 
-#account-settings-btn {
+#mailbox-btn {
 
 }
 
@@ -214,10 +231,69 @@ body, html {
   margin-right: 5em;
 }
 
+/*Account settings component CSS*/
 #userProfile-container {
   padding: 1em;
 }
 
+#thread-count-form {
+
+}
+
+/*Login/LP page CSS*/
 #LP-container {
   padding: 1em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: #708090;
+  height: 100vh;
+}
+
+#login-link {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  background-color: white;
+  border-radius: 18px;
+  border: 1px solid black;
+  padding: 0.5em;
+}
+
+#login-link:hover {
+  color: #00a6ca;
+  border: 3px solid #00a6ca;
+}
+
+#login-container {
+  border: 7px solid #00a6ca;
+  border-radius: 30px;
+  background-color: #ededed;
+  height: 250px;
+  min-height: 20px;
+  width: auto;
+  text-align: center;
+  padding: 1em 4em 0em;
+  line-height: calc(250px / 5);
+  font-family: Tahoma, sans-serif;
+}
+
+#local-login-form {
+
+}
+
+#new-user{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#returning-user {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#LP-header {
+  font-family: Tahoma, sans-serif;
+  color: white;
 }

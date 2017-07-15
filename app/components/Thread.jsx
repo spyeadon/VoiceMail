@@ -6,7 +6,10 @@ export default function Thread(props) {
   return (
     <div className="thread">
     <span
-      onClick={() => props.setCurrentThread()}
+      onClick={() => {
+        props.setCurrentThread()
+        props.setCurrentMessage()
+      }}
       className="thread-subject-line">
       {props.currentThread.messages[0].headers.Subject}
     </span>

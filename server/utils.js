@@ -67,6 +67,19 @@ const formatThreadMessages = (messages, googleBatch) =>
     }
   })
 
+const decodeAndFmtThreadsReduce = (rawThreads, googleBatch) =>
+rawThreads.reduce((accumObj, thread) => {
+  const latestMessage = thread.body.messages.length - 1
+  const threadID = thread.body.messages[latestMessage].threadId
+  accumObj[threadID] = {
+    snippet: thread.body.messages[latestMessage].snippet,
+    threadId: thread.body.messages[latestMessage].threadId,
+    messages: formatThreadMessages(thread.body.messages, googleBatch)
+  }
+  return accumObj
+}, {})
+
+//refactored to only use the reduce version of this above ^
 const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
   rawThreads.map(thread => {
     const latestMessage = thread.body.messages.length - 1
@@ -79,4 +92,4 @@ const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
 
 // Feel free to add more filters here (suggested: something that keeps out non-admins)
 
-module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels, decodeAndFmtThreadsMap}
+module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels, decodeAndFmtThreadsMap, decodeAndFmtThreadsReduce}
