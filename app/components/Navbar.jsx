@@ -2,7 +2,6 @@ import {connect} from 'react-redux'
 import React from 'react';
 import {Link} from 'react-router'
 
-import Login from './Login'
 import WhoAmI from './WhoAmI'
 import FilterContainer from './MessageFilter.jsx'
 
@@ -13,7 +12,7 @@ const Navbar = connect(
     <nav className="navbar">
         <div id="navbar-left" >
           <img src="mail-icon.ico" id="logo" />
-          {user ? <WhoAmI /> : <Login />}
+          {user ? <WhoAmI /> : null}
           {user ? <FilterContainer /> : null}
         </div>
         <div id="navbar-right">

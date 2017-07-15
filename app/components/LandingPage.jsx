@@ -1,19 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-class LandingPage extends React.Component{
-  constructor(props){
-    super();
-  }
+import Login from './Login.jsx'
 
-  render() {
-    return (
-      <div id="LP-container">
-      TEST LANDING PAGE
-      </div>
-    )
-  }
-}
+const LandingPage =  (props) =>
+  <div id="LP-container">
+    <h1 id="LP-header">Welcome to VoiceMail!</h1>
+    <Login />
+  </div>
 
 const LandingPageContainer = connect(null, null)(LandingPage)
 
