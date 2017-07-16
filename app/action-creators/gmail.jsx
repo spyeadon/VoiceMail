@@ -50,6 +50,12 @@ export const changeThreadGroup = (pageDelta, labelId) => ({
   labelId
 })
 
+export const CHANGE_MAX_THREAD_GROUPS = 'CHANGE_MAX_THREAD_GROUPS'
+export const changeMaxThreadGroups = threadsPerPage => ({
+  type: CHANGE_MAX_THREAD_GROUPS,
+  threadsPerPage: threadsPerPage
+})
+
 export const getMessages = options =>
   dispatch =>
     axios.post('/api/gmail/messages', options)

@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setPageThreadCount} from '../action-creators/gmail.jsx'
+import {setPageThreadCount, changeMaxThreadGroups} from '../action-creators/gmail.jsx'
 
 class UserProfile extends React.Component{
   constructor(props){
@@ -19,6 +19,7 @@ class UserProfile extends React.Component{
 
   threadCountSubmission(evt) {
     evt.preventDefault()
+    this.props.updateMaxThreadGroups(this.state.threadCount)
     this.props.setThreadCount(this.state.threadCount)
   }
 
@@ -59,6 +60,9 @@ function mapDispatchToProps(dispatch) {
   return {
     setThreadCount(count) {
       dispatch(setPageThreadCount(count))
+    },
+    updateMaxThreadGroups(count) {
+      dispatch(changeMaxThreadGroups(count))
     }
   }
 }

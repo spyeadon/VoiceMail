@@ -1,4 +1,4 @@
-import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP} from '../action-creators/gmail.jsx'
+import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP, CHANGE_MAX_THREAD_GROUPS} from '../action-creators/gmail.jsx'
 import {labelSort} from '../utils.jsx'
 
 const initialState = {
@@ -51,6 +51,18 @@ export default function gmailReducer(state = initialState, action) {
     newState.threads = newThreads
     return newState
 
+  case CHANGE_MAX_THREAD_GROUPS:
+    const multiplier = (newState.threadsPerPage / Number(action.threadsPerPage))
+    for (var label in newThreads) {
+      newThreads[label] = Object.assign({}, newThreads[label])
+      newThreads[label].threadGroup = 1
+      if (newThreads[label].maxThreadGroup > 1) {
+        newThreads[label].maxThreadGroup = Math.ceil(newThreads[label].maxThreadGroup * multiplier)
+      }
+    }
+    newState.threads = newThreads
+    return newState
+
   case CHANGE_THREAD_GROUP:
     newThreads[action.labelId] = Object.assign({}, newThreads[action.labelId])
     if (action.pageDelta === 'previous') newThreads[action.labelId].threadGroup--
@@ -62,7 +74,7 @@ export default function gmailReducer(state = initialState, action) {
 
   case THREAD_COUNT_PER_PAGE:
     if (action.count < 1 || action.count > 30) newState.threadsPerPage = 10
-    else newState.threadsPerPage = action.count
+    else newState.threadsPerPage = Number(action.count)
     return newState
 
   default:
