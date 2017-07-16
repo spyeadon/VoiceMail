@@ -16,3 +16,15 @@ export function threadsToRender(threads, numThreads, threadGroup){
     if (index < (numThreads * threadGroup) && index >= (numThreads * (threadGroup - 1))) return thread
   })
 }
+
+export function labelSort(labels) {
+  const defaultLabels = ['Inbox', 'Important', 'Sent Mail', 'Drafts', 'All Mail', 'Spam']
+  const sortedLabels = defaultLabels.filter(label => {
+    if (defaultLabels.indexOf(label) !== -1) return label
+  })
+  return sortedLabels.concat(
+    labels.filter(label => {
+      if (sortedLabels.indexOf(label) === -1) return label
+    })
+  )
+}
