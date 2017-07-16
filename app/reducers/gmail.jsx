@@ -1,4 +1,4 @@
-import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP, CHANGE_MAX_THREAD_GROUPS} from '../action-creators/gmail.jsx'
+import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP, CHANGE_MAX_THREAD_GROUPS, GMAIL_SEARCH} from '../action-creators/gmail.jsx'
 import {labelSort} from '../utils.jsx'
 
 const initialState = {
@@ -42,6 +42,14 @@ export default function gmailReducer(state = initialState, action) {
 
   case SET_CURRENT_MESSAGE:
     newState.currentMessageId = action.messageId
+    return newState
+
+  case GMAIL_SEARCH:
+    newThreads.search = Object.assign({}, action.threads)
+    newThreads.search.threads = Object.assign({}, action.threads.threads)
+    newThreads.search.threadGroup = 1
+    newThreads.search.maxThreadGroup = Object.keys(action.threads.threads).length / newState.threadsPerPage
+    newState.threads = newThreads
     return newState
 
   case GMAIL_THREADS:

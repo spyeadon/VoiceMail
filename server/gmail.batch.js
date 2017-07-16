@@ -51,7 +51,8 @@ class gmailBatchAPI {
   getThreads(opts, token) {
     var getOptions = {userId: this.email, googleBatch: true}
     var listOptions = Object.assign({userId: this.email, googleBatch: true}, opts)
-    const formattedThreadList = {labelId: correctCase(listOptions.labelIds)}
+    const formattedThreadList = {}
+    if (listOptions.labelIds) formattedThreadList.labelId = correctCase(listOptions.labelIds)
     this.batch.add(this.gmail.users.threads.list(listOptions))
     this.batch.exec((err, responses, errorDetails) => {
       if (err) return console.log('The batch API returned an error: ' + err)

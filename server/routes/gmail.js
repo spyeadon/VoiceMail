@@ -25,7 +25,7 @@ router.post('/messages', (req, res, next) => {
 
 router.post('/threads', (req, res, next) => {
   const {options, token} = req.body
-  options.labelIds = options.labelIds.toUpperCase()
+  if (options.labelIds) options.labelIds = options.labelIds.toUpperCase()
   gmailInstance.getThreads(options, token)
 })
 

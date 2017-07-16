@@ -56,6 +56,12 @@ export const changeMaxThreadGroups = threadsPerPage => ({
   threadsPerPage: threadsPerPage
 })
 
+export const GMAIL_SEARCH = 'GMAIL_SEARCH'
+export const getGmailSearch = (threads, labelId) => ({
+  type: GMAIL_SEARCH,
+  threads: threads
+})
+
 export const getMessages = options =>
   dispatch =>
     axios.post('/api/gmail/messages', options)
@@ -75,4 +81,13 @@ export const getLabels = () =>
   dispatch =>
     axios.get('/api/gmail/labels')
     .then(res => dispatch(getFolderLabels(res.data)))
+    .catch(err => console.error(err))
+
+export const getSearchResults = options =>
+  dispatch =>
+    axios.post('/api/gmail/threads', {options})
+    .then(res => dispatch(getGmailSearch(res.data)))
+    .then(() => dispatch(setCurrentThreadId()))
+    .then(() => dispatch(setCurrentMessageId()))
+    .then(() => dispatch(setCurrentLabel('search')))
     .catch(err => console.error(err))
