@@ -102,18 +102,6 @@ body, html {
   text-overflow: clip;
 }
 
-#thread-group-toggle {
-
-}
-
-#previous-btn {
-
-}
-
-#next-btn {
-
-}
-
 .threads-container {
   overflow-wrap: break-word;
 }
@@ -176,7 +164,7 @@ body, html {
 }
 
 #search-form {
-  width: 40%;
+  width: 60%;
   display: inline-block;
 }
 
@@ -189,34 +177,33 @@ body, html {
 }
 
 #account-settings-btn {
-  margin-left: 1em;
+  flex-grow: 2;
 }
 
 #mailbox-btn {
-
+  flex-grow: 2;
 }
 
 #navbar-left {
   display: flex;
   align-items: center;
-  width: 65%;
+  justify-content: space-between;
+  width: 50%;
   padding-left: 1.5em;
 }
 
-#navbar-left > *{
-  padding-right: 1.5em;
-}
-
 #navbar-right {
-  width: 30%;
+  width: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-right: 1em;
 }
 
 #logo {
   width: 50px;
   height: 50px;
+  margin-right: 1em;
 }
 
 #profile-photo {
@@ -228,7 +215,14 @@ body, html {
 }
 
 .whoami {
-  margin-right: 5em;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: auto;
+}
+
+.logout {
+  margin-left: 0.75em;
 }
 
 /*Account settings component CSS*/
@@ -296,4 +290,33 @@ body, html {
 #LP-header {
   font-family: Tahoma, sans-serif;
   color: white;
+}
+
+/*Paging buttons container */
+#thread-group-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* flex-grow: 3; */
+  width: auto;
+  margin: auto;
+}
+
+#thread-group-toggle > * {
+  margin: 0 1em;
+}
+
+#previous-btn {
+
+}
+
+#next-btn {
+
+}
+
+.current-label-page {
+  padding: 0.3em 0.5em;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid black;
 }

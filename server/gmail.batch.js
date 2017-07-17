@@ -66,7 +66,6 @@ class gmailBatchAPI {
         if (error) return console.log('The batch API returned an error: ' + error)
         console.log('batch for all threads now executing')
         formattedThreadList.threads = decodeAndFmtThreadsReduce(resps, googleBatch)
-        // formattedThreadList.previousNPT = listOptions.pageToken
         for (var threadID in formattedThreadList.threads) {
           formattedThreadList.threads[threadID].date = formattedThreadList.threads[threadID].messages[0].headers['Date']
         }

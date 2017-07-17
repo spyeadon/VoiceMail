@@ -65,7 +65,7 @@ export default function gmailReducer(state = initialState, action) {
       newThreads[label] = Object.assign({}, newThreads[label])
       newThreads[label].threadGroup = 1
       if (newThreads[label].maxThreadGroup > 1) {
-        newThreads[label].maxThreadGroup = Math.ceil(newThreads[label].maxThreadGroup * multiplier)
+        newThreads[label].maxThreadGroup = Math.floor(newThreads[label].maxThreadGroup * multiplier)
       }
     }
     newState.threads = newThreads

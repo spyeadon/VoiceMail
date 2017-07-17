@@ -52,45 +52,6 @@ const Mail = props => {
         </div>
         )
       }
-      <div id="thread-group-toggle" >
-        Current Page: {props.threads[props.currentLabel].threadGroup}
-        <button
-          id="previous-btn"
-          disabled={props.threads[props.currentLabel].threadGroup === 1}
-          onClick={() => {
-            const labelThreads = props.threads[props.currentLabel]
-            if (labelThreads.threadGroup === 2 && props.currentLabel !== 'search') {
-              props.getLabelThreads({
-                labelIds: props.currentLabel,
-                maxResults: props.numThreads
-              }, false)
-            }
-            props.setThreadGroup('previous', props.currentLabel)
-          }}
-        >
-          Previous
-        </button>
-        <button
-          id="next-btn"
-          disabled={
-            props.currentLabel === 'search' &&
-            props.threads.search.threadGroup === props.threads.search.maxThreadGroup
-          }
-          onClick={() => {
-            const labelThreads = props.threads[props.currentLabel]
-            if (labelThreads.maxThreadGroup === labelThreads.threadGroup) {
-              props.getLabelThreads({
-                labelIds: props.currentLabel,
-                maxResults: props.numThreads,
-                pageToken: labelThreads.nextPageToken
-              })
-            }
-            props.setThreadGroup('next', props.currentLabel)
-          }}
-        >
-          Next
-        </button>
-      </div>
     </div>
   )
 }
