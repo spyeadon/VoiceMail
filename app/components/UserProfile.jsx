@@ -32,7 +32,7 @@ class UserProfile extends React.Component{
           onSubmit={this.threadCountSubmission}
         >
           <input
-            placeholder={this.props.numThreads}
+            placeholder="threads per page"
             value={this.state.threadCount}
             onChange={this.threadCountChange}
             className="form-control input-lg"

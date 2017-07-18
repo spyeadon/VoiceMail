@@ -21,6 +21,7 @@ class MessageFilter extends React.Component {
       <form onSubmit={this.searchSubmission} id="search-form">
         <input
           name="search"
+          type="search"
           className="form-control input-lg"
           id="search-input"
         />

@@ -14,22 +14,18 @@ const Navbar = connect(
       <div id="navbar-left" >
         <img src="mail-icon.ico" id="logo" />
         {user ?
+          <div id="menu-btn-container">
             <Link to="/mailbox">
-              <button
-                className="btn btn-default btn-lg"
-                id="mailbox-btn">
+              <button className="btn btn-default btn-lg menu-buttons">
                 Mailbox
               </button>
-            </Link>:
-          null}
-        {user ?
-          <Link to="/account">
-            <button
-              className="btn btn-default btn-lg"
-              id="account-settings-btn">
-              Account Settings
-            </button>
-          </Link>:
+            </Link>
+            <Link to="/account">
+              <button className="btn btn-default btn-lg menu-buttons">
+                Account Settings
+              </button>
+            </Link>
+          </div> :
         null}
         {user ? <Paging /> : null}
       </div>

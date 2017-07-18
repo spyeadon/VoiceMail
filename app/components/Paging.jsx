@@ -8,42 +8,49 @@ const Paging = props => {
 
   return (
     <div id="thread-group-toggle" >
-      <span className="current-label-page">{props.currentLabel}</span>
-      <span className="current-label-page">Page: {labelThreads.threadGroup}</span>
-      <button
-        id="previous-btn"
-        disabled={labelThreads.threadGroup === 1}
-        onClick={() => {
-          if (labelThreads.threadGroup === 2 && props.currentLabel !== 'search') {
-            props.getLabelThreads({
-              labelIds: props.currentLabel,
-              maxResults: props.numThreads
-            }, false)
+      <div id="paging-labels">
+        <div className="current-label-page">{props.currentLabel}</div>
+        <div className="current-label-page">
+          <span>Page </span>
+          <span>{labelThreads.threadGroup}</span>
+        </div>
+      </div>
+      <div>
+        <button
+          className="paging-buttons"
+          disabled={labelThreads.threadGroup === 1}
+          onClick={() => {
+            if (labelThreads.threadGroup === 2 && props.currentLabel !== 'search') {
+              props.getLabelThreads({
+                labelIds: props.currentLabel,
+                maxResults: props.numThreads
+              }, false)
+            }
+            props.setThreadGroup('previous', props.currentLabel)
+          }}
+        >
+          Previous
+        </button>
+        <button
+          className="paging-buttons"
+          disabled={
+            props.currentLabel === 'search' &&
+            props.threads.search.threadGroup === props.threads.search.maxThreadGroup
           }
-          props.setThreadGroup('previous', props.currentLabel)
-        }}
-      >
-        Previous
-      </button>
-      <button
-        id="next-btn"
-        disabled={
-          props.currentLabel === 'search' &&
-          props.threads.search.threadGroup === props.threads.search.maxThreadGroup
-        }
-        onClick={() => {
-          if (labelThreads.maxThreadGroup === labelThreads.threadGroup) {
-            props.getLabelThreads({
-              labelIds: props.currentLabel,
-              maxResults: props.numThreads,
-              pageToken: labelThreads.nextPageToken
-            })
-          }
-          props.setThreadGroup('next', props.currentLabel)
-        }}
-      >
-        Next
-      </button>
+          onClick={() => {
+            if (labelThreads.maxThreadGroup === labelThreads.threadGroup) {
+              props.getLabelThreads({
+                labelIds: props.currentLabel,
+                maxResults: props.numThreads,
+                pageToken: labelThreads.nextPageToken
+              })
+            }
+            props.setThreadGroup('next', props.currentLabel)
+          }}
+        >
+          Next
+        </button>
+      </div>
     </div>
   )
 }
