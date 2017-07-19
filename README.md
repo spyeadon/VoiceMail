@@ -2,7 +2,7 @@
 
 #### An email client built for the browser with the Gmail API, Node.js, Express, Sequelize and React Redux.
 
-#### App deployed [here](http://voicemail.herokuapp.com/).
+#### App deployed [here](http://voicemail.herokuapp.com/), however, user access is awaiting OAuth consent from google. A request has been made and the site will be running shortly! Thank you.
 
 #### To edit codebase
 * Clone/fork repo
