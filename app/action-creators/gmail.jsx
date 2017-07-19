@@ -62,6 +62,12 @@ export const getGmailSearch = (threads, labelId) => ({
   threads: threads
 })
 
+export const MAIL_LOADING = 'MAIL_LOADING'
+export const toggleLoadingScreen = toggle => ({
+  type: MAIL_LOADING,
+  toggle: toggle
+})
+
 export const getMessages = options =>
   dispatch =>
     axios.post('/api/gmail/messages', options)
@@ -69,13 +75,16 @@ export const getMessages = options =>
     .catch(err => console.error(err))
 
 export const getThreads = (options, token = true) =>
-  dispatch =>
+  dispatch => {
+    dispatch(toggleLoadingScreen(true))
     axios.post('/api/gmail/threads', {options, token})
     .then(res => dispatch(getGmailThreads(res.data, res.data.labelId)))
     .then(() => dispatch(setCurrentThreadId()))
     .then(() => dispatch(setCurrentMessageId()))
     .then(() => dispatch(setCurrentLabel(options.labelIds)))
+    .then(() => dispatch(toggleLoadingScreen(false)))
     .catch(err => console.error(err))
+  }
 
 export const getLabels = () =>
   dispatch =>
@@ -84,10 +93,13 @@ export const getLabels = () =>
     .catch(err => console.error(err))
 
 export const getSearchResults = options =>
-  dispatch =>
+  dispatch => {
+    dispatch(toggleLoadingScreen(true))
     axios.post('/api/gmail/threads', {options})
     .then(res => dispatch(getGmailSearch(res.data)))
     .then(() => dispatch(setCurrentThreadId()))
     .then(() => dispatch(setCurrentMessageId()))
     .then(() => dispatch(setCurrentLabel('search')))
+    .then(() => dispatch(toggleLoadingScreen(false)))
     .catch(err => console.error(err))
+  }

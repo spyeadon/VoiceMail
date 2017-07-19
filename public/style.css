@@ -90,7 +90,8 @@ input:focus {
 }
 
 .threads-from-address {
-  padding-right: 1.6em;
+  padding-right: 1.4em;
+  margin-right: 0.75em;
   max-width: 11em;
   min-width: 11em;
   display: inline-flex;

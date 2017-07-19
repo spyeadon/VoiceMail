@@ -17,8 +17,8 @@ const Mail = props => {
     borderLeft: '3px solid black'
   }
 
-  if (!threads.length) {
-    return <div id="mail-loading-container">Mail Loading...</div>
+  if (!threads.length || props.mailLoading) {
+    return <div id="mail-loading-container">Waiting for mail...</div>
   }
   return (
     <div id="mail-container">
@@ -75,10 +75,10 @@ function mapStateToProps(state) {
   return {
     threads: state.gmail.threads,
     currentLabel: state.gmail.currentLabel,
-    auth: state.auth,
     currentThreadId: state.gmail.currentThreadId,
     currentMessageId: state.gmail.currentMessageId,
-    numThreads: state.gmail.threadsPerPage
+    numThreads: state.gmail.threadsPerPage,
+    mailLoading: state.gmail.mailLoading
   }
 }
 

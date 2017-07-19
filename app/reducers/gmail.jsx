@@ -1,4 +1,4 @@
-import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP, CHANGE_MAX_THREAD_GROUPS, GMAIL_SEARCH} from '../action-creators/gmail.jsx'
+import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP, CHANGE_MAX_THREAD_GROUPS, GMAIL_SEARCH, MAIL_LOADING} from '../action-creators/gmail.jsx'
 import {labelSort} from '../utils.jsx'
 
 const initialState = {
@@ -13,7 +13,8 @@ const initialState = {
   currentLabel: 'Inbox',
   threadsPerPage: 20,
   currentThreadId: null,
-  currentMessageId: null
+  currentMessageId: null,
+  mailLoading: false
 }
 
 export default function gmailReducer(state = initialState, action) {
@@ -30,6 +31,10 @@ export default function gmailReducer(state = initialState, action) {
         maxThreadGroup: 1
       }
     })
+    return newState
+
+  case MAIL_LOADING:
+    newState.mailLoading = action.toggle
     return newState
 
   case CURRENT_LABEL:
