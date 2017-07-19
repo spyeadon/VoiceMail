@@ -6,7 +6,16 @@ import {threadsToRender} from '../utils.jsx'
 
 const Mail = props => {
 
-  const threads = threadsToRender(props.threads[props.currentLabel].threads, props.numThreads, props.threads[props.currentLabel].threadGroup)
+  const currentThreads = props.threads[props.currentLabel]
+  const threads = threadsToRender(
+    currentThreads.threads,
+    props.numThreads,
+    currentThreads.threadGroup
+  )
+  const style = {
+    backgroundColor: '#ededed',
+    borderLeft: '3px solid black'
+  }
 
   if (!threads.length) {
     return <div id="mail-loading-container">Mail Loading...</div>
@@ -28,9 +37,14 @@ const Mail = props => {
                 props.setCurrentMessage()
               }
             }}>
-            <span className="threads-from-address">
-              {thread.messages[0].headers.From.split('<')[0]}
-            </span>
+            {props.currentThreadId === thread.threadId ?
+              <span style={style} className="threads-from-address">
+                {thread.messages[0].headers.From.split('<')[0]}
+              </span> :
+              <span className="threads-from-address">
+                {thread.messages[0].headers.From.split('<')[0]}
+              </span>
+            }
             <span className="threads-subject-line">
               {thread.messages[0].headers.Subject} &mdash;
             </span>
@@ -41,6 +55,7 @@ const Mail = props => {
           </div>
           {props.currentThreadId === thread.threadId ?
             <Thread
+              style={style}
               currentThread={thread}
               currentThreadId={props.currentThreadId}
               setCurrentThread={props.setCurrentThread}

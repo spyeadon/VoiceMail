@@ -82,7 +82,6 @@ input:focus {
   max-height: 2.7em;
   line-height: 2.7em;
   border-bottom: 1px solid #ededed;
-  padding-left: 0.75em;
   cursor: default;
 }
 
@@ -91,7 +90,7 @@ input:focus {
 }
 
 .threads-from-address {
-  margin-right: 1.6em;
+  padding-right: 1.6em;
   max-width: 11em;
   min-width: 11em;
   display: inline-flex;
@@ -99,6 +98,7 @@ input:focus {
   overflow: hidden;
   text-overflow: clip;
   font-weight: bold;
+  padding-left: 0.5em;
   z-index: 1;
 }
 
