@@ -55,7 +55,6 @@ const Mail = props => {
           </div>
           {props.currentThreadId === thread.threadId ?
             <Thread
-              style={style}
               currentThread={thread}
               currentThreadId={props.currentThreadId}
               setCurrentThread={props.setCurrentThread}
