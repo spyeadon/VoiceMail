@@ -18,7 +18,7 @@ const Mail = props => {
   }
 
   if (!threads.length || props.mailLoading) {
-    return <div id="mail-loading-container">Waiting for mail...</div>
+    return <div id="mail-loading-container" />
   }
   return (
     <div id="mail-container">

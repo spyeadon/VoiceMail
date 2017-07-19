@@ -62,6 +62,13 @@ input:focus {
 #mail-loading-container {
   order: 2;
   padding: 1em;
+  width: 100%;
+  min-height: 40px;
+  margin: 1em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background:url("/loading.gif") no-repeat center center white
 }
 
 #mail-container {
