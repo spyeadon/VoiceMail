@@ -1,7 +1,14 @@
 # [VoiceMail](http://voicemail.herokuapp.com/)
 
-An email client built for the browser with the gmail API, Node.js, Express, Sequelize and React Redux.
-App deployed [here](http://voicemail.herokuapp.com/)
+#### An email client built for the browser with the gmail API, Node.js, Express, Sequelize and React Redux.
+
+#### App deployed [here](http://voicemail.herokuapp.com/).
+
+#### To edit codebase
+* Clone/fork repo
+* yarn install or npm install
+* npm run dev to build webpack bundle and start server
+* npm run seed syncs and seeds DB (currently adds no data)
 
 ## Current state of the app:
 
@@ -10,7 +17,7 @@ App deployed [here](http://voicemail.herokuapp.com/)
 * Login persists through browser sessions
 * User labels, threads, and messages are retrieved on batch request
 * User can set the number of threads rendered per page
-* Users can scroll through pages of threads per each label on request
+* User can scroll through pages of threads per each label on request
 * Threads can be opened and their messages viewed via popout component onclick
 * Landing page, mailbox, and account settings pages accessible via navbar
 
@@ -19,12 +26,13 @@ App deployed [here](http://voicemail.herokuapp.com/)
 * Express.js
 * OAuth 2.0
 * Passport.js
+* Axios
 * Sequelize
 * React Redux
 * [Gmail API](https://developers.google.com/gmail/api/guides/)
 * [Google Batch API](https://github.com/pradeep-mishra/google-batch)
 
-## In progress
+## In progress:
 
 ### Features
 * Audio recording and message attachment in browser
