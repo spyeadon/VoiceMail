@@ -19,10 +19,11 @@ input:focus {
   display: flex;
   font-family: Arial, sans-serif, Helvetica;
   font-size: 14px;
+  padding-top: 0.25em;
 }
 
 #content-container {
-  margin-top: 3.3em;
+  margin-top: 3em;
 }
 
 /*Sidebar component css*/
