@@ -1,6 +1,6 @@
 # [VoiceMail](http://voicemail.herokuapp.com/)
 
-#### An email client built for the browser with the gmail API, Node.js, Express, Sequelize and React Redux.
+#### An email client built for the browser with the Gmail API, Node.js, Express, Sequelize and React Redux.
 
 #### App deployed [here](http://voicemail.herokuapp.com/).
 
