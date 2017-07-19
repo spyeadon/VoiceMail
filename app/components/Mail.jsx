@@ -6,10 +6,19 @@ import {threadsToRender} from '../utils.jsx'
 
 const Mail = props => {
 
-  const threads = threadsToRender(props.threads[props.currentLabel].threads, props.numThreads, props.threads[props.currentLabel].threadGroup)
+  const currentThreads = props.threads[props.currentLabel]
+  const threads = threadsToRender(
+    currentThreads.threads,
+    props.numThreads,
+    currentThreads.threadGroup
+  )
+  const style = {
+    backgroundColor: '#ededed',
+    borderLeft: '3px solid black'
+  }
 
-  if (!threads.length) {
-    return <div id="mail-loading-container">Mail Loading...</div>
+  if (!threads.length || props.mailLoading) {
+    return <div id="mail-loading-container" />
   }
   return (
     <div id="mail-container">
@@ -28,9 +37,14 @@ const Mail = props => {
                 props.setCurrentMessage()
               }
             }}>
-            <span className="threads-from-address">
-              {thread.messages[0].headers.From.split('<')[0]}
-            </span>
+            {props.currentThreadId === thread.threadId ?
+              <span style={style} className="threads-from-address">
+                {thread.messages[0].headers.From.split('<')[0]}
+              </span> :
+              <span className="threads-from-address">
+                {thread.messages[0].headers.From.split('<')[0]}
+              </span>
+            }
             <span className="threads-subject-line">
               {thread.messages[0].headers.Subject} &mdash;
             </span>
@@ -60,10 +74,10 @@ function mapStateToProps(state) {
   return {
     threads: state.gmail.threads,
     currentLabel: state.gmail.currentLabel,
-    auth: state.auth,
     currentThreadId: state.gmail.currentThreadId,
     currentMessageId: state.gmail.currentMessageId,
-    numThreads: state.gmail.threadsPerPage
+    numThreads: state.gmail.threadsPerPage,
+    mailLoading: state.gmail.mailLoading
   }
 }
 

@@ -1,10 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {changeThreadGroup, getThreads} from '../action-creators/gmail.jsx'
+import {threadsToRender} from '../utils.jsx'
 
 const Paging = props => {
 
   const labelThreads = props.threads[props.currentLabel]
+  const threads = threadsToRender(
+    labelThreads.threads,
+    props.numThreads,
+    labelThreads.threadGroup
+  )
 
   return (
     <div id="thread-group-toggle" >
@@ -34,7 +40,7 @@ const Paging = props => {
         <button
           className="paging-buttons"
           disabled={
-            props.currentLabel === 'search' &&
+            !threads.length || props.currentLabel === 'search' &&
             props.threads.search.threadGroup === props.threads.search.maxThreadGroup
           }
           onClick={() => {
