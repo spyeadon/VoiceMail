@@ -1,5 +1,4 @@
 import {GMAIL_LABELS, GMAIL_MESSAGES, GMAIL_THREADS, CURRENT_LABEL, THREAD_COUNT_PER_PAGE, SET_CURRENT_THREAD, SET_CURRENT_MESSAGE, CHANGE_THREAD_GROUP, CHANGE_MAX_THREAD_GROUPS, GMAIL_SEARCH, MAIL_LOADING} from '../action-creators/gmail.jsx'
-import {labelSort} from '../utils.jsx'
 
 const initialState = {
   labels: [],
@@ -23,7 +22,7 @@ export default function gmailReducer(state = initialState, action) {
 
   switch (action.type) {
   case GMAIL_LABELS:
-    newState.labels = labelSort(action.labels)
+    newState.labels = action.labels
     newState.labels.forEach(label => {
       newState.threads[label] = {
         threads: {},

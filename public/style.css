@@ -140,7 +140,7 @@ input:focus {
   top: 3.3em;
   z-index: 1;
   background-color: white;
-  height: calc(100vh - 3.8em);
+  height: calc(100vh - 4.2em);
   overflow-y: scroll;
 }
 
@@ -179,7 +179,7 @@ input:focus {
   position: fixed;
   top: 0;
   width: 100%;
-  min-width: 790px;
+  min-width: 855px;
   overflow: hidden;
   display: flex;
   align-items: center;

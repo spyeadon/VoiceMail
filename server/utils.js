@@ -24,9 +24,18 @@ const correctCase = str =>
   })
   .join(' ')
 
+const defaultLabels = ['INBOX', 'IMPORTANT', 'UNREAD', /*'DRAFT',*/ 'SENT', 'CHAT', 'STARRED', 'TRASH', 'SPAM']
+
+function labelSort(labels) {
+  const sortedLabels = defaultLabels.filter(label => labels.indexOf(label) !== -1).map(label => correctCase(label))
+  return sortedLabels/*.concat(
+    labels.filter(label => sortedLabels.indexOf(correctCase(label)) === -1)
+  )*/
+}
+
 const filterLabels = labels => {
   const labelsToRemove = ['CATEGORY_PERSONAL', 'CATEGORY_SOCIAL', 'CATEGORY_FORUMS', 'CATEGORY_PROMOTIONS', 'CATEGORY_UPDATES']
-  return labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => correctCase(label.name))
+  return labelSort(labels.filter(label => labelsToRemove.indexOf(label.name) === -1).map(label => label.name))
 }
 
 const formatHeaders = listOfHeaders => {
@@ -92,4 +101,4 @@ const decodeAndFmtThreadsMap = (rawThreads, googleBatch) =>
 
 // Feel free to add more filters here (suggested: something that keeps out non-admins)
 
-module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels, decodeAndFmtThreadsMap, decodeAndFmtThreadsReduce}
+module.exports = {mustBeLoggedIn, selfOnly, forbidden, correctCase, filterLabels, decodeAndFmtThreadsMap, decodeAndFmtThreadsReduce, defaultLabels}

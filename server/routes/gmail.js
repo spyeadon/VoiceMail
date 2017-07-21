@@ -8,7 +8,7 @@ router.use((req, res, next) => {
   OAuth.findOne({where: {user_id: req.user.id}})
   .then(user => {
     const email = user.profileJson.emails[0].value
-    gmailInstance = new gmailBatchAPI(email, user.accessToken, user.refreshToken, res)
+    gmailInstance = new gmailBatchAPI(email, user.accessToken, user.refreshToken, res, next)
     next()
   })
   .catch(next)
@@ -25,7 +25,6 @@ router.post('/messages', (req, res, next) => {
 
 router.post('/threads', (req, res, next) => {
   const {options, token} = req.body
-  if (options.labelIds) options.labelIds = options.labelIds.toUpperCase()
   gmailInstance.getThreads(options, token)
 })
 
