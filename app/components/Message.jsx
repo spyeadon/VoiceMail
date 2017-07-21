@@ -11,7 +11,7 @@ export default function Message(props) {
           if (props.currentMessageId === props.openMessage.messageId && props.currentThreadId === props.openMessage.threadId) props.setCurrentMessage()
           else props.setCurrentMessage(props.openMessage.messageId)
         }}>
-        {props.openMessage.headers.From.split('<')[0]}
+        {props.openMessage.headers.From.split('<')[0] || props.openMessage.headers['Return-Path']}
       </span>
       <br />
       <span className="message-body-text-body">
@@ -30,7 +30,7 @@ export default function Message(props) {
           if (props.currentMessageId === props.openMessage.messageId && props.currentThreadId === props.openMessage.threadId) props.setCurrentMessage()
           else props.setCurrentMessage(props.openMessage.messageId)
         }}>
-        {props.openMessage.headers.From.split('<')[0]}
+        {props.openMessage.headers.From.split('<')[0] || props.openMessage.headers['Return-Path']}
       </span>
       <br />
       <span className="message-header-snippet">

@@ -1,10 +1,9 @@
-const {correctCase, filterLabels, decodeAndFmtThreadsMap, decodeAndFmtThreadsReduce} = require('./utils.js')
+const {correctCase, filterLabels, decodeAndFmtThreadsMap, decodeAndFmtThreadsReduce, defaultLabels} = require('./utils.js')
 var googleBatch = require('google-batch');
 var google = googleBatch.require('googleapis');
 
-
 class gmailBatchAPI {
-  constructor(email, accessToken, refreshToken, res){
+  constructor(email, accessToken, refreshToken, res, next){
     this.email = email
     this.Oauth2Inst = new google.auth.OAuth2
     this.Oauth2Inst.setCredentials({
@@ -15,6 +14,7 @@ class gmailBatchAPI {
     this.batch.setAuth(this.Oauth2Inst)
     this.gmail = google.gmail({version: 'v1'})
     this.res = res
+    this.next = next
   }
 
   getLabels() {
@@ -52,10 +52,15 @@ class gmailBatchAPI {
     var getOptions = {userId: this.email, googleBatch: true}
     var listOptions = Object.assign({userId: this.email, googleBatch: true}, opts)
     const formattedThreadList = {}
-    if (listOptions.labelIds) formattedThreadList.labelId = correctCase(listOptions.labelIds)
+    if (listOptions.labelIds) formattedThreadList.labelId = listOptions.labelIds
+    if (listOptions.labelIds && defaultLabels.indexOf(listOptions.labelIds.toUpperCase()) !== -1) listOptions.labelIds = listOptions.labelIds.toUpperCase()
     this.batch.add(this.gmail.users.threads.list(listOptions))
     this.batch.exec((err, responses, errorDetails) => {
-      if (err) return console.log('The batch API returned an error: ' + err)
+      if (err) {
+        console.log('The batch API returned an error: ' + errorDetails.toString())
+        this.next(err)
+        return
+      }
       if (token) formattedThreadList.nextPageToken = responses[0].body.nextPageToken
       this.batch.clear()
       responses[0].body.threads.forEach(thread => {
@@ -63,7 +68,11 @@ class gmailBatchAPI {
         this.batch.add(this.gmail.users.threads.get(getOptions))
       })
       this.batch.exec((error, resps, errorDeets) => {
-        if (error) return console.log('The batch API returned an error: ' + error)
+        if (error) {
+          console.log('The batch API returned an error: ' + errorDeets.toString())
+          this.next(error)
+          return
+        }
         console.log('batch for all threads now executing')
         formattedThreadList.threads = decodeAndFmtThreadsReduce(resps, googleBatch)
         for (var threadID in formattedThreadList.threads) {

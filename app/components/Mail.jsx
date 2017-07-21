@@ -39,10 +39,10 @@ const Mail = props => {
             }}>
             {props.currentThreadId === thread.threadId ?
               <span style={style} className="threads-from-address">
-                {thread.messages[0].headers.From.split('<')[0]}
+                {thread.messages[0].headers.From.split('<')[0] || thread.messages[0].headers['Return-Path']}
               </span> :
               <span className="threads-from-address">
-                {thread.messages[0].headers.From.split('<')[0]}
+                {thread.messages[0].headers.From.split('<')[0] || thread.messages[0].headers['Return-Path']}
               </span>
             }
             <span className="threads-subject-line">
