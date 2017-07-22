@@ -88,12 +88,6 @@ function mapStateToDispatch(dispatch) {
     },
     setCurrentMessage(messageId = null) {
       dispatch(setCurrentMessageId(messageId))
-    },
-    setThreadGroup(pageDelta, labelId) {
-      dispatch(changeThreadGroup(pageDelta, labelId))
-    },
-    getLabelThreads(options, token) {
-      dispatch(getThreads(options, token))
     }
   }
 }
