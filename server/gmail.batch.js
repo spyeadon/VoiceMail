@@ -57,7 +57,7 @@ class gmailBatchAPI {
     this.batch.add(this.gmail.users.threads.list(listOptions))
     this.batch.exec((err, responses, errorDetails) => {
       if (err) {
-        console.log('The batch API returned an error: ' + errorDetails.toString())
+        console.log('The batch API returned an error: ' + err)
         this.next(err)
         return
       }
@@ -69,7 +69,7 @@ class gmailBatchAPI {
       })
       this.batch.exec((error, resps, errorDeets) => {
         if (error) {
-          console.log('The batch API returned an error: ' + errorDeets.toString())
+          console.log('The batch API returned an error: ' + error)
           this.next(error)
           return
         }
