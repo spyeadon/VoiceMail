@@ -17,6 +17,9 @@ const Mail = props => {
     borderLeft: '3px solid black'
   }
 
+  if (!threads.length && !props.mailLoading) {
+    return <div id="empty-label" />
+  }
   if (!threads.length || props.mailLoading) {
     return <div id="mail-loading-container" />
   }
