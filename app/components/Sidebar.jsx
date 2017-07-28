@@ -12,6 +12,7 @@ const SidebarComponent = props =>
           <button
             key={label}
             className="label-LI"
+            disabled={props.mailLoading}
             onClick={() => {
               if (props.threads[label].maxThreadGroup > 1) {
                 props.getLabelThreads({
@@ -38,7 +39,8 @@ function mapStateToProps(state) {
   return {
     labels: state.gmail.labels,
     numThreads: state.gmail.threadsPerPage,
-    threads: state.gmail.threads
+    threads: state.gmail.threads,
+    mailLoading: state.gmail.mailLoading
   }
 }
 
