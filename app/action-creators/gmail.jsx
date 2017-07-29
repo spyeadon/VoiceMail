@@ -103,5 +103,3 @@ export const getSearchResults = options =>
     .then(() => dispatch(toggleLoadingScreen(false)))
     .catch(err => console.error(err))
   }
-
-  //just a minor random change :)
