@@ -12,17 +12,19 @@ const Navbar = connect(
   ({user}) =>
     <nav className="navbar">
       <div className="container-fluid">
+        <div className="navbar-header">
+          <img src="img/mail-icon.ico" id="logo" />
+        </div>
         <div id="navbar-left" >
-          <img src="mail-icon.ico" id="logo" />
           {user ?
             <div id="menu-btn-container">
               <Link to="/mailbox">
-                <button className="btn btn-default btn-lg menu-buttons">
+                <button className="menu-buttons">
                   Mailbox
                 </button>
               </Link>
               <Link to="/account">
-                <button className="btn btn-default btn-lg menu-buttons">
+                <button className="menu-buttons">
                   Account Settings
                 </button>
               </Link>
