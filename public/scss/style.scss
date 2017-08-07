@@ -1,3 +1,7 @@
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
 @import 'variables';
 @import 'navbar';
+
+body {
+  padding-top: $nav-height;
+}

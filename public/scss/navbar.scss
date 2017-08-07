@@ -1,6 +1,7 @@
-.navbar {
+#navbar {
   @extend .navbar-default;
   @extend .navbar;
+  @extend .navbar-fixed-top;
 
   #navbar-left {
     @extend .navbar-left;
@@ -9,7 +10,6 @@
   #navbar-right {
     @extend .navbar-right;
   }
-
 }
 
 #logo {
@@ -20,4 +20,19 @@
 .menu-buttons {
   @extend .btn;
   @extend .btn-default;
+  @extend .navbar-btn;
+}
+
+.nav-content {
+  @extend .nav;
+  @extend .navbar-nav;
+}
+
+#search-form {
+  @extend .navbar-form;
+}
+
+#search-input {
+  @extend .form-control;
+  @extend .input-lg;
 }

@@ -10,33 +10,25 @@ const Navbar = connect(
   ({auth}) => ({user: auth})
 )(
   ({user}) =>
-    <nav className="navbar">
+    <nav id="navbar">
       <div className="container-fluid">
         <div className="navbar-header">
           <img src="img/mail-icon.ico" id="logo" />
         </div>
-        <div id="navbar-left" >
-          {user ?
-            <div id="menu-btn-container">
-              <Link to="/mailbox">
-                <button className="menu-buttons">
-                  Mailbox
-                </button>
-              </Link>
-              <Link to="/account">
-                <button className="menu-buttons">
-                  Account Settings
-                </button>
-              </Link>
-            </div> :
-          null}
-          {user ? <Paging /> : null}
-        </div>
-        <div id="navbar-right">
-          {user ? <FilterContainer /> : null}
-          {user ? <WhoAmI /> : null}
-          {user ? <img src={user.img_url} id="profile-photo" /> : null}
-        </div>
+        {user ?
+          <ul className="nav-content">
+            <li><Link to="/mailbox">
+              <button className="menu-buttons">Mailbox</button>
+            </Link></li>
+            <li><Link to="/account">
+              <button className="menu-buttons">Account Settings</button>
+            </Link></li>
+            <Paging />
+            <FilterContainer />
+            <WhoAmI />
+            <li><img src={user.img_url} id="profile-photo" /></li>
+          </ul> :
+        null}
       </div>
     </nav>
   )

@@ -13,17 +13,12 @@ const Paging = props => {
   )
 
   return (
-    <div id="thread-group-toggle" >
-      <div id="paging-labels">
-        <div className="current-label-page">{props.currentLabel}</div>
-        <div className="current-label-page">
-          <span>Page </span>
-          <span>{labelThreads.threadGroup}</span>
-        </div>
-      </div>
-      <div>
-        <button
-          className="paging-buttons"
+    <li>
+      <ul className="nav-content">
+        <li><p className="navbar-text">{props.currentLabel}</p></li>
+        <li><p className="navbar-text">Page {labelThreads.threadGroup}</p></li>
+        <li><button
+          className="menu-buttons"
           disabled={labelThreads.threadGroup === 1}
           onClick={() => {
             if (labelThreads.threadGroup === 2 && props.currentLabel !== 'search') {
@@ -36,9 +31,9 @@ const Paging = props => {
           }}
         >
           Previous
-        </button>
-        <button
-          className="paging-buttons"
+        </button></li>
+        <li><button
+          className="menu-buttons"
           disabled={
             !threads.length || props.currentLabel === 'search' &&
             props.threads.search.threadGroup === props.threads.search.maxThreadGroup
@@ -55,9 +50,9 @@ const Paging = props => {
           }}
         >
           Next
-        </button>
-      </div>
-    </div>
+        </button></li>
+      </ul>
+    </li>
   )
 }
 

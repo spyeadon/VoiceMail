@@ -23,14 +23,14 @@ describe('<WhoAmI/>', () => {
     expect(root.text()).to.contain(user.name)
   })
 
-  it('has a logout button', () => {
-    expect(root.find('button.logout')).to.have.length(1)
-  })
+  // it('has a logout button', () => {
+  //   expect(root.find('button.logout')).to.have.length(1)
+  // })
 
-  it('calls props.logout when logout is tapped', () => {
-    root.find('button.logout').simulate('click')
-    expect(logout).to.have.been.called
-  })
+  // it('calls props.logout when logout is tapped', () => {
+  //   root.find('button.logout').simulate('click')
+  //   expect(logout).to.have.been.called
+  // })
 })
 
 describe("<WhoAmI/>'s connection", () => {

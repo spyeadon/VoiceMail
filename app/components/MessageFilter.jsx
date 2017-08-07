@@ -18,20 +18,22 @@ class MessageFilter extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.searchSubmission} id="search-form">
-        <input
-          name="search"
-          type="search"
-          className="form-control input-lg"
-          id="search-input"
-        />
-        <button
-          id="search-btn"
-          type="submit"
-          className="btn btn-default btn-lg">
-          <i className="fa fa-search" aria-hidden="true" />
-        </button>
-      </form>
+      <li>
+        <form onSubmit={this.searchSubmission} id="search-form">
+          <div className="form-group">
+            <input
+              name="search"
+              type="search"
+              id="search-input"
+            />
+          </div>
+          <button
+            type="submit"
+            className="menu-buttons">
+            <i className="fa fa-search" aria-hidden="true" />
+          </button>
+        </form>
+      </li>
     )
   }
 }
