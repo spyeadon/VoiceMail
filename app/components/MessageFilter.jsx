@@ -12,13 +12,12 @@ class MessageFilter extends React.Component {
     evt.preventDefault()
     this.props.initiateSearch({
       q: evt.target.search.value,
-      maxResults: 50
+      maxResults: this.props.numThreads
     })
   }
 
   render() {
     return (
-      <li>
         <form onSubmit={this.searchSubmission} id="search-form">
           <div className="form-group">
             <input
@@ -33,8 +32,13 @@ class MessageFilter extends React.Component {
             <i className="fa fa-search" aria-hidden="true" />
           </button>
         </form>
-      </li>
     )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    numThreads: state.gmail.threadsPerPage
   }
 }
 
@@ -46,6 +50,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const FilterContainer = connect(null, mapDispatchToProps)(MessageFilter)
+const FilterContainer = connect(mapStateToProps, mapDispatchToProps)(MessageFilter)
 
 export default FilterContainer;

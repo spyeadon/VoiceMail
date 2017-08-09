@@ -2389,33 +2389,33 @@ input[type="search"] {
   .input-group-sm
   input[type="month"] {
     line-height: 30px; }
-  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control,
+  input[type="date"].input-lg, .input-group-lg > input[type="date"].form-control, .input-group-lg > input[type="date"]#search-input,
   .input-group-lg > input[type="date"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="date"].btn,
-  .input-group-lg > .input-group-btn > input[type="date"].menu-buttons, input[type="date"]#search-input,
+  .input-group-lg > .input-group-btn > input[type="date"].menu-buttons,
   .input-group-lg input[type="date"],
   input[type="time"].input-lg,
   .input-group-lg > input[type="time"].form-control,
+  .input-group-lg > input[type="time"]#search-input,
   .input-group-lg > input[type="time"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="time"].btn,
   .input-group-lg > .input-group-btn > input[type="time"].menu-buttons,
-  input[type="time"]#search-input,
   .input-group-lg
   input[type="time"],
   input[type="datetime-local"].input-lg,
   .input-group-lg > input[type="datetime-local"].form-control,
+  .input-group-lg > input[type="datetime-local"]#search-input,
   .input-group-lg > input[type="datetime-local"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].menu-buttons,
-  input[type="datetime-local"]#search-input,
   .input-group-lg
   input[type="datetime-local"],
   input[type="month"].input-lg,
   .input-group-lg > input[type="month"].form-control,
+  .input-group-lg > input[type="month"]#search-input,
   .input-group-lg > input[type="month"].input-group-addon,
   .input-group-lg > .input-group-btn > input[type="month"].btn,
   .input-group-lg > .input-group-btn > input[type="month"].menu-buttons,
-  input[type="month"]#search-input,
   .input-group-lg
   input[type="month"] {
     line-height: 46px; } }
@@ -2491,10 +2491,10 @@ fieldset[disabled]
   padding-bottom: 7px;
   margin-bottom: 0;
   min-height: 34px; }
-  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control,
+  .form-control-static.input-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static#search-input,
   .input-group-lg > .form-control-static.input-group-addon,
   .input-group-lg > .input-group-btn > .form-control-static.btn,
-  .input-group-lg > .input-group-btn > .form-control-static.menu-buttons, .form-control-static#search-input, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static#search-input,
+  .input-group-lg > .input-group-btn > .form-control-static.menu-buttons, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static#search-input,
   .input-group-sm > .form-control-static.input-group-addon,
   .input-group-sm > .input-group-btn > .form-control-static.btn,
   .input-group-sm > .input-group-btn > .form-control-static.menu-buttons {
@@ -2553,33 +2553,33 @@ select[multiple].input-sm,
   font-size: 12px;
   line-height: 1.5; }
 
-.input-lg, .input-group-lg > .form-control,
+.input-lg, .input-group-lg > .form-control, .input-group-lg > #search-input,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn,
-.input-group-lg > .input-group-btn > .menu-buttons, #search-input {
+.input-group-lg > .input-group-btn > .menu-buttons {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 6px; }
 
-select.input-lg, .input-group-lg > select.form-control,
+select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select#search-input,
 .input-group-lg > select.input-group-addon,
 .input-group-lg > .input-group-btn > select.btn,
-.input-group-lg > .input-group-btn > select.menu-buttons, select#search-input {
+.input-group-lg > .input-group-btn > select.menu-buttons {
   height: 46px;
   line-height: 46px; }
 
-textarea.input-lg, .input-group-lg > textarea.form-control,
+textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > textarea#search-input,
 .input-group-lg > textarea.input-group-addon,
 .input-group-lg > .input-group-btn > textarea.btn,
-.input-group-lg > .input-group-btn > textarea.menu-buttons, textarea#search-input,
+.input-group-lg > .input-group-btn > textarea.menu-buttons,
 select[multiple].input-lg,
 .input-group-lg > select[multiple].form-control,
+.input-group-lg > select[multiple]#search-input,
 .input-group-lg > select[multiple].input-group-addon,
 .input-group-lg > .input-group-btn > select[multiple].btn,
-.input-group-lg > .input-group-btn > select[multiple].menu-buttons,
-select[multiple]#search-input {
+.input-group-lg > .input-group-btn > select[multiple].menu-buttons {
   height: auto; }
 
 .form-group-lg .form-control, .form-group-lg #search-input {
@@ -2625,7 +2625,7 @@ select[multiple]#search-input {
 .input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback, .input-group-lg > #search-input + .form-control-feedback,
 .input-group-lg > .input-group-addon + .form-control-feedback,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback,
-.input-group-lg > .input-group-btn > .menu-buttons + .form-control-feedback, #search-input + .form-control-feedback,
+.input-group-lg > .input-group-btn > .menu-buttons + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback,
 .form-group-lg #search-input + .form-control-feedback {
@@ -3544,10 +3544,10 @@ tbody.collapse.in {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
-  .input-group-addon.input-lg,
+  .input-group-addon.input-lg, .input-group-lg > .input-group-addon#search-input,
   .input-group-lg > .input-group-addon,
   .input-group-lg > .input-group-btn > .input-group-addon.btn,
-  .input-group-lg > .input-group-btn > .input-group-addon.menu-buttons, .input-group-addon#search-input {
+  .input-group-lg > .input-group-btn > .input-group-addon.menu-buttons {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
@@ -5898,5 +5898,19 @@ button.close {
   width: 50px;
   height: 50px; }
 
+.nav-content {
+  height: 4em;
+  display: flex;
+  align-items: center; }
+
+#search-input {
+  min-width: 400px; }
+
+#profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  margin-left: 7px; }
+
 body {
-  padding-top: 6.5em; }
+  padding-top: 4em; }
