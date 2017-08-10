@@ -1,15 +1,13 @@
+.collapse-sm {
+  @media (max-width: $break-sm) {
+    display: none !important;
+  }
+}
+
 #navbar {
   @extend .navbar-default;
   @extend .navbar;
   @extend .navbar-fixed-top;
-
-  #navbar-left {
-    @extend .navbar-left;
-  }
-
-  #navbar-right {
-    @extend .navbar-right;
-  }
 }
 
 #logo {
@@ -29,6 +27,20 @@
   height: $nav-height;
   display: flex;
   align-items: center;
+  @media (max-width: $break-sm) {
+
+  }
+}
+
+.navbar-left {
+  @extend .navbar-left;
+  @extend .nav-content;
+  @extend .collapse-sm;
+}
+
+.navbar-right {
+  @extend .navbar-right;
+  @extend .nav-content;
 }
 
 #search-form {
@@ -38,11 +50,14 @@
 #search-input {
   @extend .form-control;
   min-width: 400px;
+  @media (max-width: $break-sm) {
+    min-width: 200px;
+  }
 }
 
 #profile-photo {
   width: 40px;
   height: 40px;
   border-radius: 30px;
-  margin-left: 7px;
+  margin: 0px 7px;
 }

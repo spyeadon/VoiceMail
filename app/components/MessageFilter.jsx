@@ -22,6 +22,7 @@ class MessageFilter extends React.Component {
           <div className="form-group">
             <input
               name="search"
+              placeholder="Search"
               type="search"
               id="search-input"
             />
