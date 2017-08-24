@@ -3302,10 +3302,10 @@ tbody.collapse.in {
   margin-bottom: 2px; }
 
 @media (min-width: 768px) {
-  .navbar-right .dropdown-menu {
+  .navbar-right .dropdown-menu, .nav-right-2 .dropdown-menu {
     right: 0;
     left: auto; }
-  .navbar-right .dropdown-menu-left {
+  .navbar-right .dropdown-menu-left, .nav-right-2 .dropdown-menu-left {
     left: 0;
     right: auto; } }
 
@@ -3607,41 +3607,41 @@ tbody.collapse.in {
     z-index: 2;
     margin-left: -1px; }
 
-.nav, .nav-content, .navbar-left, .navbar-right {
+.nav, .nav-content, .nav-left-1, .nav-left-2, .nav-right-1, .nav-right-2 {
   margin-bottom: 0;
   padding-left: 0;
   list-style: none; }
-  .nav:before, .nav-content:before, .navbar-left:before, .navbar-right:before, .nav:after, .nav-content:after, .navbar-left:after, .navbar-right:after {
+  .nav:before, .nav-content:before, .nav-left-1:before, .nav-left-2:before, .nav-right-1:before, .nav-right-2:before, .nav:after, .nav-content:after, .nav-left-1:after, .nav-left-2:after, .nav-right-1:after, .nav-right-2:after {
     content: " ";
     display: table; }
-  .nav:after, .nav-content:after, .navbar-left:after, .navbar-right:after {
+  .nav:after, .nav-content:after, .nav-left-1:after, .nav-left-2:after, .nav-right-1:after, .nav-right-2:after {
     clear: both; }
-  .nav > li, .nav-content > li, .navbar-left > li, .navbar-right > li {
+  .nav > li, .nav-content > li, .nav-left-1 > li, .nav-left-2 > li, .nav-right-1 > li, .nav-right-2 > li {
     position: relative;
     display: block; }
-    .nav > li > a, .nav-content > li > a, .navbar-left > li > a, .navbar-right > li > a {
+    .nav > li > a, .nav-content > li > a, .nav-left-1 > li > a, .nav-left-2 > li > a, .nav-right-1 > li > a, .nav-right-2 > li > a {
       position: relative;
       display: block;
       padding: 10px 15px; }
-      .nav > li > a:hover, .nav-content > li > a:hover, .navbar-left > li > a:hover, .navbar-right > li > a:hover, .nav > li > a:focus, .nav-content > li > a:focus, .navbar-left > li > a:focus, .navbar-right > li > a:focus {
+      .nav > li > a:hover, .nav-content > li > a:hover, .nav-left-1 > li > a:hover, .nav-left-2 > li > a:hover, .nav-right-1 > li > a:hover, .nav-right-2 > li > a:hover, .nav > li > a:focus, .nav-content > li > a:focus, .nav-left-1 > li > a:focus, .nav-left-2 > li > a:focus, .nav-right-1 > li > a:focus, .nav-right-2 > li > a:focus {
         text-decoration: none;
         background-color: #eeeeee; }
-    .nav > li.disabled > a, .nav-content > li.disabled > a, .navbar-left > li.disabled > a, .navbar-right > li.disabled > a {
+    .nav > li.disabled > a, .nav-content > li.disabled > a, .nav-left-1 > li.disabled > a, .nav-left-2 > li.disabled > a, .nav-right-1 > li.disabled > a, .nav-right-2 > li.disabled > a {
       color: #777777; }
-      .nav > li.disabled > a:hover, .nav-content > li.disabled > a:hover, .navbar-left > li.disabled > a:hover, .navbar-right > li.disabled > a:hover, .nav > li.disabled > a:focus, .nav-content > li.disabled > a:focus, .navbar-left > li.disabled > a:focus, .navbar-right > li.disabled > a:focus {
+      .nav > li.disabled > a:hover, .nav-content > li.disabled > a:hover, .nav-left-1 > li.disabled > a:hover, .nav-left-2 > li.disabled > a:hover, .nav-right-1 > li.disabled > a:hover, .nav-right-2 > li.disabled > a:hover, .nav > li.disabled > a:focus, .nav-content > li.disabled > a:focus, .nav-left-1 > li.disabled > a:focus, .nav-left-2 > li.disabled > a:focus, .nav-right-1 > li.disabled > a:focus, .nav-right-2 > li.disabled > a:focus {
         color: #777777;
         text-decoration: none;
         background-color: transparent;
         cursor: not-allowed; }
-  .nav .open > a, .nav-content .open > a, .navbar-left .open > a, .navbar-right .open > a, .nav .open > a:hover, .nav-content .open > a:hover, .navbar-left .open > a:hover, .navbar-right .open > a:hover, .nav .open > a:focus, .nav-content .open > a:focus, .navbar-left .open > a:focus, .navbar-right .open > a:focus {
+  .nav .open > a, .nav-content .open > a, .nav-left-1 .open > a, .nav-left-2 .open > a, .nav-right-1 .open > a, .nav-right-2 .open > a, .nav .open > a:hover, .nav-content .open > a:hover, .nav-left-1 .open > a:hover, .nav-left-2 .open > a:hover, .nav-right-1 .open > a:hover, .nav-right-2 .open > a:hover, .nav .open > a:focus, .nav-content .open > a:focus, .nav-left-1 .open > a:focus, .nav-left-2 .open > a:focus, .nav-right-1 .open > a:focus, .nav-right-2 .open > a:focus {
     background-color: #eeeeee;
     border-color: #337ab7; }
-  .nav .nav-divider, .nav-content .nav-divider, .navbar-left .nav-divider, .navbar-right .nav-divider {
+  .nav .nav-divider, .nav-content .nav-divider, .nav-left-1 .nav-divider, .nav-left-2 .nav-divider, .nav-right-1 .nav-divider, .nav-right-2 .nav-divider {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
     background-color: #e5e5e5; }
-  .nav > li > a > img, .nav-content > li > a > img, .navbar-left > li > a > img, .navbar-right > li > a > img {
+  .nav > li > a > img, .nav-content > li > a > img, .nav-left-1 > li > a > img, .nav-left-2 > li > a > img, .nav-right-1 > li > a > img, .nav-right-2 > li > a > img {
     max-width: none; }
 
 .nav-tabs {
@@ -3870,14 +3870,14 @@ tbody.collapse.in {
     .navbar-toggle {
       display: none; } }
 
-.navbar-nav, .nav-content, .navbar-left, .navbar-right {
+.navbar-nav, .nav-content, .nav-left-1, .nav-left-2, .nav-right-1, .nav-right-2 {
   margin: 7.5px -15px; }
-  .navbar-nav > li > a, .nav-content > li > a, .navbar-left > li > a, .navbar-right > li > a {
+  .navbar-nav > li > a, .nav-content > li > a, .nav-left-1 > li > a, .nav-left-2 > li > a, .nav-right-1 > li > a, .nav-right-2 > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
     line-height: 20px; }
   @media (max-width: 767px) {
-    .navbar-nav .open .dropdown-menu, .nav-content .open .dropdown-menu, .navbar-left .open .dropdown-menu, .navbar-right .open .dropdown-menu {
+    .navbar-nav .open .dropdown-menu, .nav-content .open .dropdown-menu, .nav-left-1 .open .dropdown-menu, .nav-left-2 .open .dropdown-menu, .nav-right-1 .open .dropdown-menu, .nav-right-2 .open .dropdown-menu {
       position: static;
       float: none;
       width: auto;
@@ -3885,20 +3885,20 @@ tbody.collapse.in {
       background-color: transparent;
       border: 0;
       box-shadow: none; }
-      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .navbar-left .open .dropdown-menu > li > a, .navbar-right .open .dropdown-menu > li > a,
-      .navbar-nav .open .dropdown-menu .dropdown-header, .nav-content .open .dropdown-menu .dropdown-header, .navbar-left .open .dropdown-menu .dropdown-header, .navbar-right .open .dropdown-menu .dropdown-header {
+      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .nav-left-1 .open .dropdown-menu > li > a, .nav-left-2 .open .dropdown-menu > li > a, .nav-right-1 .open .dropdown-menu > li > a, .nav-right-2 .open .dropdown-menu > li > a,
+      .navbar-nav .open .dropdown-menu .dropdown-header, .nav-content .open .dropdown-menu .dropdown-header, .nav-left-1 .open .dropdown-menu .dropdown-header, .nav-left-2 .open .dropdown-menu .dropdown-header, .nav-right-1 .open .dropdown-menu .dropdown-header, .nav-right-2 .open .dropdown-menu .dropdown-header {
         padding: 5px 15px 5px 25px; }
-      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .navbar-left .open .dropdown-menu > li > a, .navbar-right .open .dropdown-menu > li > a {
+      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .nav-left-1 .open .dropdown-menu > li > a, .nav-left-2 .open .dropdown-menu > li > a, .nav-right-1 .open .dropdown-menu > li > a, .nav-right-2 .open .dropdown-menu > li > a {
         line-height: 20px; }
-        .navbar-nav .open .dropdown-menu > li > a:hover, .nav-content .open .dropdown-menu > li > a:hover, .navbar-left .open .dropdown-menu > li > a:hover, .navbar-right .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus, .nav-content .open .dropdown-menu > li > a:focus, .navbar-left .open .dropdown-menu > li > a:focus, .navbar-right .open .dropdown-menu > li > a:focus {
+        .navbar-nav .open .dropdown-menu > li > a:hover, .nav-content .open .dropdown-menu > li > a:hover, .nav-left-1 .open .dropdown-menu > li > a:hover, .nav-left-2 .open .dropdown-menu > li > a:hover, .nav-right-1 .open .dropdown-menu > li > a:hover, .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus, .nav-content .open .dropdown-menu > li > a:focus, .nav-left-1 .open .dropdown-menu > li > a:focus, .nav-left-2 .open .dropdown-menu > li > a:focus, .nav-right-1 .open .dropdown-menu > li > a:focus, .nav-right-2 .open .dropdown-menu > li > a:focus {
           background-image: none; } }
   @media (min-width: 768px) {
-    .navbar-nav, .nav-content, .navbar-left, .navbar-right {
+    .navbar-nav, .nav-content, .nav-left-1, .nav-left-2, .nav-right-1, .nav-right-2 {
       float: left;
       margin: 0; }
-      .navbar-nav > li, .nav-content > li, .navbar-left > li, .navbar-right > li {
+      .navbar-nav > li, .nav-content > li, .nav-left-1 > li, .nav-left-2 > li, .nav-right-1 > li, .nav-right-2 > li {
         float: left; }
-        .navbar-nav > li > a, .nav-content > li > a, .navbar-left > li > a, .navbar-right > li > a {
+        .navbar-nav > li > a, .nav-content > li > a, .nav-left-1 > li > a, .nav-left-2 > li > a, .nav-right-1 > li > a, .nav-right-2 > li > a {
           padding-top: 15px;
           padding-bottom: 15px; } }
 
@@ -3967,12 +3967,12 @@ tbody.collapse.in {
       -webkit-box-shadow: none;
       box-shadow: none; } }
 
-.navbar-nav > li > .dropdown-menu, .nav-content > li > .dropdown-menu, .navbar-left > li > .dropdown-menu, .navbar-right > li > .dropdown-menu {
+.navbar-nav > li > .dropdown-menu, .nav-content > li > .dropdown-menu, .nav-left-1 > li > .dropdown-menu, .nav-left-2 > li > .dropdown-menu, .nav-right-1 > li > .dropdown-menu, .nav-right-2 > li > .dropdown-menu {
   margin-top: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu, .navbar-fixed-bottom .nav-content > li > .dropdown-menu, .navbar-fixed-bottom .navbar-left > li > .dropdown-menu, .navbar-fixed-bottom .navbar-right > li > .dropdown-menu {
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu, .navbar-fixed-bottom .nav-content > li > .dropdown-menu, .navbar-fixed-bottom .nav-left-1 > li > .dropdown-menu, .navbar-fixed-bottom .nav-left-2 > li > .dropdown-menu, .navbar-fixed-bottom .nav-right-1 > li > .dropdown-menu, .navbar-fixed-bottom .nav-right-2 > li > .dropdown-menu {
   margin-bottom: 0;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -3999,12 +3999,12 @@ tbody.collapse.in {
       margin-right: 15px; } }
 
 @media (min-width: 768px) {
-  .navbar-left {
+  .navbar-left, .nav-left-1 {
     float: left !important; }
-  .navbar-right {
+  .navbar-right, .nav-right-2 {
     float: right !important;
     margin-right: -15px; }
-    .navbar-right ~ .navbar-right {
+    .navbar-right ~ .navbar-right, .nav-right-2 ~ .navbar-right, .navbar-right ~ .nav-right-2, .nav-right-2 ~ .nav-right-2 {
       margin-right: 0; } }
 
 .navbar-default, #navbar {
@@ -4017,15 +4017,15 @@ tbody.collapse.in {
       background-color: transparent; }
   .navbar-default .navbar-text, #navbar .navbar-text {
     color: #777; }
-  .navbar-default .navbar-nav > li > a, #navbar .navbar-nav > li > a, .navbar-default .nav-content > li > a, #navbar .nav-content > li > a, .navbar-default .navbar-left > li > a, #navbar .navbar-left > li > a, .navbar-default .navbar-right > li > a, #navbar .navbar-right > li > a {
+  .navbar-default .navbar-nav > li > a, #navbar .navbar-nav > li > a, .navbar-default .nav-content > li > a, #navbar .nav-content > li > a, .navbar-default .nav-left-1 > li > a, #navbar .nav-left-1 > li > a, .navbar-default .nav-left-2 > li > a, #navbar .nav-left-2 > li > a, .navbar-default .nav-right-1 > li > a, #navbar .nav-right-1 > li > a, .navbar-default .nav-right-2 > li > a, #navbar .nav-right-2 > li > a {
     color: #777; }
-    .navbar-default .navbar-nav > li > a:hover, #navbar .navbar-nav > li > a:hover, .navbar-default .nav-content > li > a:hover, #navbar .nav-content > li > a:hover, .navbar-default .navbar-left > li > a:hover, #navbar .navbar-left > li > a:hover, .navbar-default .navbar-right > li > a:hover, #navbar .navbar-right > li > a:hover, .navbar-default .navbar-nav > li > a:focus, #navbar .navbar-nav > li > a:focus, .navbar-default .nav-content > li > a:focus, #navbar .nav-content > li > a:focus, .navbar-default .navbar-left > li > a:focus, #navbar .navbar-left > li > a:focus, .navbar-default .navbar-right > li > a:focus, #navbar .navbar-right > li > a:focus {
+    .navbar-default .navbar-nav > li > a:hover, #navbar .navbar-nav > li > a:hover, .navbar-default .nav-content > li > a:hover, #navbar .nav-content > li > a:hover, .navbar-default .nav-left-1 > li > a:hover, #navbar .nav-left-1 > li > a:hover, .navbar-default .nav-left-2 > li > a:hover, #navbar .nav-left-2 > li > a:hover, .navbar-default .nav-right-1 > li > a:hover, #navbar .nav-right-1 > li > a:hover, .navbar-default .nav-right-2 > li > a:hover, #navbar .nav-right-2 > li > a:hover, .navbar-default .navbar-nav > li > a:focus, #navbar .navbar-nav > li > a:focus, .navbar-default .nav-content > li > a:focus, #navbar .nav-content > li > a:focus, .navbar-default .nav-left-1 > li > a:focus, #navbar .nav-left-1 > li > a:focus, .navbar-default .nav-left-2 > li > a:focus, #navbar .nav-left-2 > li > a:focus, .navbar-default .nav-right-1 > li > a:focus, #navbar .nav-right-1 > li > a:focus, .navbar-default .nav-right-2 > li > a:focus, #navbar .nav-right-2 > li > a:focus {
       color: #333;
       background-color: transparent; }
-  .navbar-default .navbar-nav > .active > a, #navbar .navbar-nav > .active > a, .navbar-default .nav-content > .active > a, #navbar .nav-content > .active > a, .navbar-default .navbar-left > .active > a, #navbar .navbar-left > .active > a, .navbar-default .navbar-right > .active > a, #navbar .navbar-right > .active > a, .navbar-default .navbar-nav > .active > a:hover, #navbar .navbar-nav > .active > a:hover, .navbar-default .nav-content > .active > a:hover, #navbar .nav-content > .active > a:hover, .navbar-default .navbar-left > .active > a:hover, #navbar .navbar-left > .active > a:hover, .navbar-default .navbar-right > .active > a:hover, #navbar .navbar-right > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, #navbar .navbar-nav > .active > a:focus, .navbar-default .nav-content > .active > a:focus, #navbar .nav-content > .active > a:focus, .navbar-default .navbar-left > .active > a:focus, #navbar .navbar-left > .active > a:focus, .navbar-default .navbar-right > .active > a:focus, #navbar .navbar-right > .active > a:focus {
+  .navbar-default .navbar-nav > .active > a, #navbar .navbar-nav > .active > a, .navbar-default .nav-content > .active > a, #navbar .nav-content > .active > a, .navbar-default .nav-left-1 > .active > a, #navbar .nav-left-1 > .active > a, .navbar-default .nav-left-2 > .active > a, #navbar .nav-left-2 > .active > a, .navbar-default .nav-right-1 > .active > a, #navbar .nav-right-1 > .active > a, .navbar-default .nav-right-2 > .active > a, #navbar .nav-right-2 > .active > a, .navbar-default .navbar-nav > .active > a:hover, #navbar .navbar-nav > .active > a:hover, .navbar-default .nav-content > .active > a:hover, #navbar .nav-content > .active > a:hover, .navbar-default .nav-left-1 > .active > a:hover, #navbar .nav-left-1 > .active > a:hover, .navbar-default .nav-left-2 > .active > a:hover, #navbar .nav-left-2 > .active > a:hover, .navbar-default .nav-right-1 > .active > a:hover, #navbar .nav-right-1 > .active > a:hover, .navbar-default .nav-right-2 > .active > a:hover, #navbar .nav-right-2 > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, #navbar .navbar-nav > .active > a:focus, .navbar-default .nav-content > .active > a:focus, #navbar .nav-content > .active > a:focus, .navbar-default .nav-left-1 > .active > a:focus, #navbar .nav-left-1 > .active > a:focus, .navbar-default .nav-left-2 > .active > a:focus, #navbar .nav-left-2 > .active > a:focus, .navbar-default .nav-right-1 > .active > a:focus, #navbar .nav-right-1 > .active > a:focus, .navbar-default .nav-right-2 > .active > a:focus, #navbar .nav-right-2 > .active > a:focus {
     color: #555;
     background-color: #e7e7e7; }
-  .navbar-default .navbar-nav > .disabled > a, #navbar .navbar-nav > .disabled > a, .navbar-default .nav-content > .disabled > a, #navbar .nav-content > .disabled > a, .navbar-default .navbar-left > .disabled > a, #navbar .navbar-left > .disabled > a, .navbar-default .navbar-right > .disabled > a, #navbar .navbar-right > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, #navbar .navbar-nav > .disabled > a:hover, .navbar-default .nav-content > .disabled > a:hover, #navbar .nav-content > .disabled > a:hover, .navbar-default .navbar-left > .disabled > a:hover, #navbar .navbar-left > .disabled > a:hover, .navbar-default .navbar-right > .disabled > a:hover, #navbar .navbar-right > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus, #navbar .navbar-nav > .disabled > a:focus, .navbar-default .nav-content > .disabled > a:focus, #navbar .nav-content > .disabled > a:focus, .navbar-default .navbar-left > .disabled > a:focus, #navbar .navbar-left > .disabled > a:focus, .navbar-default .navbar-right > .disabled > a:focus, #navbar .navbar-right > .disabled > a:focus {
+  .navbar-default .navbar-nav > .disabled > a, #navbar .navbar-nav > .disabled > a, .navbar-default .nav-content > .disabled > a, #navbar .nav-content > .disabled > a, .navbar-default .nav-left-1 > .disabled > a, #navbar .nav-left-1 > .disabled > a, .navbar-default .nav-left-2 > .disabled > a, #navbar .nav-left-2 > .disabled > a, .navbar-default .nav-right-1 > .disabled > a, #navbar .nav-right-1 > .disabled > a, .navbar-default .nav-right-2 > .disabled > a, #navbar .nav-right-2 > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, #navbar .navbar-nav > .disabled > a:hover, .navbar-default .nav-content > .disabled > a:hover, #navbar .nav-content > .disabled > a:hover, .navbar-default .nav-left-1 > .disabled > a:hover, #navbar .nav-left-1 > .disabled > a:hover, .navbar-default .nav-left-2 > .disabled > a:hover, #navbar .nav-left-2 > .disabled > a:hover, .navbar-default .nav-right-1 > .disabled > a:hover, #navbar .nav-right-1 > .disabled > a:hover, .navbar-default .nav-right-2 > .disabled > a:hover, #navbar .nav-right-2 > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus, #navbar .navbar-nav > .disabled > a:focus, .navbar-default .nav-content > .disabled > a:focus, #navbar .nav-content > .disabled > a:focus, .navbar-default .nav-left-1 > .disabled > a:focus, #navbar .nav-left-1 > .disabled > a:focus, .navbar-default .nav-left-2 > .disabled > a:focus, #navbar .nav-left-2 > .disabled > a:focus, .navbar-default .nav-right-1 > .disabled > a:focus, #navbar .nav-right-1 > .disabled > a:focus, .navbar-default .nav-right-2 > .disabled > a:focus, #navbar .nav-right-2 > .disabled > a:focus {
     color: #ccc;
     background-color: transparent; }
   .navbar-default .navbar-toggle, #navbar .navbar-toggle {
@@ -4038,19 +4038,19 @@ tbody.collapse.in {
   .navbar-default .navbar-form, #navbar .navbar-form,
   .navbar-default #search-form, #navbar #search-form {
     border-color: #e7e7e7; }
-  .navbar-default .navbar-nav > .open > a, #navbar .navbar-nav > .open > a, .navbar-default .nav-content > .open > a, #navbar .nav-content > .open > a, .navbar-default .navbar-left > .open > a, #navbar .navbar-left > .open > a, .navbar-default .navbar-right > .open > a, #navbar .navbar-right > .open > a, .navbar-default .navbar-nav > .open > a:hover, #navbar .navbar-nav > .open > a:hover, .navbar-default .nav-content > .open > a:hover, #navbar .nav-content > .open > a:hover, .navbar-default .navbar-left > .open > a:hover, #navbar .navbar-left > .open > a:hover, .navbar-default .navbar-right > .open > a:hover, #navbar .navbar-right > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, #navbar .navbar-nav > .open > a:focus, .navbar-default .nav-content > .open > a:focus, #navbar .nav-content > .open > a:focus, .navbar-default .navbar-left > .open > a:focus, #navbar .navbar-left > .open > a:focus, .navbar-default .navbar-right > .open > a:focus, #navbar .navbar-right > .open > a:focus {
+  .navbar-default .navbar-nav > .open > a, #navbar .navbar-nav > .open > a, .navbar-default .nav-content > .open > a, #navbar .nav-content > .open > a, .navbar-default .nav-left-1 > .open > a, #navbar .nav-left-1 > .open > a, .navbar-default .nav-left-2 > .open > a, #navbar .nav-left-2 > .open > a, .navbar-default .nav-right-1 > .open > a, #navbar .nav-right-1 > .open > a, .navbar-default .nav-right-2 > .open > a, #navbar .nav-right-2 > .open > a, .navbar-default .navbar-nav > .open > a:hover, #navbar .navbar-nav > .open > a:hover, .navbar-default .nav-content > .open > a:hover, #navbar .nav-content > .open > a:hover, .navbar-default .nav-left-1 > .open > a:hover, #navbar .nav-left-1 > .open > a:hover, .navbar-default .nav-left-2 > .open > a:hover, #navbar .nav-left-2 > .open > a:hover, .navbar-default .nav-right-1 > .open > a:hover, #navbar .nav-right-1 > .open > a:hover, .navbar-default .nav-right-2 > .open > a:hover, #navbar .nav-right-2 > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, #navbar .navbar-nav > .open > a:focus, .navbar-default .nav-content > .open > a:focus, #navbar .nav-content > .open > a:focus, .navbar-default .nav-left-1 > .open > a:focus, #navbar .nav-left-1 > .open > a:focus, .navbar-default .nav-left-2 > .open > a:focus, #navbar .nav-left-2 > .open > a:focus, .navbar-default .nav-right-1 > .open > a:focus, #navbar .nav-right-1 > .open > a:focus, .navbar-default .nav-right-2 > .open > a:focus, #navbar .nav-right-2 > .open > a:focus {
     background-color: #e7e7e7;
     color: #555; }
   @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a, #navbar .navbar-nav .open .dropdown-menu > li > a, .navbar-default .nav-content .open .dropdown-menu > li > a, #navbar .nav-content .open .dropdown-menu > li > a, .navbar-default .navbar-left .open .dropdown-menu > li > a, #navbar .navbar-left .open .dropdown-menu > li > a, .navbar-default .navbar-right .open .dropdown-menu > li > a, #navbar .navbar-right .open .dropdown-menu > li > a {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a, #navbar .navbar-nav .open .dropdown-menu > li > a, .navbar-default .nav-content .open .dropdown-menu > li > a, #navbar .nav-content .open .dropdown-menu > li > a, .navbar-default .nav-left-1 .open .dropdown-menu > li > a, #navbar .nav-left-1 .open .dropdown-menu > li > a, .navbar-default .nav-left-2 .open .dropdown-menu > li > a, #navbar .nav-left-2 .open .dropdown-menu > li > a, .navbar-default .nav-right-1 .open .dropdown-menu > li > a, #navbar .nav-right-1 .open .dropdown-menu > li > a, .navbar-default .nav-right-2 .open .dropdown-menu > li > a, #navbar .nav-right-2 .open .dropdown-menu > li > a {
       color: #777; }
-      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, #navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .nav-content .open .dropdown-menu > li > a:hover, #navbar .nav-content .open .dropdown-menu > li > a:hover, .navbar-default .navbar-left .open .dropdown-menu > li > a:hover, #navbar .navbar-left .open .dropdown-menu > li > a:hover, .navbar-default .navbar-right .open .dropdown-menu > li > a:hover, #navbar .navbar-right .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, #navbar .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .nav-content .open .dropdown-menu > li > a:focus, #navbar .nav-content .open .dropdown-menu > li > a:focus, .navbar-default .navbar-left .open .dropdown-menu > li > a:focus, #navbar .navbar-left .open .dropdown-menu > li > a:focus, .navbar-default .navbar-right .open .dropdown-menu > li > a:focus, #navbar .navbar-right .open .dropdown-menu > li > a:focus {
+      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, #navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .nav-content .open .dropdown-menu > li > a:hover, #navbar .nav-content .open .dropdown-menu > li > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > li > a:hover, #navbar .nav-left-1 .open .dropdown-menu > li > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > li > a:hover, #navbar .nav-left-2 .open .dropdown-menu > li > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > li > a:hover, #navbar .nav-right-1 .open .dropdown-menu > li > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > li > a:hover, #navbar .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, #navbar .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .nav-content .open .dropdown-menu > li > a:focus, #navbar .nav-content .open .dropdown-menu > li > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > li > a:focus, #navbar .nav-left-1 .open .dropdown-menu > li > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > li > a:focus, #navbar .nav-left-2 .open .dropdown-menu > li > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > li > a:focus, #navbar .nav-right-1 .open .dropdown-menu > li > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > li > a:focus, #navbar .nav-right-2 .open .dropdown-menu > li > a:focus {
         color: #333;
         background-color: transparent; }
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, #navbar .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .nav-content .open .dropdown-menu > .active > a, #navbar .nav-content .open .dropdown-menu > .active > a, .navbar-default .navbar-left .open .dropdown-menu > .active > a, #navbar .navbar-left .open .dropdown-menu > .active > a, .navbar-default .navbar-right .open .dropdown-menu > .active > a, #navbar .navbar-right .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, #navbar .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .nav-content .open .dropdown-menu > .active > a:hover, #navbar .nav-content .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-left .open .dropdown-menu > .active > a:hover, #navbar .navbar-left .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-right .open .dropdown-menu > .active > a:hover, #navbar .navbar-right .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus, #navbar .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-default .nav-content .open .dropdown-menu > .active > a:focus, #navbar .nav-content .open .dropdown-menu > .active > a:focus, .navbar-default .navbar-left .open .dropdown-menu > .active > a:focus, #navbar .navbar-left .open .dropdown-menu > .active > a:focus, .navbar-default .navbar-right .open .dropdown-menu > .active > a:focus, #navbar .navbar-right .open .dropdown-menu > .active > a:focus {
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, #navbar .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .nav-content .open .dropdown-menu > .active > a, #navbar .nav-content .open .dropdown-menu > .active > a, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a, #navbar .nav-left-1 .open .dropdown-menu > .active > a, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a, #navbar .nav-left-2 .open .dropdown-menu > .active > a, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a, #navbar .nav-right-1 .open .dropdown-menu > .active > a, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a, #navbar .nav-right-2 .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, #navbar .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .nav-content .open .dropdown-menu > .active > a:hover, #navbar .nav-content .open .dropdown-menu > .active > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a:hover, #navbar .nav-left-1 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a:hover, #navbar .nav-left-2 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a:hover, #navbar .nav-right-1 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a:hover, #navbar .nav-right-2 .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus, #navbar .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-default .nav-content .open .dropdown-menu > .active > a:focus, #navbar .nav-content .open .dropdown-menu > .active > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a:focus, #navbar .nav-left-1 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a:focus, #navbar .nav-left-2 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a:focus, #navbar .nav-right-1 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a:focus, #navbar .nav-right-2 .open .dropdown-menu > .active > a:focus {
       color: #555;
       background-color: #e7e7e7; }
-    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, #navbar .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .nav-content .open .dropdown-menu > .disabled > a, #navbar .nav-content .open .dropdown-menu > .disabled > a, .navbar-default .navbar-left .open .dropdown-menu > .disabled > a, #navbar .navbar-left .open .dropdown-menu > .disabled > a, .navbar-default .navbar-right .open .dropdown-menu > .disabled > a, #navbar .navbar-right .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:hover, #navbar .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-left .open .dropdown-menu > .disabled > a:hover, #navbar .navbar-left .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-right .open .dropdown-menu > .disabled > a:hover, #navbar .navbar-right .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:focus, #navbar .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-default .navbar-left .open .dropdown-menu > .disabled > a:focus, #navbar .navbar-left .open .dropdown-menu > .disabled > a:focus, .navbar-default .navbar-right .open .dropdown-menu > .disabled > a:focus, #navbar .navbar-right .open .dropdown-menu > .disabled > a:focus {
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, #navbar .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .nav-content .open .dropdown-menu > .disabled > a, #navbar .nav-content .open .dropdown-menu > .disabled > a, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:hover, #navbar .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:focus, #navbar .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a:focus {
       color: #ccc;
       background-color: transparent; } }
   .navbar-default .navbar-link, #navbar .navbar-link {
@@ -4078,15 +4078,15 @@ tbody.collapse.in {
       background-color: transparent; }
   .navbar-inverse .navbar-text {
     color: #9d9d9d; }
-  .navbar-inverse .navbar-nav > li > a, .navbar-inverse .nav-content > li > a, .navbar-inverse .navbar-left > li > a, .navbar-inverse .navbar-right > li > a {
+  .navbar-inverse .navbar-nav > li > a, .navbar-inverse .nav-content > li > a, .navbar-inverse .nav-left-1 > li > a, .navbar-inverse .nav-left-2 > li > a, .navbar-inverse .nav-right-1 > li > a, .navbar-inverse .nav-right-2 > li > a {
     color: #9d9d9d; }
-    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .nav-content > li > a:hover, .navbar-inverse .navbar-left > li > a:hover, .navbar-inverse .navbar-right > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .nav-content > li > a:focus, .navbar-inverse .navbar-left > li > a:focus, .navbar-inverse .navbar-right > li > a:focus {
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .nav-content > li > a:hover, .navbar-inverse .nav-left-1 > li > a:hover, .navbar-inverse .nav-left-2 > li > a:hover, .navbar-inverse .nav-right-1 > li > a:hover, .navbar-inverse .nav-right-2 > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .nav-content > li > a:focus, .navbar-inverse .nav-left-1 > li > a:focus, .navbar-inverse .nav-left-2 > li > a:focus, .navbar-inverse .nav-right-1 > li > a:focus, .navbar-inverse .nav-right-2 > li > a:focus {
       color: #fff;
       background-color: transparent; }
-  .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .nav-content > .active > a, .navbar-inverse .navbar-left > .active > a, .navbar-inverse .navbar-right > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .nav-content > .active > a:hover, .navbar-inverse .navbar-left > .active > a:hover, .navbar-inverse .navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .nav-content > .active > a:focus, .navbar-inverse .navbar-left > .active > a:focus, .navbar-inverse .navbar-right > .active > a:focus {
+  .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .nav-content > .active > a, .navbar-inverse .nav-left-1 > .active > a, .navbar-inverse .nav-left-2 > .active > a, .navbar-inverse .nav-right-1 > .active > a, .navbar-inverse .nav-right-2 > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .nav-content > .active > a:hover, .navbar-inverse .nav-left-1 > .active > a:hover, .navbar-inverse .nav-left-2 > .active > a:hover, .navbar-inverse .nav-right-1 > .active > a:hover, .navbar-inverse .nav-right-2 > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .nav-content > .active > a:focus, .navbar-inverse .nav-left-1 > .active > a:focus, .navbar-inverse .nav-left-2 > .active > a:focus, .navbar-inverse .nav-right-1 > .active > a:focus, .navbar-inverse .nav-right-2 > .active > a:focus {
     color: #fff;
     background-color: #090909; }
-  .navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .nav-content > .disabled > a, .navbar-inverse .navbar-left > .disabled > a, .navbar-inverse .navbar-right > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:hover, .navbar-inverse .nav-content > .disabled > a:hover, .navbar-inverse .navbar-left > .disabled > a:hover, .navbar-inverse .navbar-right > .disabled > a:hover, .navbar-inverse .navbar-nav > .disabled > a:focus, .navbar-inverse .nav-content > .disabled > a:focus, .navbar-inverse .navbar-left > .disabled > a:focus, .navbar-inverse .navbar-right > .disabled > a:focus {
+  .navbar-inverse .navbar-nav > .disabled > a, .navbar-inverse .nav-content > .disabled > a, .navbar-inverse .nav-left-1 > .disabled > a, .navbar-inverse .nav-left-2 > .disabled > a, .navbar-inverse .nav-right-1 > .disabled > a, .navbar-inverse .nav-right-2 > .disabled > a, .navbar-inverse .navbar-nav > .disabled > a:hover, .navbar-inverse .nav-content > .disabled > a:hover, .navbar-inverse .nav-left-1 > .disabled > a:hover, .navbar-inverse .nav-left-2 > .disabled > a:hover, .navbar-inverse .nav-right-1 > .disabled > a:hover, .navbar-inverse .nav-right-2 > .disabled > a:hover, .navbar-inverse .navbar-nav > .disabled > a:focus, .navbar-inverse .nav-content > .disabled > a:focus, .navbar-inverse .nav-left-1 > .disabled > a:focus, .navbar-inverse .nav-left-2 > .disabled > a:focus, .navbar-inverse .nav-right-1 > .disabled > a:focus, .navbar-inverse .nav-right-2 > .disabled > a:focus {
     color: #444;
     background-color: transparent; }
   .navbar-inverse .navbar-toggle {
@@ -4099,23 +4099,23 @@ tbody.collapse.in {
   .navbar-inverse .navbar-form,
   .navbar-inverse #search-form {
     border-color: #101010; }
-  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .nav-content > .open > a, .navbar-inverse .navbar-left > .open > a, .navbar-inverse .navbar-right > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .nav-content > .open > a:hover, .navbar-inverse .navbar-left > .open > a:hover, .navbar-inverse .navbar-right > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .nav-content > .open > a:focus, .navbar-inverse .navbar-left > .open > a:focus, .navbar-inverse .navbar-right > .open > a:focus {
+  .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .nav-content > .open > a, .navbar-inverse .nav-left-1 > .open > a, .navbar-inverse .nav-left-2 > .open > a, .navbar-inverse .nav-right-1 > .open > a, .navbar-inverse .nav-right-2 > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .nav-content > .open > a:hover, .navbar-inverse .nav-left-1 > .open > a:hover, .navbar-inverse .nav-left-2 > .open > a:hover, .navbar-inverse .nav-right-1 > .open > a:hover, .navbar-inverse .nav-right-2 > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .nav-content > .open > a:focus, .navbar-inverse .nav-left-1 > .open > a:focus, .navbar-inverse .nav-left-2 > .open > a:focus, .navbar-inverse .nav-right-1 > .open > a:focus, .navbar-inverse .nav-right-2 > .open > a:focus {
     background-color: #090909;
     color: #fff; }
   @media (max-width: 767px) {
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-content .open .dropdown-menu > .dropdown-header, .navbar-inverse .navbar-left .open .dropdown-menu > .dropdown-header, .navbar-inverse .navbar-right .open .dropdown-menu > .dropdown-header {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-content .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-left-1 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-left-2 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-right-1 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-right-2 .open .dropdown-menu > .dropdown-header {
       border-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu .divider, .navbar-inverse .nav-content .open .dropdown-menu .divider, .navbar-inverse .navbar-left .open .dropdown-menu .divider, .navbar-inverse .navbar-right .open .dropdown-menu .divider {
+    .navbar-inverse .navbar-nav .open .dropdown-menu .divider, .navbar-inverse .nav-content .open .dropdown-menu .divider, .navbar-inverse .nav-left-1 .open .dropdown-menu .divider, .navbar-inverse .nav-left-2 .open .dropdown-menu .divider, .navbar-inverse .nav-right-1 .open .dropdown-menu .divider, .navbar-inverse .nav-right-2 .open .dropdown-menu .divider {
       background-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .nav-content .open .dropdown-menu > li > a, .navbar-inverse .navbar-left .open .dropdown-menu > li > a, .navbar-inverse .navbar-right .open .dropdown-menu > li > a {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .nav-content .open .dropdown-menu > li > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a {
       color: #9d9d9d; }
-      .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-left .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-right .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > li > a:focus, .navbar-inverse .navbar-left .open .dropdown-menu > li > a:focus, .navbar-inverse .navbar-right .open .dropdown-menu > li > a:focus {
+      .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a:focus {
         color: #fff;
         background-color: transparent; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .nav-content .open .dropdown-menu > .active > a, .navbar-inverse .navbar-left .open .dropdown-menu > .active > a, .navbar-inverse .navbar-right .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-left .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-right .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:focus, .navbar-inverse .navbar-left .open .dropdown-menu > .active > a:focus, .navbar-inverse .navbar-right .open .dropdown-menu > .active > a:focus {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .nav-content .open .dropdown-menu > .active > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a:focus {
       color: #fff;
       background-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-left .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-right .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-left .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-right .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .navbar-left .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .navbar-right .open .dropdown-menu > .disabled > a:focus {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a:focus {
       color: #444;
       background-color: transparent; } }
   .navbar-inverse .navbar-link {
@@ -5894,30 +5894,84 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-@media (max-width: 768px) {
-  .collapse-sm, .navbar-left {
+@media (max-width: 767px) {
+  .collapse-sm, .nav-left-1, #search-form {
     display: none !important; } }
+
+@media (min-width: 767px) {
+  .display-sm {
+    display: none !important; } }
+
+@media (max-width: 1145px) {
+  .collapse-md {
+    display: none !important; } }
+
+@media (max-width: 1145px) {
+  .float-right-md, .nav-left-2 {
+    float: right !important; } }
 
 #logo {
   width: 50px;
   height: 50px; }
 
-.nav-content, .navbar-left, .navbar-right {
+.nav-content, .nav-left-1, .nav-left-2, .nav-right-1, .nav-right-2 {
   height: 4em;
   display: flex;
   align-items: center; }
+  @media (max-width: 767px) {
+    .nav-content, .nav-left-1, .nav-left-2, .nav-right-1, .nav-right-2 {
+      margin: auto !important; } }
+
+.nav-left-container {
+  float: left; }
+  @media (max-width: 1145px) {
+    .nav-left-container {
+      width: 100%; } }
+  @media (max-width: 767px) {
+    .nav-left-container {
+      width: auto; } }
+
+.nav-right-container {
+  float: right; }
+  @media (max-width: 1145px) {
+    .nav-right-container {
+      width: 100%; } }
+  @media (max-width: 767px) {
+    .nav-right-container {
+      width: auto; } }
+
+@media (max-width: 1145px) {
+  .nav-right-1 {
+    float: left !important; } }
+
+.nav-right-2 {
+  margin-right: 0px; }
 
 #search-input {
   min-width: 400px; }
-  @media (max-width: 768px) {
+  @media (min-width: 1245px) and (max-width: 1345px) {
+    #search-input {
+      min-width: 300px; } }
+  @media (min-width: 1145px) and (max-width: 1245px) {
     #search-input {
       min-width: 200px; } }
+  @media (max-width: 1145px) {
+    #search-input {
+      min-width: 350px; } }
 
 #profile-photo {
   width: 40px;
   height: 40px;
   border-radius: 30px;
-  margin: 0px 7px; }
+  margin-left: 10px; }
 
 body {
-  padding-top: 4em; }
+  padding-top: 4em;
+  min-width: 767px !important;
+  overflow-x: hidden !important; }
+  @media (min-width: 767px) and (max-width: 1145px) {
+    body {
+      padding-top: 8em; } }
+  @media (max-width: 767px) {
+    body {
+      padding-top: 4em; } }

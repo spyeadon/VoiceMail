@@ -18,6 +18,7 @@ class MessageFilter extends React.Component {
 
   render() {
     return (
+      <ul className="nav-right-1">
         <form onSubmit={this.searchSubmission} id="search-form">
           <div className="form-group">
             <input
@@ -26,13 +27,14 @@ class MessageFilter extends React.Component {
               type="search"
               id="search-input"
             />
+            <button
+              type="submit"
+              className="menu-buttons">
+              <i className="fa fa-search" aria-hidden="true" />
+            </button>
           </div>
-          <button
-            type="submit"
-            className="menu-buttons">
-            <i className="fa fa-search" aria-hidden="true" />
-          </button>
         </form>
+      </ul>
     )
   }
 }

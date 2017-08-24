@@ -13,8 +13,7 @@ const Paging = props => {
   )
 
   return (
-    <li>
-      <ul className="nav-content">
+      <ul className="nav-left-2">
         <li><p className="navbar-text">{props.currentLabel}</p></li>
         <li><p className="navbar-text">Page {labelThreads.threadGroup}</p></li>
         <li><button
@@ -30,7 +29,7 @@ const Paging = props => {
             props.setThreadGroup('previous', props.currentLabel)
           }}
         >
-          Previous
+          Prev
         </button></li>
         <li><button
           className="menu-buttons"
@@ -52,7 +51,6 @@ const Paging = props => {
           Next
         </button></li>
       </ul>
-    </li>
   )
 }
 

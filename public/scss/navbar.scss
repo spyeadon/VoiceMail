@@ -4,6 +4,24 @@
   }
 }
 
+.display-sm {
+  @media (min-width: $break-sm) {
+    display: none !important;
+  }
+}
+
+.collapse-md {
+  @media (max-width: $break-md) {
+    display: none !important;
+  }
+}
+
+.float-right-md {
+  @media (max-width: $break-md) {
+    float: right !important;
+  }
+}
+
 #navbar {
   @extend .navbar-default;
   @extend .navbar;
@@ -28,30 +46,70 @@
   display: flex;
   align-items: center;
   @media (max-width: $break-sm) {
-
+    margin: auto !important;
   }
 }
 
-.navbar-left {
+.nav-left-container {
+  float: left;
+  @media (max-width: $break-md) {
+    width: 100%;
+  }
+  @media (max-width: $break-sm) {
+    width: auto;
+  }
+}
+
+.nav-left-1 {
   @extend .navbar-left;
   @extend .nav-content;
   @extend .collapse-sm;
 }
 
-.navbar-right {
-  @extend .navbar-right;
+.nav-left-2 {
   @extend .nav-content;
+  @extend .float-right-md;
+}
+
+.nav-right-container {
+  float: right;
+  @media (max-width: $break-md) {
+    width: 100%;
+  }
+  @media (max-width: $break-sm) {
+    width: auto;
+  }
+}
+
+.nav-right-1 {
+  @extend .nav-content;
+  @media (max-width: $break-md) {
+    float: left !important;
+  }
+}
+
+.nav-right-2 {
+  @extend .nav-content;
+  @extend .navbar-right;
+  margin-right: 0px;
 }
 
 #search-form {
   @extend .navbar-form;
+  @extend .collapse-sm;
 }
 
 #search-input {
   @extend .form-control;
   min-width: 400px;
-  @media (max-width: $break-sm) {
+  @media (min-width: $nav-form-break-2) and (max-width: $nav-form-break-1) {
+    min-width: 300px;
+  }
+  @media (min-width: $break-md) and (max-width: $nav-form-break-2) {
     min-width: 200px;
+  }
+  @media (max-width: $break-md) {
+    min-width: 430px;
   }
 }
 
@@ -59,5 +117,5 @@
   width: 40px;
   height: 40px;
   border-radius: 30px;
-  margin: 0px 7px;
+  margin-left: 10px;
 }
