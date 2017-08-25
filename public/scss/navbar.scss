@@ -22,10 +22,19 @@
   }
 }
 
+.child-spacing-sm {
+  li > p {
+    @media (max-width: $break-sm) {
+      padding-right: 7px;
+    }
+  }
+}
+
 #navbar {
   @extend .navbar-default;
   @extend .navbar;
   @extend .navbar-fixed-top;
+  min-width: 403px !important;
 }
 
 #logo {
@@ -69,6 +78,7 @@
 .nav-left-2 {
   @extend .nav-content;
   @extend .float-right-md;
+  @extend .child-spacing-sm;
 }
 
 .nav-right-container {
@@ -90,6 +100,7 @@
 
 .nav-right-2 {
   @extend .nav-content;
+  @extend .child-spacing-sm;
   @extend .navbar-right;
   margin-right: 0px;
 }
@@ -101,7 +112,7 @@
 
 #search-input {
   @extend .form-control;
-  min-width: 400px;
+  min-width: 430px;
   @media (min-width: $nav-form-break-2) and (max-width: $nav-form-break-1) {
     min-width: 300px;
   }
@@ -109,7 +120,7 @@
     min-width: 200px;
   }
   @media (max-width: $break-md) {
-    min-width: 430px;
+    min-width: 416px;
   }
 }
 
@@ -118,4 +129,21 @@
   height: 40px;
   border-radius: 30px;
   margin-left: 10px;
+}
+
+@mixin text-overflow($max-width) {
+  max-width: $max-width;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nav-labelId {
+  @extend .navbar-text;
+  @include text-overflow(68px);
+}
+
+.nav-username {
+  @extend .navbar-text;
+  @include text-overflow(95px);
 }
