@@ -1,6 +1,9 @@
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
 @import 'variables';
 @import 'navbar';
+@import 'sidebar';
+@import 'mailbox';
+@import 'mail';
 
 body {
   padding-top: $nav-height;

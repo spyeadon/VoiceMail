@@ -1,0 +1,25 @@
+#sidebar-container {
+  @extend .col-xs-6;
+  @extend .col-md-4;
+  @extend .col-lg-2;
+}
+
+#sidebar-list {
+  @extend .nav;
+  @extend .nav-pills;
+  @extend .nav-stacked;
+  position: fixed;
+}
+
+.label-LI {
+
+}
+
+.label-btn {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+#audio-container {
+
+}
