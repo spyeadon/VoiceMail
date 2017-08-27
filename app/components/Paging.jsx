@@ -17,7 +17,7 @@ const Paging = props => {
         <li><p className="nav-labelId">{props.currentLabel}</p></li>
         <li><p className="navbar-text">Page {labelThreads.threadGroup}</p></li>
         <li><button
-          className="menu-buttons"
+          className="menu-buttons right-margin"
           disabled={labelThreads.threadGroup === 1}
           onClick={() => {
             if (labelThreads.threadGroup === 2 && props.currentLabel !== 'search') {

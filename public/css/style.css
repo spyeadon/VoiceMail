@@ -222,10 +222,11 @@ th {
     page-break-after: avoid; }
   .navbar, #navbar {
     display: none; }
-  .btn > .caret, .menu-buttons > .caret, .label-btn > .caret,
+  .btn > .caret, .menu-buttons > .caret, .label-btn > .caret, #audio-dropdown > .caret,
   .dropup > .btn > .caret,
   .dropup > .menu-buttons > .caret,
-  .dropup > .label-btn > .caret {
+  .dropup > .label-btn > .caret,
+  .dropup > #audio-dropdown > .caret {
     border-top-color: #000 !important; }
   .label {
     border: 1px solid #000; }
@@ -1233,7 +1234,7 @@ mark,
   background-color: #fcf8e3;
   padding: .2em; }
 
-.text-left, #mail-container {
+.text-left {
   text-align: left; }
 
 .text-right {
@@ -1424,7 +1425,8 @@ blockquote {
       content: '\2014 \00A0'; }
 
 .blockquote-reverse,
-blockquote.pull-right {
+blockquote.pull-right,
+blockquote#mail-container {
   padding-right: 15px;
   padding-left: 0;
   border-right: 5px solid #eeeeee;
@@ -1433,16 +1435,16 @@ blockquote.pull-right {
   .blockquote-reverse footer:before,
   .blockquote-reverse small:before,
   .blockquote-reverse .small:before,
-  blockquote.pull-right footer:before,
-  blockquote.pull-right small:before,
-  blockquote.pull-right .small:before {
+  blockquote.pull-right footer:before, blockquote#mail-container footer:before,
+  blockquote.pull-right small:before, blockquote#mail-container small:before,
+  blockquote.pull-right .small:before, blockquote#mail-container .small:before {
     content: ''; }
   .blockquote-reverse footer:after,
   .blockquote-reverse small:after,
   .blockquote-reverse .small:after,
-  blockquote.pull-right footer:after,
-  blockquote.pull-right small:after,
-  blockquote.pull-right .small:after {
+  blockquote.pull-right footer:after, blockquote#mail-container footer:after,
+  blockquote.pull-right small:after, blockquote#mail-container small:after,
+  blockquote.pull-right .small:after, blockquote#mail-container .small:after {
     content: '\00A0 \2014'; }
 
 address {
@@ -1540,13 +1542,13 @@ pre {
   .row:after, #mailbox-container:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, #sidebar-container, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, #sidebar-container, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, #sidebar-container, #mail-container, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, #mail-container, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, #mail-container, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, #sidebar-container, .col-lg-2, #sidebar-container, .col-xs-3, #sidebar-container, .col-sm-3, #sidebar-container, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, #mail-container, .col-sm-9, #mail-container, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, #mail-container, .col-lg-10, #mail-container, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, #sidebar-container, #mail-container, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, #sidebar-container, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, #mail-container, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left; }
 
 .col-xs-1 {
@@ -1555,7 +1557,7 @@ pre {
 .col-xs-2 {
   width: 16.66667%; }
 
-.col-xs-3 {
+.col-xs-3, #sidebar-container {
   width: 25%; }
 
 .col-xs-4 {
@@ -1564,7 +1566,7 @@ pre {
 .col-xs-5 {
   width: 41.66667%; }
 
-.col-xs-6, #sidebar-container, #mail-container {
+.col-xs-6 {
   width: 50%; }
 
 .col-xs-7 {
@@ -1573,7 +1575,7 @@ pre {
 .col-xs-8 {
   width: 66.66667%; }
 
-.col-xs-9 {
+.col-xs-9, #mail-container {
   width: 75%; }
 
 .col-xs-10 {
@@ -1703,13 +1705,13 @@ pre {
   margin-left: 100%; }
 
 @media (min-width: 768px) {
-  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  .col-sm-1, .col-sm-2, .col-sm-3, #sidebar-container, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, #mail-container, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left; }
   .col-sm-1 {
     width: 8.33333%; }
   .col-sm-2 {
     width: 16.66667%; }
-  .col-sm-3 {
+  .col-sm-3, #sidebar-container {
     width: 25%; }
   .col-sm-4 {
     width: 33.33333%; }
@@ -1721,7 +1723,7 @@ pre {
     width: 58.33333%; }
   .col-sm-8 {
     width: 66.66667%; }
-  .col-sm-9 {
+  .col-sm-9, #mail-container {
     width: 75%; }
   .col-sm-10 {
     width: 83.33333%; }
@@ -1809,15 +1811,15 @@ pre {
     margin-left: 100%; } }
 
 @media (min-width: 992px) {
-  .col-md-1, .col-md-2, .col-md-3, .col-md-4, #sidebar-container, .col-md-5, .col-md-6, .col-md-7, .col-md-8, #mail-container, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  .col-md-1, .col-md-2, #sidebar-container, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, #mail-container, .col-md-11, .col-md-12 {
     float: left; }
   .col-md-1 {
     width: 8.33333%; }
-  .col-md-2 {
+  .col-md-2, #sidebar-container {
     width: 16.66667%; }
   .col-md-3 {
     width: 25%; }
-  .col-md-4, #sidebar-container {
+  .col-md-4 {
     width: 33.33333%; }
   .col-md-5 {
     width: 41.66667%; }
@@ -1825,11 +1827,11 @@ pre {
     width: 50%; }
   .col-md-7 {
     width: 58.33333%; }
-  .col-md-8, #mail-container {
+  .col-md-8 {
     width: 66.66667%; }
   .col-md-9 {
     width: 75%; }
-  .col-md-10 {
+  .col-md-10, #mail-container {
     width: 83.33333%; }
   .col-md-11 {
     width: 91.66667%; }
@@ -2365,6 +2367,7 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="date"].btn,
   .input-group-sm > .input-group-btn > input[type="date"].menu-buttons,
   .input-group-sm > .input-group-btn > input[type="date"].label-btn,
+  .input-group-sm > .input-group-btn > input[type="date"]#audio-dropdown,
   .input-group-sm input[type="date"],
   input[type="time"].input-sm,
   .input-group-sm > input[type="time"].form-control,
@@ -2373,6 +2376,7 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="time"].btn,
   .input-group-sm > .input-group-btn > input[type="time"].menu-buttons,
   .input-group-sm > .input-group-btn > input[type="time"].label-btn,
+  .input-group-sm > .input-group-btn > input[type="time"]#audio-dropdown,
   .input-group-sm
   input[type="time"],
   input[type="datetime-local"].input-sm,
@@ -2382,6 +2386,7 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].menu-buttons,
   .input-group-sm > .input-group-btn > input[type="datetime-local"].label-btn,
+  .input-group-sm > .input-group-btn > input[type="datetime-local"]#audio-dropdown,
   .input-group-sm
   input[type="datetime-local"],
   input[type="month"].input-sm,
@@ -2391,6 +2396,7 @@ input[type="search"] {
   .input-group-sm > .input-group-btn > input[type="month"].btn,
   .input-group-sm > .input-group-btn > input[type="month"].menu-buttons,
   .input-group-sm > .input-group-btn > input[type="month"].label-btn,
+  .input-group-sm > .input-group-btn > input[type="month"]#audio-dropdown,
   .input-group-sm
   input[type="month"] {
     line-height: 30px; }
@@ -2399,6 +2405,7 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="date"].btn,
   .input-group-lg > .input-group-btn > input[type="date"].menu-buttons,
   .input-group-lg > .input-group-btn > input[type="date"].label-btn,
+  .input-group-lg > .input-group-btn > input[type="date"]#audio-dropdown,
   .input-group-lg input[type="date"],
   input[type="time"].input-lg,
   .input-group-lg > input[type="time"].form-control,
@@ -2407,6 +2414,7 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="time"].btn,
   .input-group-lg > .input-group-btn > input[type="time"].menu-buttons,
   .input-group-lg > .input-group-btn > input[type="time"].label-btn,
+  .input-group-lg > .input-group-btn > input[type="time"]#audio-dropdown,
   .input-group-lg
   input[type="time"],
   input[type="datetime-local"].input-lg,
@@ -2416,6 +2424,7 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].menu-buttons,
   .input-group-lg > .input-group-btn > input[type="datetime-local"].label-btn,
+  .input-group-lg > .input-group-btn > input[type="datetime-local"]#audio-dropdown,
   .input-group-lg
   input[type="datetime-local"],
   input[type="month"].input-lg,
@@ -2425,6 +2434,7 @@ input[type="search"] {
   .input-group-lg > .input-group-btn > input[type="month"].btn,
   .input-group-lg > .input-group-btn > input[type="month"].menu-buttons,
   .input-group-lg > .input-group-btn > input[type="month"].label-btn,
+  .input-group-lg > .input-group-btn > input[type="month"]#audio-dropdown,
   .input-group-lg
   input[type="month"] {
     line-height: 46px; } }
@@ -2504,11 +2514,13 @@ fieldset[disabled]
   .input-group-lg > .form-control-static.input-group-addon,
   .input-group-lg > .input-group-btn > .form-control-static.btn,
   .input-group-lg > .input-group-btn > .form-control-static.menu-buttons,
-  .input-group-lg > .input-group-btn > .form-control-static.label-btn, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static#search-input,
+  .input-group-lg > .input-group-btn > .form-control-static.label-btn,
+  .input-group-lg > .input-group-btn > .form-control-static#audio-dropdown, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > .form-control-static#search-input,
   .input-group-sm > .form-control-static.input-group-addon,
   .input-group-sm > .input-group-btn > .form-control-static.btn,
   .input-group-sm > .input-group-btn > .form-control-static.menu-buttons,
-  .input-group-sm > .input-group-btn > .form-control-static.label-btn {
+  .input-group-sm > .input-group-btn > .form-control-static.label-btn,
+  .input-group-sm > .input-group-btn > .form-control-static#audio-dropdown {
     padding-left: 0;
     padding-right: 0; }
 
@@ -2516,7 +2528,8 @@ fieldset[disabled]
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn,
 .input-group-sm > .input-group-btn > .menu-buttons,
-.input-group-sm > .input-group-btn > .label-btn {
+.input-group-sm > .input-group-btn > .label-btn,
+.input-group-sm > .input-group-btn > #audio-dropdown {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -2527,7 +2540,8 @@ select.input-sm, .input-group-sm > select.form-control, .input-group-sm > select
 .input-group-sm > select.input-group-addon,
 .input-group-sm > .input-group-btn > select.btn,
 .input-group-sm > .input-group-btn > select.menu-buttons,
-.input-group-sm > .input-group-btn > select.label-btn {
+.input-group-sm > .input-group-btn > select.label-btn,
+.input-group-sm > .input-group-btn > select#audio-dropdown {
   height: 30px;
   line-height: 30px; }
 
@@ -2536,13 +2550,15 @@ textarea.input-sm, .input-group-sm > textarea.form-control, .input-group-sm > te
 .input-group-sm > .input-group-btn > textarea.btn,
 .input-group-sm > .input-group-btn > textarea.menu-buttons,
 .input-group-sm > .input-group-btn > textarea.label-btn,
+.input-group-sm > .input-group-btn > textarea#audio-dropdown,
 select[multiple].input-sm,
 .input-group-sm > select[multiple].form-control,
 .input-group-sm > select[multiple]#search-input,
 .input-group-sm > select[multiple].input-group-addon,
 .input-group-sm > .input-group-btn > select[multiple].btn,
 .input-group-sm > .input-group-btn > select[multiple].menu-buttons,
-.input-group-sm > .input-group-btn > select[multiple].label-btn {
+.input-group-sm > .input-group-btn > select[multiple].label-btn,
+.input-group-sm > .input-group-btn > select[multiple]#audio-dropdown {
   height: auto; }
 
 .form-group-sm .form-control, .form-group-sm #search-input {
@@ -2572,7 +2588,8 @@ select[multiple].input-sm,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn,
 .input-group-lg > .input-group-btn > .menu-buttons,
-.input-group-lg > .input-group-btn > .label-btn {
+.input-group-lg > .input-group-btn > .label-btn,
+.input-group-lg > .input-group-btn > #audio-dropdown {
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
@@ -2583,7 +2600,8 @@ select.input-lg, .input-group-lg > select.form-control, .input-group-lg > select
 .input-group-lg > select.input-group-addon,
 .input-group-lg > .input-group-btn > select.btn,
 .input-group-lg > .input-group-btn > select.menu-buttons,
-.input-group-lg > .input-group-btn > select.label-btn {
+.input-group-lg > .input-group-btn > select.label-btn,
+.input-group-lg > .input-group-btn > select#audio-dropdown {
   height: 46px;
   line-height: 46px; }
 
@@ -2592,13 +2610,15 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
 .input-group-lg > .input-group-btn > textarea.btn,
 .input-group-lg > .input-group-btn > textarea.menu-buttons,
 .input-group-lg > .input-group-btn > textarea.label-btn,
+.input-group-lg > .input-group-btn > textarea#audio-dropdown,
 select[multiple].input-lg,
 .input-group-lg > select[multiple].form-control,
 .input-group-lg > select[multiple]#search-input,
 .input-group-lg > select[multiple].input-group-addon,
 .input-group-lg > .input-group-btn > select[multiple].btn,
 .input-group-lg > .input-group-btn > select[multiple].menu-buttons,
-.input-group-lg > .input-group-btn > select[multiple].label-btn {
+.input-group-lg > .input-group-btn > select[multiple].label-btn,
+.input-group-lg > .input-group-btn > select[multiple]#audio-dropdown {
   height: auto; }
 
 .form-group-lg .form-control, .form-group-lg #search-input {
@@ -2646,6 +2666,7 @@ select[multiple].input-lg,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback,
 .input-group-lg > .input-group-btn > .menu-buttons + .form-control-feedback,
 .input-group-lg > .input-group-btn > .label-btn + .form-control-feedback,
+.input-group-lg > .input-group-btn > #audio-dropdown + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback,
 .form-group-lg #search-input + .form-control-feedback {
@@ -2658,6 +2679,7 @@ select[multiple].input-lg,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback,
 .input-group-sm > .input-group-btn > .menu-buttons + .form-control-feedback,
 .input-group-sm > .input-group-btn > .label-btn + .form-control-feedback,
+.input-group-sm > .input-group-btn > #audio-dropdown + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback,
 .form-group-sm #search-input + .form-control-feedback {
@@ -2844,7 +2866,7 @@ select[multiple].input-lg,
     padding-top: 6px;
     font-size: 12px; } }
 
-.btn, .menu-buttons, .label-btn {
+.btn, .menu-buttons, .label-btn, #audio-dropdown {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -2863,120 +2885,140 @@ select[multiple].input-lg,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .btn:focus, .menu-buttons:focus, .label-btn:focus, .btn.focus, .focus.menu-buttons, .focus.label-btn, .btn:active:focus, .menu-buttons:active:focus, .label-btn:active:focus, .btn:active.focus, .menu-buttons:active.focus, .label-btn:active.focus, .btn.active:focus, .active.menu-buttons:focus, .active.label-btn:focus, .btn.active.focus, .active.focus.menu-buttons, .active.focus.label-btn {
+  .btn:focus, .menu-buttons:focus, .label-btn:focus, #audio-dropdown:focus, .btn.focus, .focus.menu-buttons, .focus.label-btn, .focus#audio-dropdown, .btn:active:focus, .menu-buttons:active:focus, .label-btn:active:focus, #audio-dropdown:active:focus, .btn:active.focus, .menu-buttons:active.focus, .label-btn:active.focus, #audio-dropdown:active.focus, .btn.active:focus, .active.menu-buttons:focus, .active.label-btn:focus, .active#audio-dropdown:focus, .btn.active.focus, .active.focus.menu-buttons, .active.focus.label-btn, .active.focus#audio-dropdown {
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
-  .btn:hover, .menu-buttons:hover, .label-btn:hover, .btn:focus, .menu-buttons:focus, .label-btn:focus, .btn.focus, .focus.menu-buttons, .focus.label-btn {
+  .btn:hover, .menu-buttons:hover, .label-btn:hover, #audio-dropdown:hover, .btn:focus, .menu-buttons:focus, .label-btn:focus, #audio-dropdown:focus, .btn.focus, .focus.menu-buttons, .focus.label-btn, .focus#audio-dropdown {
     color: #333;
     text-decoration: none; }
-  .btn:active, .menu-buttons:active, .label-btn:active, .btn.active, .active.menu-buttons, .active.label-btn {
+  .btn:active, .menu-buttons:active, .label-btn:active, #audio-dropdown:active, .btn.active, .active.menu-buttons, .active.label-btn, .active#audio-dropdown {
     outline: 0;
     background-image: none;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn.disabled, .disabled.menu-buttons, .disabled.label-btn, .btn[disabled], [disabled].menu-buttons, [disabled].label-btn,
+  .btn.disabled, .disabled.menu-buttons, .disabled.label-btn, .disabled#audio-dropdown, .btn[disabled], [disabled].menu-buttons, [disabled].label-btn, [disabled]#audio-dropdown,
   fieldset[disabled] .btn,
   fieldset[disabled] .menu-buttons,
-  fieldset[disabled] .label-btn {
+  fieldset[disabled] .label-btn,
+  fieldset[disabled] #audio-dropdown {
     cursor: not-allowed;
     opacity: 0.65;
     filter: alpha(opacity=65);
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-a.btn.disabled, a.disabled.menu-buttons, a.disabled.label-btn,
+a.btn.disabled, a.disabled.menu-buttons, a.disabled.label-btn, a.disabled#audio-dropdown,
 fieldset[disabled] a.btn,
 fieldset[disabled] a.menu-buttons,
-fieldset[disabled] a.label-btn {
+fieldset[disabled] a.label-btn,
+fieldset[disabled] a#audio-dropdown {
   pointer-events: none; }
 
-.btn-default, .menu-buttons {
+.btn-default, .label-btn, #audio-dropdown {
   color: #333;
   background-color: #fff;
   border-color: #ccc; }
-  .btn-default:focus, .menu-buttons:focus, .btn-default.focus, .focus.menu-buttons {
+  .btn-default:focus, .label-btn:focus, #audio-dropdown:focus, .btn-default.focus, .focus.label-btn, .focus#audio-dropdown {
     color: #333;
     background-color: #e6e6e6;
     border-color: #8c8c8c; }
-  .btn-default:hover, .menu-buttons:hover {
+  .btn-default:hover, .label-btn:hover, #audio-dropdown:hover {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-  .btn-default:active, .menu-buttons:active, .btn-default.active, .active.menu-buttons,
+  .btn-default:active, .label-btn:active, #audio-dropdown:active, .btn-default.active, .active.label-btn, .active#audio-dropdown,
   .open > .btn-default.dropdown-toggle,
-  .open > .dropdown-toggle.menu-buttons {
+  .open > .dropdown-toggle.label-btn,
+  .open > #audio-dropdown {
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad; }
-    .btn-default:active:hover, .menu-buttons:active:hover, .btn-default:active:focus, .menu-buttons:active:focus, .btn-default:active.focus, .menu-buttons:active.focus, .btn-default.active:hover, .active.menu-buttons:hover, .btn-default.active:focus, .active.menu-buttons:focus, .btn-default.active.focus, .active.focus.menu-buttons,
+    .btn-default:active:hover, .label-btn:active:hover, #audio-dropdown:active:hover, .btn-default:active:focus, .label-btn:active:focus, #audio-dropdown:active:focus, .btn-default:active.focus, .label-btn:active.focus, #audio-dropdown:active.focus, .btn-default.active:hover, .active.label-btn:hover, .active#audio-dropdown:hover, .btn-default.active:focus, .active.label-btn:focus, .active#audio-dropdown:focus, .btn-default.active.focus, .active.focus.label-btn, .active.focus#audio-dropdown,
     .open > .btn-default.dropdown-toggle:hover,
-    .open > .dropdown-toggle.menu-buttons:hover,
+    .open > .dropdown-toggle.label-btn:hover,
+    .open > #audio-dropdown:hover,
     .open > .btn-default.dropdown-toggle:focus,
-    .open > .dropdown-toggle.menu-buttons:focus,
+    .open > .dropdown-toggle.label-btn:focus,
+    .open > #audio-dropdown:focus,
     .open > .btn-default.dropdown-toggle.focus,
-    .open > .dropdown-toggle.focus.menu-buttons {
+    .open > .dropdown-toggle.focus.label-btn,
+    .open > .focus#audio-dropdown {
       color: #333;
       background-color: #d4d4d4;
       border-color: #8c8c8c; }
-  .btn-default:active, .menu-buttons:active, .btn-default.active, .active.menu-buttons,
+  .btn-default:active, .label-btn:active, #audio-dropdown:active, .btn-default.active, .active.label-btn, .active#audio-dropdown,
   .open > .btn-default.dropdown-toggle,
-  .open > .dropdown-toggle.menu-buttons {
+  .open > .dropdown-toggle.label-btn,
+  .open > #audio-dropdown {
     background-image: none; }
-  .btn-default.disabled:hover, .disabled.menu-buttons:hover, .btn-default.disabled:focus, .disabled.menu-buttons:focus, .btn-default.disabled.focus, .disabled.focus.menu-buttons, .btn-default[disabled]:hover, [disabled].menu-buttons:hover, .btn-default[disabled]:focus, [disabled].menu-buttons:focus, .btn-default[disabled].focus, [disabled].focus.menu-buttons,
+  .btn-default.disabled:hover, .disabled.label-btn:hover, .disabled#audio-dropdown:hover, .btn-default.disabled:focus, .disabled.label-btn:focus, .disabled#audio-dropdown:focus, .btn-default.disabled.focus, .disabled.focus.label-btn, .disabled.focus#audio-dropdown, .btn-default[disabled]:hover, [disabled].label-btn:hover, [disabled]#audio-dropdown:hover, .btn-default[disabled]:focus, [disabled].label-btn:focus, [disabled]#audio-dropdown:focus, .btn-default[disabled].focus, [disabled].focus.label-btn, [disabled].focus#audio-dropdown,
   fieldset[disabled] .btn-default:hover,
-  fieldset[disabled] .menu-buttons:hover,
+  fieldset[disabled] .label-btn:hover,
+  fieldset[disabled] #audio-dropdown:hover,
   fieldset[disabled] .btn-default:focus,
-  fieldset[disabled] .menu-buttons:focus,
+  fieldset[disabled] .label-btn:focus,
+  fieldset[disabled] #audio-dropdown:focus,
   fieldset[disabled] .btn-default.focus,
-  fieldset[disabled] .focus.menu-buttons {
+  fieldset[disabled] .focus.label-btn,
+  fieldset[disabled] .focus#audio-dropdown {
     background-color: #fff;
     border-color: #ccc; }
-  .btn-default .badge, .menu-buttons .badge {
+  .btn-default .badge, .label-btn .badge, #audio-dropdown .badge {
     color: #fff;
     background-color: #333; }
 
-.btn-primary, .label-btn {
+.btn-primary, .menu-buttons {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4; }
-  .btn-primary:focus, .label-btn:focus, .btn-primary.focus, .focus.label-btn {
+  .btn-primary:focus, .menu-buttons:focus, .btn-primary.focus, .focus.menu-buttons {
     color: #fff;
     background-color: #286090;
     border-color: #122b40; }
-  .btn-primary:hover, .label-btn:hover {
+  .btn-primary:hover, .menu-buttons:hover {
     color: #fff;
     background-color: #286090;
     border-color: #204d74; }
-  .btn-primary:active, .label-btn:active, .btn-primary.active, .active.label-btn,
+  .btn-primary:active, .menu-buttons:active, .btn-primary.active, .active.menu-buttons,
   .open > .btn-primary.dropdown-toggle,
-  .open > .dropdown-toggle.label-btn {
+  .open > .dropdown-toggle.menu-buttons,
+  .open > .menu-buttons#audio-dropdown,
+  .open > .btn-primary#audio-dropdown {
     color: #fff;
     background-color: #286090;
     border-color: #204d74; }
-    .btn-primary:active:hover, .label-btn:active:hover, .btn-primary:active:focus, .label-btn:active:focus, .btn-primary:active.focus, .label-btn:active.focus, .btn-primary.active:hover, .active.label-btn:hover, .btn-primary.active:focus, .active.label-btn:focus, .btn-primary.active.focus, .active.focus.label-btn,
+    .btn-primary:active:hover, .menu-buttons:active:hover, .btn-primary:active:focus, .menu-buttons:active:focus, .btn-primary:active.focus, .menu-buttons:active.focus, .btn-primary.active:hover, .active.menu-buttons:hover, .btn-primary.active:focus, .active.menu-buttons:focus, .btn-primary.active.focus, .active.focus.menu-buttons,
     .open > .btn-primary.dropdown-toggle:hover,
-    .open > .dropdown-toggle.label-btn:hover,
+    .open > .dropdown-toggle.menu-buttons:hover,
+    .open > .menu-buttons#audio-dropdown:hover,
+    .open > .btn-primary#audio-dropdown:hover,
     .open > .btn-primary.dropdown-toggle:focus,
-    .open > .dropdown-toggle.label-btn:focus,
+    .open > .dropdown-toggle.menu-buttons:focus,
+    .open > .menu-buttons#audio-dropdown:focus,
+    .open > .btn-primary#audio-dropdown:focus,
     .open > .btn-primary.dropdown-toggle.focus,
-    .open > .dropdown-toggle.focus.label-btn {
+    .open > .dropdown-toggle.focus.menu-buttons,
+    .open > .focus.menu-buttons#audio-dropdown,
+    .open > .btn-primary.focus#audio-dropdown {
       color: #fff;
       background-color: #204d74;
       border-color: #122b40; }
-  .btn-primary:active, .label-btn:active, .btn-primary.active, .active.label-btn,
+  .btn-primary:active, .menu-buttons:active, .btn-primary.active, .active.menu-buttons,
   .open > .btn-primary.dropdown-toggle,
-  .open > .dropdown-toggle.label-btn {
+  .open > .dropdown-toggle.menu-buttons,
+  .open > .menu-buttons#audio-dropdown,
+  .open > .btn-primary#audio-dropdown {
     background-image: none; }
-  .btn-primary.disabled:hover, .disabled.label-btn:hover, .btn-primary.disabled:focus, .disabled.label-btn:focus, .btn-primary.disabled.focus, .disabled.focus.label-btn, .btn-primary[disabled]:hover, [disabled].label-btn:hover, .btn-primary[disabled]:focus, [disabled].label-btn:focus, .btn-primary[disabled].focus, [disabled].focus.label-btn,
+  .btn-primary.disabled:hover, .disabled.menu-buttons:hover, .btn-primary.disabled:focus, .disabled.menu-buttons:focus, .btn-primary.disabled.focus, .disabled.focus.menu-buttons, .btn-primary[disabled]:hover, [disabled].menu-buttons:hover, .btn-primary[disabled]:focus, [disabled].menu-buttons:focus, .btn-primary[disabled].focus, [disabled].focus.menu-buttons,
   fieldset[disabled] .btn-primary:hover,
-  fieldset[disabled] .label-btn:hover,
+  fieldset[disabled] .menu-buttons:hover,
   fieldset[disabled] .btn-primary:focus,
-  fieldset[disabled] .label-btn:focus,
+  fieldset[disabled] .menu-buttons:focus,
   fieldset[disabled] .btn-primary.focus,
-  fieldset[disabled] .focus.label-btn {
+  fieldset[disabled] .focus.menu-buttons {
     background-color: #337ab7;
     border-color: #2e6da4; }
-  .btn-primary .badge, .label-btn .badge {
+  .btn-primary .badge, .menu-buttons .badge {
     color: #337ab7;
     background-color: #fff; }
 
@@ -2993,19 +3035,24 @@ fieldset[disabled] a.label-btn {
     background-color: #449d44;
     border-color: #398439; }
   .btn-success:active, .btn-success.active,
-  .open > .btn-success.dropdown-toggle {
+  .open > .btn-success.dropdown-toggle,
+  .open > .btn-success#audio-dropdown {
     color: #fff;
     background-color: #449d44;
     border-color: #398439; }
     .btn-success:active:hover, .btn-success:active:focus, .btn-success:active.focus, .btn-success.active:hover, .btn-success.active:focus, .btn-success.active.focus,
     .open > .btn-success.dropdown-toggle:hover,
+    .open > .btn-success#audio-dropdown:hover,
     .open > .btn-success.dropdown-toggle:focus,
-    .open > .btn-success.dropdown-toggle.focus {
+    .open > .btn-success#audio-dropdown:focus,
+    .open > .btn-success.dropdown-toggle.focus,
+    .open > .btn-success.focus#audio-dropdown {
       color: #fff;
       background-color: #398439;
       border-color: #255625; }
   .btn-success:active, .btn-success.active,
-  .open > .btn-success.dropdown-toggle {
+  .open > .btn-success.dropdown-toggle,
+  .open > .btn-success#audio-dropdown {
     background-image: none; }
   .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled.focus, .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled].focus,
   fieldset[disabled] .btn-success:hover,
@@ -3030,19 +3077,24 @@ fieldset[disabled] a.label-btn {
     background-color: #31b0d5;
     border-color: #269abc; }
   .btn-info:active, .btn-info.active,
-  .open > .btn-info.dropdown-toggle {
+  .open > .btn-info.dropdown-toggle,
+  .open > .btn-info#audio-dropdown {
     color: #fff;
     background-color: #31b0d5;
     border-color: #269abc; }
     .btn-info:active:hover, .btn-info:active:focus, .btn-info:active.focus, .btn-info.active:hover, .btn-info.active:focus, .btn-info.active.focus,
     .open > .btn-info.dropdown-toggle:hover,
+    .open > .btn-info#audio-dropdown:hover,
     .open > .btn-info.dropdown-toggle:focus,
-    .open > .btn-info.dropdown-toggle.focus {
+    .open > .btn-info#audio-dropdown:focus,
+    .open > .btn-info.dropdown-toggle.focus,
+    .open > .btn-info.focus#audio-dropdown {
       color: #fff;
       background-color: #269abc;
       border-color: #1b6d85; }
   .btn-info:active, .btn-info.active,
-  .open > .btn-info.dropdown-toggle {
+  .open > .btn-info.dropdown-toggle,
+  .open > .btn-info#audio-dropdown {
     background-image: none; }
   .btn-info.disabled:hover, .btn-info.disabled:focus, .btn-info.disabled.focus, .btn-info[disabled]:hover, .btn-info[disabled]:focus, .btn-info[disabled].focus,
   fieldset[disabled] .btn-info:hover,
@@ -3067,19 +3119,24 @@ fieldset[disabled] a.label-btn {
     background-color: #ec971f;
     border-color: #d58512; }
   .btn-warning:active, .btn-warning.active,
-  .open > .btn-warning.dropdown-toggle {
+  .open > .btn-warning.dropdown-toggle,
+  .open > .btn-warning#audio-dropdown {
     color: #fff;
     background-color: #ec971f;
     border-color: #d58512; }
     .btn-warning:active:hover, .btn-warning:active:focus, .btn-warning:active.focus, .btn-warning.active:hover, .btn-warning.active:focus, .btn-warning.active.focus,
     .open > .btn-warning.dropdown-toggle:hover,
+    .open > .btn-warning#audio-dropdown:hover,
     .open > .btn-warning.dropdown-toggle:focus,
-    .open > .btn-warning.dropdown-toggle.focus {
+    .open > .btn-warning#audio-dropdown:focus,
+    .open > .btn-warning.dropdown-toggle.focus,
+    .open > .btn-warning.focus#audio-dropdown {
       color: #fff;
       background-color: #d58512;
       border-color: #985f0d; }
   .btn-warning:active, .btn-warning.active,
-  .open > .btn-warning.dropdown-toggle {
+  .open > .btn-warning.dropdown-toggle,
+  .open > .btn-warning#audio-dropdown {
     background-image: none; }
   .btn-warning.disabled:hover, .btn-warning.disabled:focus, .btn-warning.disabled.focus, .btn-warning[disabled]:hover, .btn-warning[disabled]:focus, .btn-warning[disabled].focus,
   fieldset[disabled] .btn-warning:hover,
@@ -3104,19 +3161,24 @@ fieldset[disabled] a.label-btn {
     background-color: #c9302c;
     border-color: #ac2925; }
   .btn-danger:active, .btn-danger.active,
-  .open > .btn-danger.dropdown-toggle {
+  .open > .btn-danger.dropdown-toggle,
+  .open > .btn-danger#audio-dropdown {
     color: #fff;
     background-color: #c9302c;
     border-color: #ac2925; }
     .btn-danger:active:hover, .btn-danger:active:focus, .btn-danger:active.focus, .btn-danger.active:hover, .btn-danger.active:focus, .btn-danger.active.focus,
     .open > .btn-danger.dropdown-toggle:hover,
+    .open > .btn-danger#audio-dropdown:hover,
     .open > .btn-danger.dropdown-toggle:focus,
-    .open > .btn-danger.dropdown-toggle.focus {
+    .open > .btn-danger#audio-dropdown:focus,
+    .open > .btn-danger.dropdown-toggle.focus,
+    .open > .btn-danger.focus#audio-dropdown {
       color: #fff;
       background-color: #ac2925;
       border-color: #761c19; }
   .btn-danger:active, .btn-danger.active,
-  .open > .btn-danger.dropdown-toggle {
+  .open > .btn-danger.dropdown-toggle,
+  .open > .btn-danger#audio-dropdown {
     background-image: none; }
   .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled.focus, .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled].focus,
   fieldset[disabled] .btn-danger:hover,
@@ -3149,19 +3211,19 @@ fieldset[disabled] a.label-btn {
     color: #777777;
     text-decoration: none; }
 
-.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .menu-buttons, .btn-group-lg > .label-btn {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .menu-buttons, .btn-group-lg > .label-btn, .btn-group-lg > #audio-dropdown {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33333;
   border-radius: 6px; }
 
-.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .menu-buttons, .btn-group-sm > .label-btn {
+.btn-sm, .btn-group-sm > .btn, .btn-group-sm > .menu-buttons, .btn-group-sm > .label-btn, .btn-group-sm > #audio-dropdown {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px; }
 
-.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .menu-buttons, .btn-group-xs > .label-btn {
+.btn-xs, .btn-group-xs > .btn, .btn-group-xs > .menu-buttons, .btn-group-xs > .label-btn, .btn-group-xs > #audio-dropdown {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -3224,10 +3286,10 @@ tbody.collapse.in {
 .dropdown {
   position: relative; }
 
-.dropdown-toggle:focus {
+.dropdown-toggle:focus, #audio-dropdown:focus {
   outline: 0; }
 
-.dropdown-menu {
+.dropdown-menu, #audio-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -3247,15 +3309,15 @@ tbody.collapse.in {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box; }
-  .dropdown-menu.pull-right {
+  .dropdown-menu.pull-right, .pull-right#audio-menu, .dropdown-menu#mail-container {
     right: 0;
     left: auto; }
-  .dropdown-menu .divider {
+  .dropdown-menu .divider, #audio-menu .divider {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;
     background-color: #e5e5e5; }
-  .dropdown-menu > li > a {
+  .dropdown-menu > li > a, #audio-menu > li > a {
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -3264,28 +3326,28 @@ tbody.collapse.in {
     color: #333333;
     white-space: nowrap; }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.dropdown-menu > li > a:hover, #audio-menu > li > a:hover, .dropdown-menu > li > a:focus, #audio-menu > li > a:focus {
   text-decoration: none;
   color: #262626;
   background-color: #f5f5f5; }
 
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a, #audio-menu > .active > a, .dropdown-menu > .active > a:hover, #audio-menu > .active > a:hover, .dropdown-menu > .active > a:focus, #audio-menu > .active > a:focus {
   color: #fff;
   text-decoration: none;
   outline: 0;
   background-color: #337ab7; }
 
-.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a, #audio-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, #audio-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus, #audio-menu > .disabled > a:focus {
   color: #777777; }
 
-.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:hover, #audio-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus, #audio-menu > .disabled > a:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   cursor: not-allowed; }
 
-.open > .dropdown-menu {
+.open > .dropdown-menu, .open > #audio-menu {
   display: block; }
 
 .open > a {
@@ -3315,7 +3377,7 @@ tbody.collapse.in {
   top: 0;
   z-index: 990; }
 
-.pull-right > .dropdown-menu {
+.pull-right > .dropdown-menu, #mail-container > .dropdown-menu, .pull-right > #audio-menu, #mail-container > #audio-menu {
   right: 0;
   left: auto; }
 
@@ -3326,54 +3388,73 @@ tbody.collapse.in {
   border-bottom: 4px solid \9;
   content: ""; }
 
-.dropup .dropdown-menu,
-.navbar-fixed-bottom .dropdown .dropdown-menu {
+.dropup .dropdown-menu, .dropup #audio-menu,
+.navbar-fixed-bottom .dropdown .dropdown-menu,
+.navbar-fixed-bottom .dropdown #audio-menu {
   top: auto;
   bottom: 100%;
   margin-bottom: 2px; }
 
 @media (min-width: 768px) {
-  .navbar-right .dropdown-menu, .nav-right-2 .dropdown-menu {
+  .navbar-right .dropdown-menu, .nav-right-2 .dropdown-menu, .navbar-right #audio-menu, .nav-right-2 #audio-menu {
     right: 0;
     left: auto; }
   .navbar-right .dropdown-menu-left, .nav-right-2 .dropdown-menu-left {
     left: 0;
     right: auto; } }
 
-.btn-group,
+.btn-group, #audio-container,
 .btn-group-vertical {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, .btn-group > .menu-buttons, .btn-group > .label-btn,
+  .btn-group > .btn, #audio-container > .btn, .btn-group > .menu-buttons, #audio-container > .menu-buttons, .btn-group > .label-btn, #audio-container > .label-btn, .btn-group > #audio-dropdown, #audio-container > #audio-dropdown,
   .btn-group-vertical > .btn,
   .btn-group-vertical > .menu-buttons,
-  .btn-group-vertical > .label-btn {
+  .btn-group-vertical > .label-btn,
+  .btn-group-vertical > #audio-dropdown {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, .btn-group > .menu-buttons:hover, .btn-group > .label-btn:hover, .btn-group > .btn:focus, .btn-group > .menu-buttons:focus, .btn-group > .label-btn:focus, .btn-group > .btn:active, .btn-group > .menu-buttons:active, .btn-group > .label-btn:active, .btn-group > .btn.active, .btn-group > .active.menu-buttons, .btn-group > .active.label-btn,
+    .btn-group > .btn:hover, #audio-container > .btn:hover, .btn-group > .menu-buttons:hover, #audio-container > .menu-buttons:hover, .btn-group > .label-btn:hover, #audio-container > .label-btn:hover, .btn-group > #audio-dropdown:hover, #audio-container > #audio-dropdown:hover, .btn-group > .btn:focus, #audio-container > .btn:focus, .btn-group > .menu-buttons:focus, #audio-container > .menu-buttons:focus, .btn-group > .label-btn:focus, #audio-container > .label-btn:focus, .btn-group > #audio-dropdown:focus, #audio-container > #audio-dropdown:focus, .btn-group > .btn:active, #audio-container > .btn:active, .btn-group > .menu-buttons:active, #audio-container > .menu-buttons:active, .btn-group > .label-btn:active, #audio-container > .label-btn:active, .btn-group > #audio-dropdown:active, #audio-container > #audio-dropdown:active, .btn-group > .btn.active, #audio-container > .btn.active, .btn-group > .active.menu-buttons, #audio-container > .active.menu-buttons, .btn-group > .active.label-btn, #audio-container > .active.label-btn, .btn-group > .active#audio-dropdown, #audio-container > .active#audio-dropdown,
     .btn-group-vertical > .btn:hover,
     .btn-group-vertical > .menu-buttons:hover,
     .btn-group-vertical > .label-btn:hover,
+    .btn-group-vertical > #audio-dropdown:hover,
     .btn-group-vertical > .btn:focus,
     .btn-group-vertical > .menu-buttons:focus,
     .btn-group-vertical > .label-btn:focus,
+    .btn-group-vertical > #audio-dropdown:focus,
     .btn-group-vertical > .btn:active,
     .btn-group-vertical > .menu-buttons:active,
     .btn-group-vertical > .label-btn:active,
+    .btn-group-vertical > #audio-dropdown:active,
     .btn-group-vertical > .btn.active,
     .btn-group-vertical > .active.menu-buttons,
-    .btn-group-vertical > .active.label-btn {
+    .btn-group-vertical > .active.label-btn,
+    .btn-group-vertical > .active#audio-dropdown {
       z-index: 2; }
 
-.btn-group .btn + .btn, .btn-group .menu-buttons + .btn, .btn-group .label-btn + .btn, .btn-group .btn + .menu-buttons, .btn-group .menu-buttons + .menu-buttons, .btn-group .label-btn + .menu-buttons, .btn-group .btn + .label-btn, .btn-group .menu-buttons + .label-btn, .btn-group .label-btn + .label-btn,
-.btn-group .btn + .btn-group,
-.btn-group .menu-buttons + .btn-group,
-.btn-group .label-btn + .btn-group,
-.btn-group .btn-group + .btn,
-.btn-group .btn-group + .menu-buttons,
-.btn-group .btn-group + .label-btn,
-.btn-group .btn-group + .btn-group {
+.btn-group .btn + .btn, #audio-container .btn + .btn, .btn-group .menu-buttons + .btn, #audio-container .menu-buttons + .btn, .btn-group .label-btn + .btn, #audio-container .label-btn + .btn, .btn-group #audio-dropdown + .btn, #audio-container #audio-dropdown + .btn, .btn-group .btn + .menu-buttons, #audio-container .btn + .menu-buttons, .btn-group .menu-buttons + .menu-buttons, #audio-container .menu-buttons + .menu-buttons, .btn-group .label-btn + .menu-buttons, #audio-container .label-btn + .menu-buttons, .btn-group #audio-dropdown + .menu-buttons, #audio-container #audio-dropdown + .menu-buttons, .btn-group .btn + .label-btn, #audio-container .btn + .label-btn, .btn-group .menu-buttons + .label-btn, #audio-container .menu-buttons + .label-btn, .btn-group .label-btn + .label-btn, #audio-container .label-btn + .label-btn, .btn-group #audio-dropdown + .label-btn, #audio-container #audio-dropdown + .label-btn, .btn-group .btn + #audio-dropdown, #audio-container .btn + #audio-dropdown, .btn-group .menu-buttons + #audio-dropdown, #audio-container .menu-buttons + #audio-dropdown, .btn-group .label-btn + #audio-dropdown, #audio-container .label-btn + #audio-dropdown, .btn-group #audio-dropdown + #audio-dropdown, #audio-container #audio-dropdown + #audio-dropdown,
+.btn-group .btn + .btn-group, #audio-container .btn + .btn-group,
+.btn-group .menu-buttons + .btn-group, #audio-container .menu-buttons + .btn-group,
+.btn-group .label-btn + .btn-group, #audio-container .label-btn + .btn-group,
+.btn-group #audio-dropdown + .btn-group, #audio-container #audio-dropdown + .btn-group,
+.btn-group .btn + #audio-container, #audio-container .btn + #audio-container,
+.btn-group .menu-buttons + #audio-container, #audio-container .menu-buttons + #audio-container,
+.btn-group .label-btn + #audio-container, #audio-container .label-btn + #audio-container,
+.btn-group #audio-dropdown + #audio-container, #audio-container #audio-dropdown + #audio-container,
+.btn-group .btn-group + .btn, #audio-container .btn-group + .btn,
+.btn-group #audio-container + .btn, #audio-container #audio-container + .btn,
+.btn-group .btn-group + .menu-buttons, #audio-container .btn-group + .menu-buttons,
+.btn-group #audio-container + .menu-buttons, #audio-container #audio-container + .menu-buttons,
+.btn-group .btn-group + .label-btn, #audio-container .btn-group + .label-btn,
+.btn-group #audio-container + .label-btn, #audio-container #audio-container + .label-btn,
+.btn-group .btn-group + #audio-dropdown, #audio-container .btn-group + #audio-dropdown,
+.btn-group #audio-container + #audio-dropdown, #audio-container #audio-container + #audio-dropdown,
+.btn-group .btn-group + .btn-group, #audio-container .btn-group + .btn-group,
+.btn-group #audio-container + .btn-group, #audio-container #audio-container + .btn-group,
+.btn-group .btn-group + #audio-container, #audio-container .btn-group + #audio-container,
+.btn-group #audio-container + #audio-container, #audio-container #audio-container + #audio-container {
   margin-left: -1px; }
 
 .btn-toolbar {
@@ -3383,128 +3464,157 @@ tbody.collapse.in {
     display: table; }
   .btn-toolbar:after {
     clear: both; }
-  .btn-toolbar .btn, .btn-toolbar .menu-buttons, .btn-toolbar .label-btn,
+  .btn-toolbar .btn, .btn-toolbar .menu-buttons, .btn-toolbar .label-btn, .btn-toolbar #audio-dropdown,
   .btn-toolbar .btn-group,
+  .btn-toolbar #audio-container,
   .btn-toolbar .input-group {
     float: left; }
-  .btn-toolbar > .btn, .btn-toolbar > .menu-buttons, .btn-toolbar > .label-btn,
+  .btn-toolbar > .btn, .btn-toolbar > .menu-buttons, .btn-toolbar > .label-btn, .btn-toolbar > #audio-dropdown,
   .btn-toolbar > .btn-group,
+  .btn-toolbar > #audio-container,
   .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .menu-buttons:not(:first-child):not(:last-child):not(.dropdown-toggle), .btn-group > .label-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .menu-buttons:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .menu-buttons:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .label-btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .label-btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > #audio-dropdown:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > #audio-dropdown:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, .btn-group > .menu-buttons:first-child, .btn-group > .label-btn:first-child {
+.btn-group > .btn:first-child, #audio-container > .btn:first-child, .btn-group > .menu-buttons:first-child, #audio-container > .menu-buttons:first-child, .btn-group > .label-btn:first-child, #audio-container > .label-btn:first-child, .btn-group > #audio-dropdown:first-child, #audio-container > #audio-dropdown:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .menu-buttons:first-child:not(:last-child):not(.dropdown-toggle), .btn-group > .label-btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .menu-buttons:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .menu-buttons:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .label-btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .label-btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > #audio-dropdown:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > #audio-dropdown:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), .btn-group > .menu-buttons:last-child:not(:first-child), .btn-group > .label-btn:last-child:not(:first-child),
-.btn-group > .dropdown-toggle:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child), #audio-container > .btn:last-child:not(:first-child), .btn-group > .menu-buttons:last-child:not(:first-child), #audio-container > .menu-buttons:last-child:not(:first-child), .btn-group > .label-btn:last-child:not(:first-child), #audio-container > .label-btn:last-child:not(:first-child), .btn-group > #audio-dropdown:last-child:not(:first-child), #audio-container > #audio-dropdown:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child), #audio-container > .dropdown-toggle:not(:first-child),
+.btn-group > #audio-dropdown:not(:first-child), #audio-container > #audio-dropdown:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group > .btn-group {
+.btn-group > .btn-group, #audio-container > .btn-group, .btn-group > #audio-container, #audio-container > #audio-container {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group > .btn-group:not(:first-child):not(:last-child) > .label-btn {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, #audio-container > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > #audio-container:not(:first-child):not(:last-child) > .btn, #audio-container > #audio-container:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, #audio-container > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group > #audio-container:not(:first-child):not(:last-child) > .menu-buttons, #audio-container > #audio-container:not(:first-child):not(:last-child) > .menu-buttons, .btn-group > .btn-group:not(:first-child):not(:last-child) > .label-btn, #audio-container > .btn-group:not(:first-child):not(:last-child) > .label-btn, .btn-group > #audio-container:not(:first-child):not(:last-child) > .label-btn, #audio-container > #audio-container:not(:first-child):not(:last-child) > .label-btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown, #audio-container > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown, .btn-group > #audio-container:not(:first-child):not(:last-child) > #audio-dropdown, #audio-container > #audio-container:not(:first-child):not(:last-child) > #audio-dropdown {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .label-btn:last-child,
-.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, #audio-container > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > #audio-container:first-child:not(:last-child) > .btn:last-child, #audio-container > #audio-container:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, #audio-container > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group > #audio-container:first-child:not(:last-child) > .menu-buttons:last-child, #audio-container > #audio-container:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .label-btn:last-child, #audio-container > .btn-group:first-child:not(:last-child) > .label-btn:last-child, .btn-group > #audio-container:first-child:not(:last-child) > .label-btn:last-child, #audio-container > #audio-container:first-child:not(:last-child) > .label-btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child, #audio-container > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child, .btn-group > #audio-container:first-child:not(:last-child) > #audio-dropdown:last-child, #audio-container > #audio-container:first-child:not(:last-child) > #audio-dropdown:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle, #audio-container > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
+.btn-group > #audio-container:first-child:not(:last-child) > .dropdown-toggle, #audio-container > #audio-container:first-child:not(:last-child) > .dropdown-toggle,
+.btn-group > .btn-group:first-child:not(:last-child) > #audio-dropdown, #audio-container > .btn-group:first-child:not(:last-child) > #audio-dropdown,
+.btn-group > #audio-container:first-child:not(:last-child) > #audio-dropdown, #audio-container > #audio-container:first-child:not(:last-child) > #audio-dropdown {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .label-btn:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, #audio-container > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > #audio-container:last-child:not(:first-child) > .btn:first-child, #audio-container > #audio-container:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, #audio-container > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group > #audio-container:last-child:not(:first-child) > .menu-buttons:first-child, #audio-container > #audio-container:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .label-btn:first-child, #audio-container > .btn-group:last-child:not(:first-child) > .label-btn:first-child, .btn-group > #audio-container:last-child:not(:first-child) > .label-btn:first-child, #audio-container > #audio-container:last-child:not(:first-child) > .label-btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child, #audio-container > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child, .btn-group > #audio-container:last-child:not(:first-child) > #audio-dropdown:first-child, #audio-container > #audio-container:last-child:not(:first-child) > #audio-dropdown:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group .dropdown-toggle:active,
-.btn-group.open .dropdown-toggle {
+.btn-group .dropdown-toggle:active, #audio-container .dropdown-toggle:active, .btn-group #audio-dropdown:active, #audio-container #audio-dropdown:active,
+.btn-group.open .dropdown-toggle, .open#audio-container .dropdown-toggle,
+.btn-group.open #audio-dropdown, .open#audio-container #audio-dropdown {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, .btn-group > .menu-buttons + .dropdown-toggle, .btn-group > .label-btn + .dropdown-toggle {
+.btn-group > .btn + .dropdown-toggle, #audio-container > .btn + .dropdown-toggle, .btn-group > .menu-buttons + .dropdown-toggle, #audio-container > .menu-buttons + .dropdown-toggle, .btn-group > .label-btn + .dropdown-toggle, #audio-container > .label-btn + .dropdown-toggle, .btn-group > #audio-dropdown + .dropdown-toggle, #audio-container > #audio-dropdown + .dropdown-toggle, .btn-group > .btn + #audio-dropdown, #audio-container > .btn + #audio-dropdown, .btn-group > .menu-buttons + #audio-dropdown, #audio-container > .menu-buttons + #audio-dropdown, .btn-group > .label-btn + #audio-dropdown, #audio-container > .label-btn + #audio-dropdown, .btn-group > #audio-dropdown + #audio-dropdown, #audio-container > #audio-dropdown + #audio-dropdown {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .menu-buttons + .dropdown-toggle, .btn-group-lg.btn-group > .label-btn + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle, #audio-container > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg#audio-container > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .menu-buttons + .dropdown-toggle, .btn-group-lg#audio-container > .menu-buttons + .dropdown-toggle, .btn-group-lg.btn-group > .label-btn + .dropdown-toggle, .btn-group-lg#audio-container > .label-btn + .dropdown-toggle, .btn-group-lg.btn-group > #audio-dropdown + .dropdown-toggle, .btn-group-lg#audio-container > #audio-dropdown + .dropdown-toggle, .btn-group > .btn-lg + #audio-dropdown, #audio-container > .btn-lg + #audio-dropdown, .btn-group-lg.btn-group > .btn + #audio-dropdown, .btn-group-lg#audio-container > .btn + #audio-dropdown, .btn-group-lg.btn-group > .menu-buttons + #audio-dropdown, .btn-group-lg#audio-container > .menu-buttons + #audio-dropdown, .btn-group-lg.btn-group > .label-btn + #audio-dropdown, .btn-group-lg#audio-container > .label-btn + #audio-dropdown, .btn-group-lg.btn-group > #audio-dropdown + #audio-dropdown, .btn-group-lg#audio-container > #audio-dropdown + #audio-dropdown {
   padding-left: 12px;
   padding-right: 12px; }
 
-.btn-group.open .dropdown-toggle {
+.btn-group.open .dropdown-toggle, .open#audio-container .dropdown-toggle, .btn-group.open #audio-dropdown, .open#audio-container #audio-dropdown {
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn-group.open .dropdown-toggle.btn-link {
+  .btn-group.open .dropdown-toggle.btn-link, .open#audio-container .dropdown-toggle.btn-link, .btn-group.open .btn-link#audio-dropdown, .open#audio-container .btn-link#audio-dropdown {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
-.btn .caret, .menu-buttons .caret, .label-btn .caret {
+.btn .caret, .menu-buttons .caret, .label-btn .caret, #audio-dropdown .caret {
   margin-left: 0; }
 
-.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .menu-buttons .caret, .btn-group-lg > .label-btn .caret {
+.btn-lg .caret, .btn-group-lg > .btn .caret, .btn-group-lg > .menu-buttons .caret, .btn-group-lg > .label-btn .caret, .btn-group-lg > #audio-dropdown .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .menu-buttons .caret, .dropup .btn-group-lg > .label-btn .caret {
+.dropup .btn-lg .caret, .dropup .btn-group-lg > .btn .caret, .dropup .btn-group-lg > .menu-buttons .caret, .dropup .btn-group-lg > .label-btn .caret, .dropup .btn-group-lg > #audio-dropdown .caret {
   border-width: 0 5px 5px; }
 
-.btn-group-vertical > .btn, .btn-group-vertical > .menu-buttons, .btn-group-vertical > .label-btn,
+.btn-group-vertical > .btn, .btn-group-vertical > .menu-buttons, .btn-group-vertical > .label-btn, .btn-group-vertical > #audio-dropdown,
 .btn-group-vertical > .btn-group,
+.btn-group-vertical > #audio-container,
 .btn-group-vertical > .btn-group > .btn,
+.btn-group-vertical > #audio-container > .btn,
 .btn-group-vertical > .btn-group > .menu-buttons,
-.btn-group-vertical > .btn-group > .label-btn {
+.btn-group-vertical > #audio-container > .menu-buttons,
+.btn-group-vertical > .btn-group > .label-btn,
+.btn-group-vertical > #audio-container > .label-btn,
+.btn-group-vertical > .btn-group > #audio-dropdown,
+.btn-group-vertical > #audio-container > #audio-dropdown {
   display: block;
   float: none;
   width: 100%;
   max-width: 100%; }
 
-.btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after {
+.btn-group-vertical > .btn-group:before, .btn-group-vertical > #audio-container:before, .btn-group-vertical > .btn-group:after, .btn-group-vertical > #audio-container:after {
   content: " ";
   display: table; }
 
-.btn-group-vertical > .btn-group:after {
+.btn-group-vertical > .btn-group:after, .btn-group-vertical > #audio-container:after {
   clear: both; }
 
-.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .menu-buttons, .btn-group-vertical > .btn-group > .label-btn {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > #audio-container > .btn, .btn-group-vertical > .btn-group > .menu-buttons, .btn-group-vertical > #audio-container > .menu-buttons, .btn-group-vertical > .btn-group > .label-btn, .btn-group-vertical > #audio-container > .label-btn, .btn-group-vertical > .btn-group > #audio-dropdown, .btn-group-vertical > #audio-container > #audio-dropdown {
   float: none; }
 
-.btn-group-vertical > .btn + .btn, .btn-group-vertical > .menu-buttons + .btn, .btn-group-vertical > .label-btn + .btn, .btn-group-vertical > .btn + .menu-buttons, .btn-group-vertical > .menu-buttons + .menu-buttons, .btn-group-vertical > .label-btn + .menu-buttons, .btn-group-vertical > .btn + .label-btn, .btn-group-vertical > .menu-buttons + .label-btn, .btn-group-vertical > .label-btn + .label-btn,
+.btn-group-vertical > .btn + .btn, .btn-group-vertical > .menu-buttons + .btn, .btn-group-vertical > .label-btn + .btn, .btn-group-vertical > #audio-dropdown + .btn, .btn-group-vertical > .btn + .menu-buttons, .btn-group-vertical > .menu-buttons + .menu-buttons, .btn-group-vertical > .label-btn + .menu-buttons, .btn-group-vertical > #audio-dropdown + .menu-buttons, .btn-group-vertical > .btn + .label-btn, .btn-group-vertical > .menu-buttons + .label-btn, .btn-group-vertical > .label-btn + .label-btn, .btn-group-vertical > #audio-dropdown + .label-btn, .btn-group-vertical > .btn + #audio-dropdown, .btn-group-vertical > .menu-buttons + #audio-dropdown, .btn-group-vertical > .label-btn + #audio-dropdown, .btn-group-vertical > #audio-dropdown + #audio-dropdown,
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .menu-buttons + .btn-group,
 .btn-group-vertical > .label-btn + .btn-group,
+.btn-group-vertical > #audio-dropdown + .btn-group,
+.btn-group-vertical > .btn + #audio-container,
+.btn-group-vertical > .menu-buttons + #audio-container,
+.btn-group-vertical > .label-btn + #audio-container,
+.btn-group-vertical > #audio-dropdown + #audio-container,
 .btn-group-vertical > .btn-group + .btn,
+.btn-group-vertical > #audio-container + .btn,
 .btn-group-vertical > .btn-group + .menu-buttons,
+.btn-group-vertical > #audio-container + .menu-buttons,
 .btn-group-vertical > .btn-group + .label-btn,
-.btn-group-vertical > .btn-group + .btn-group {
+.btn-group-vertical > #audio-container + .label-btn,
+.btn-group-vertical > .btn-group + #audio-dropdown,
+.btn-group-vertical > #audio-container + #audio-dropdown,
+.btn-group-vertical > .btn-group + .btn-group,
+.btn-group-vertical > #audio-container + .btn-group,
+.btn-group-vertical > .btn-group + #audio-container,
+.btn-group-vertical > #audio-container + #audio-container {
   margin-top: -1px;
   margin-left: 0; }
 
-.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .menu-buttons:not(:first-child):not(:last-child), .btn-group-vertical > .label-btn:not(:first-child):not(:last-child) {
+.btn-group-vertical > .btn:not(:first-child):not(:last-child), .btn-group-vertical > .menu-buttons:not(:first-child):not(:last-child), .btn-group-vertical > .label-btn:not(:first-child):not(:last-child), .btn-group-vertical > #audio-dropdown:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .menu-buttons:first-child:not(:last-child), .btn-group-vertical > .label-btn:first-child:not(:last-child) {
+.btn-group-vertical > .btn:first-child:not(:last-child), .btn-group-vertical > .menu-buttons:first-child:not(:last-child), .btn-group-vertical > .label-btn:first-child:not(:last-child), .btn-group-vertical > #audio-dropdown:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .menu-buttons:last-child:not(:first-child), .btn-group-vertical > .label-btn:last-child:not(:first-child) {
+.btn-group-vertical > .btn:last-child:not(:first-child), .btn-group-vertical > .menu-buttons:last-child:not(:first-child), .btn-group-vertical > .label-btn:last-child:not(:first-child), .btn-group-vertical > #audio-dropdown:last-child:not(:first-child) {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .label-btn {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > .menu-buttons, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .label-btn, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > .label-btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > #audio-dropdown {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .label-btn:last-child,
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .label-btn:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > .label-btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > #audio-dropdown:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
+.btn-group-vertical > #audio-container:first-child:not(:last-child) > .dropdown-toggle,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > #audio-dropdown,
+.btn-group-vertical > #audio-container:first-child:not(:last-child) > #audio-dropdown {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .label-btn:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .label-btn:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > .label-btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > #audio-dropdown:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3513,26 +3623,38 @@ tbody.collapse.in {
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
-  .btn-group-justified > .btn, .btn-group-justified > .menu-buttons, .btn-group-justified > .label-btn,
-  .btn-group-justified > .btn-group {
+  .btn-group-justified > .btn, .btn-group-justified > .menu-buttons, .btn-group-justified > .label-btn, .btn-group-justified > #audio-dropdown,
+  .btn-group-justified > .btn-group,
+  .btn-group-justified > #audio-container {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .menu-buttons, .btn-group-justified > .btn-group .label-btn {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > #audio-container .btn, .btn-group-justified > .btn-group .menu-buttons, .btn-group-justified > #audio-container .menu-buttons, .btn-group-justified > .btn-group .label-btn, .btn-group-justified > #audio-container .label-btn, .btn-group-justified > .btn-group #audio-dropdown, .btn-group-justified > #audio-container #audio-dropdown {
     width: 100%; }
-  .btn-group-justified > .btn-group .dropdown-menu {
+  .btn-group-justified > .btn-group .dropdown-menu, .btn-group-justified > #audio-container .dropdown-menu, .btn-group-justified > .btn-group #audio-menu, .btn-group-justified > #audio-container #audio-menu {
     left: auto; }
 
-[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .menu-buttons input[type="radio"], [data-toggle="buttons"] > .label-btn input[type="radio"],
+[data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .menu-buttons input[type="radio"], [data-toggle="buttons"] > .label-btn input[type="radio"], [data-toggle="buttons"] > #audio-dropdown input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .menu-buttons input[type="checkbox"],
 [data-toggle="buttons"] > .label-btn input[type="checkbox"],
+[data-toggle="buttons"] > #audio-dropdown input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
+[data-toggle="buttons"] > #audio-container > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .menu-buttons input[type="radio"],
+[data-toggle="buttons"] > #audio-container > .menu-buttons input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .label-btn input[type="radio"],
+[data-toggle="buttons"] > #audio-container > .label-btn input[type="radio"],
+[data-toggle="buttons"] > .btn-group > #audio-dropdown input[type="radio"],
+[data-toggle="buttons"] > #audio-container > #audio-dropdown input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
+[data-toggle="buttons"] > #audio-container > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .menu-buttons input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > .label-btn input[type="checkbox"] {
+[data-toggle="buttons"] > #audio-container > .menu-buttons input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .label-btn input[type="checkbox"],
+[data-toggle="buttons"] > #audio-container > .label-btn input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > #audio-dropdown input[type="checkbox"],
+[data-toggle="buttons"] > #audio-container > #audio-dropdown input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -3585,7 +3707,8 @@ tbody.collapse.in {
   .input-group-sm > .input-group-addon,
   .input-group-sm > .input-group-btn > .input-group-addon.btn,
   .input-group-sm > .input-group-btn > .input-group-addon.menu-buttons,
-  .input-group-sm > .input-group-btn > .input-group-addon.label-btn {
+  .input-group-sm > .input-group-btn > .input-group-addon.label-btn,
+  .input-group-sm > .input-group-btn > .input-group-addon#audio-dropdown {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
@@ -3593,7 +3716,8 @@ tbody.collapse.in {
   .input-group-lg > .input-group-addon,
   .input-group-lg > .input-group-btn > .input-group-addon.btn,
   .input-group-lg > .input-group-btn > .input-group-addon.menu-buttons,
-  .input-group-lg > .input-group-btn > .input-group-addon.label-btn {
+  .input-group-lg > .input-group-btn > .input-group-addon.label-btn,
+  .input-group-lg > .input-group-btn > .input-group-addon#audio-dropdown {
     padding: 10px 16px;
     font-size: 18px;
     border-radius: 6px; }
@@ -3606,16 +3730,29 @@ tbody.collapse.in {
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .menu-buttons,
 .input-group-btn:first-child > .label-btn,
+.input-group-btn:first-child > #audio-dropdown,
 .input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > #audio-container > .btn,
 .input-group-btn:first-child > .btn-group > .menu-buttons,
+.input-group-btn:first-child > #audio-container > .menu-buttons,
 .input-group-btn:first-child > .btn-group > .label-btn,
+.input-group-btn:first-child > #audio-container > .label-btn,
+.input-group-btn:first-child > .btn-group > #audio-dropdown,
+.input-group-btn:first-child > #audio-container > #audio-dropdown,
 .input-group-btn:first-child > .dropdown-toggle,
-.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .menu-buttons:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:last-child > .label-btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:first-child > #audio-dropdown,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown),
+.input-group-btn:last-child > .menu-buttons:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown),
+.input-group-btn:last-child > .label-btn:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown),
+.input-group-btn:last-child > #audio-dropdown:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
+.input-group-btn:last-child > #audio-container:not(:last-child) > .btn,
 .input-group-btn:last-child > .btn-group:not(:last-child) > .menu-buttons,
-.input-group-btn:last-child > .btn-group:not(:last-child) > .label-btn {
+.input-group-btn:last-child > #audio-container:not(:last-child) > .menu-buttons,
+.input-group-btn:last-child > .btn-group:not(:last-child) > .label-btn,
+.input-group-btn:last-child > #audio-container:not(:last-child) > .label-btn,
+.input-group-btn:last-child > .btn-group:not(:last-child) > #audio-dropdown,
+.input-group-btn:last-child > #audio-container:not(:last-child) > #audio-dropdown {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
@@ -3627,16 +3764,29 @@ tbody.collapse.in {
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .menu-buttons,
 .input-group-btn:last-child > .label-btn,
+.input-group-btn:last-child > #audio-dropdown,
 .input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > #audio-container > .btn,
 .input-group-btn:last-child > .btn-group > .menu-buttons,
+.input-group-btn:last-child > #audio-container > .menu-buttons,
 .input-group-btn:last-child > .btn-group > .label-btn,
+.input-group-btn:last-child > #audio-container > .label-btn,
+.input-group-btn:last-child > .btn-group > #audio-dropdown,
+.input-group-btn:last-child > #audio-container > #audio-dropdown,
 .input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:last-child > #audio-dropdown,
 .input-group-btn:first-child > .btn:not(:first-child),
 .input-group-btn:first-child > .menu-buttons:not(:first-child),
 .input-group-btn:first-child > .label-btn:not(:first-child),
+.input-group-btn:first-child > #audio-dropdown:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
+.input-group-btn:first-child > #audio-container:not(:first-child) > .btn,
 .input-group-btn:first-child > .btn-group:not(:first-child) > .menu-buttons,
-.input-group-btn:first-child > .btn-group:not(:first-child) > .label-btn {
+.input-group-btn:first-child > #audio-container:not(:first-child) > .menu-buttons,
+.input-group-btn:first-child > .btn-group:not(:first-child) > .label-btn,
+.input-group-btn:first-child > #audio-container:not(:first-child) > .label-btn,
+.input-group-btn:first-child > .btn-group:not(:first-child) > #audio-dropdown,
+.input-group-btn:first-child > #audio-container:not(:first-child) > #audio-dropdown {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3647,17 +3797,19 @@ tbody.collapse.in {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
-  .input-group-btn > .btn, .input-group-btn > .menu-buttons, .input-group-btn > .label-btn {
+  .input-group-btn > .btn, .input-group-btn > .menu-buttons, .input-group-btn > .label-btn, .input-group-btn > #audio-dropdown {
     position: relative; }
-    .input-group-btn > .btn + .btn, .input-group-btn > .menu-buttons + .btn, .input-group-btn > .label-btn + .btn, .input-group-btn > .btn + .menu-buttons, .input-group-btn > .menu-buttons + .menu-buttons, .input-group-btn > .label-btn + .menu-buttons, .input-group-btn > .btn + .label-btn, .input-group-btn > .menu-buttons + .label-btn, .input-group-btn > .label-btn + .label-btn {
+    .input-group-btn > .btn + .btn, .input-group-btn > .menu-buttons + .btn, .input-group-btn > .label-btn + .btn, .input-group-btn > #audio-dropdown + .btn, .input-group-btn > .btn + .menu-buttons, .input-group-btn > .menu-buttons + .menu-buttons, .input-group-btn > .label-btn + .menu-buttons, .input-group-btn > #audio-dropdown + .menu-buttons, .input-group-btn > .btn + .label-btn, .input-group-btn > .menu-buttons + .label-btn, .input-group-btn > .label-btn + .label-btn, .input-group-btn > #audio-dropdown + .label-btn, .input-group-btn > .btn + #audio-dropdown, .input-group-btn > .menu-buttons + #audio-dropdown, .input-group-btn > .label-btn + #audio-dropdown, .input-group-btn > #audio-dropdown + #audio-dropdown {
       margin-left: -1px; }
-    .input-group-btn > .btn:hover, .input-group-btn > .menu-buttons:hover, .input-group-btn > .label-btn:hover, .input-group-btn > .btn:focus, .input-group-btn > .menu-buttons:focus, .input-group-btn > .label-btn:focus, .input-group-btn > .btn:active, .input-group-btn > .menu-buttons:active, .input-group-btn > .label-btn:active {
+    .input-group-btn > .btn:hover, .input-group-btn > .menu-buttons:hover, .input-group-btn > .label-btn:hover, .input-group-btn > #audio-dropdown:hover, .input-group-btn > .btn:focus, .input-group-btn > .menu-buttons:focus, .input-group-btn > .label-btn:focus, .input-group-btn > #audio-dropdown:focus, .input-group-btn > .btn:active, .input-group-btn > .menu-buttons:active, .input-group-btn > .label-btn:active, .input-group-btn > #audio-dropdown:active {
       z-index: 2; }
-  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .menu-buttons, .input-group-btn:first-child > .label-btn,
-  .input-group-btn:first-child > .btn-group {
+  .input-group-btn:first-child > .btn, .input-group-btn:first-child > .menu-buttons, .input-group-btn:first-child > .label-btn, .input-group-btn:first-child > #audio-dropdown,
+  .input-group-btn:first-child > .btn-group,
+  .input-group-btn:first-child > #audio-container {
     margin-right: -1px; }
-  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .menu-buttons, .input-group-btn:last-child > .label-btn,
-  .input-group-btn:last-child > .btn-group {
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .menu-buttons, .input-group-btn:last-child > .label-btn, .input-group-btn:last-child > #audio-dropdown,
+  .input-group-btn:last-child > .btn-group,
+  .input-group-btn:last-child > #audio-container {
     z-index: 2;
     margin-left: -1px; }
 
@@ -3740,7 +3892,7 @@ tbody.collapse.in {
     .nav-justified > li > a, .nav-tabs.nav-justified > li > a {
       text-align: center;
       margin-bottom: 5px; }
-  .nav-justified > .dropdown .dropdown-menu {
+  .nav-justified > .dropdown .dropdown-menu, .nav-justified > .dropdown #audio-menu {
     top: auto;
     left: auto; }
   @media (min-width: 768px) {
@@ -3774,7 +3926,7 @@ tbody.collapse.in {
 .tab-content > .active {
   display: block; }
 
-.nav-tabs .dropdown-menu {
+.nav-tabs .dropdown-menu, .nav-tabs #audio-menu {
   margin-top: -1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
@@ -3932,7 +4084,7 @@ tbody.collapse.in {
     padding-bottom: 10px;
     line-height: 20px; }
   @media (max-width: 767px) {
-    .navbar-nav .open .dropdown-menu, .nav-content .open .dropdown-menu, .nav-left-1 .open .dropdown-menu, .nav-left-2 .open .dropdown-menu, .nav-right-1 .open .dropdown-menu, .nav-right-2 .open .dropdown-menu {
+    .navbar-nav .open .dropdown-menu, .nav-content .open .dropdown-menu, .nav-left-1 .open .dropdown-menu, .nav-left-2 .open .dropdown-menu, .nav-right-1 .open .dropdown-menu, .nav-right-2 .open .dropdown-menu, .navbar-nav .open #audio-menu, .nav-content .open #audio-menu, .nav-left-1 .open #audio-menu, .nav-left-2 .open #audio-menu, .nav-right-1 .open #audio-menu, .nav-right-2 .open #audio-menu {
       position: static;
       float: none;
       width: auto;
@@ -3940,12 +4092,13 @@ tbody.collapse.in {
       background-color: transparent;
       border: 0;
       box-shadow: none; }
-      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .nav-left-1 .open .dropdown-menu > li > a, .nav-left-2 .open .dropdown-menu > li > a, .nav-right-1 .open .dropdown-menu > li > a, .nav-right-2 .open .dropdown-menu > li > a,
-      .navbar-nav .open .dropdown-menu .dropdown-header, .nav-content .open .dropdown-menu .dropdown-header, .nav-left-1 .open .dropdown-menu .dropdown-header, .nav-left-2 .open .dropdown-menu .dropdown-header, .nav-right-1 .open .dropdown-menu .dropdown-header, .nav-right-2 .open .dropdown-menu .dropdown-header {
+      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .nav-left-1 .open .dropdown-menu > li > a, .nav-left-2 .open .dropdown-menu > li > a, .nav-right-1 .open .dropdown-menu > li > a, .nav-right-2 .open .dropdown-menu > li > a, .navbar-nav .open #audio-menu > li > a, .nav-content .open #audio-menu > li > a, .nav-left-1 .open #audio-menu > li > a, .nav-left-2 .open #audio-menu > li > a, .nav-right-1 .open #audio-menu > li > a, .nav-right-2 .open #audio-menu > li > a,
+      .navbar-nav .open .dropdown-menu .dropdown-header, .nav-content .open .dropdown-menu .dropdown-header, .nav-left-1 .open .dropdown-menu .dropdown-header, .nav-left-2 .open .dropdown-menu .dropdown-header, .nav-right-1 .open .dropdown-menu .dropdown-header, .nav-right-2 .open .dropdown-menu .dropdown-header,
+      .navbar-nav .open #audio-menu .dropdown-header, .nav-content .open #audio-menu .dropdown-header, .nav-left-1 .open #audio-menu .dropdown-header, .nav-left-2 .open #audio-menu .dropdown-header, .nav-right-1 .open #audio-menu .dropdown-header, .nav-right-2 .open #audio-menu .dropdown-header {
         padding: 5px 15px 5px 25px; }
-      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .nav-left-1 .open .dropdown-menu > li > a, .nav-left-2 .open .dropdown-menu > li > a, .nav-right-1 .open .dropdown-menu > li > a, .nav-right-2 .open .dropdown-menu > li > a {
+      .navbar-nav .open .dropdown-menu > li > a, .nav-content .open .dropdown-menu > li > a, .nav-left-1 .open .dropdown-menu > li > a, .nav-left-2 .open .dropdown-menu > li > a, .nav-right-1 .open .dropdown-menu > li > a, .nav-right-2 .open .dropdown-menu > li > a, .navbar-nav .open #audio-menu > li > a, .nav-content .open #audio-menu > li > a, .nav-left-1 .open #audio-menu > li > a, .nav-left-2 .open #audio-menu > li > a, .nav-right-1 .open #audio-menu > li > a, .nav-right-2 .open #audio-menu > li > a {
         line-height: 20px; }
-        .navbar-nav .open .dropdown-menu > li > a:hover, .nav-content .open .dropdown-menu > li > a:hover, .nav-left-1 .open .dropdown-menu > li > a:hover, .nav-left-2 .open .dropdown-menu > li > a:hover, .nav-right-1 .open .dropdown-menu > li > a:hover, .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus, .nav-content .open .dropdown-menu > li > a:focus, .nav-left-1 .open .dropdown-menu > li > a:focus, .nav-left-2 .open .dropdown-menu > li > a:focus, .nav-right-1 .open .dropdown-menu > li > a:focus, .nav-right-2 .open .dropdown-menu > li > a:focus {
+        .navbar-nav .open .dropdown-menu > li > a:hover, .nav-content .open .dropdown-menu > li > a:hover, .nav-left-1 .open .dropdown-menu > li > a:hover, .nav-left-2 .open .dropdown-menu > li > a:hover, .nav-right-1 .open .dropdown-menu > li > a:hover, .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-nav .open #audio-menu > li > a:hover, .nav-content .open #audio-menu > li > a:hover, .nav-left-1 .open #audio-menu > li > a:hover, .nav-left-2 .open #audio-menu > li > a:hover, .nav-right-1 .open #audio-menu > li > a:hover, .nav-right-2 .open #audio-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus, .nav-content .open .dropdown-menu > li > a:focus, .nav-left-1 .open .dropdown-menu > li > a:focus, .nav-left-2 .open .dropdown-menu > li > a:focus, .nav-right-1 .open .dropdown-menu > li > a:focus, .nav-right-2 .open .dropdown-menu > li > a:focus, .navbar-nav .open #audio-menu > li > a:focus, .nav-content .open #audio-menu > li > a:focus, .nav-left-1 .open #audio-menu > li > a:focus, .nav-left-2 .open #audio-menu > li > a:focus, .nav-right-1 .open #audio-menu > li > a:focus, .nav-right-2 .open #audio-menu > li > a:focus {
           background-image: none; } }
   @media (min-width: 768px) {
     .navbar-nav, .nav-content, .nav-left-1, .nav-left-2, .nav-right-1, .nav-right-2 {
@@ -4022,12 +4175,12 @@ tbody.collapse.in {
       -webkit-box-shadow: none;
       box-shadow: none; } }
 
-.navbar-nav > li > .dropdown-menu, .nav-content > li > .dropdown-menu, .nav-left-1 > li > .dropdown-menu, .nav-left-2 > li > .dropdown-menu, .nav-right-1 > li > .dropdown-menu, .nav-right-2 > li > .dropdown-menu {
+.navbar-nav > li > .dropdown-menu, .nav-content > li > .dropdown-menu, .nav-left-1 > li > .dropdown-menu, .nav-left-2 > li > .dropdown-menu, .nav-right-1 > li > .dropdown-menu, .nav-right-2 > li > .dropdown-menu, .navbar-nav > li > #audio-menu, .nav-content > li > #audio-menu, .nav-left-1 > li > #audio-menu, .nav-left-2 > li > #audio-menu, .nav-right-1 > li > #audio-menu, .nav-right-2 > li > #audio-menu {
   margin-top: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu, .navbar-fixed-bottom .nav-content > li > .dropdown-menu, .navbar-fixed-bottom .nav-left-1 > li > .dropdown-menu, .navbar-fixed-bottom .nav-left-2 > li > .dropdown-menu, .navbar-fixed-bottom .nav-right-1 > li > .dropdown-menu, .navbar-fixed-bottom .nav-right-2 > li > .dropdown-menu {
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu, .navbar-fixed-bottom .nav-content > li > .dropdown-menu, .navbar-fixed-bottom .nav-left-1 > li > .dropdown-menu, .navbar-fixed-bottom .nav-left-2 > li > .dropdown-menu, .navbar-fixed-bottom .nav-right-1 > li > .dropdown-menu, .navbar-fixed-bottom .nav-right-2 > li > .dropdown-menu, .navbar-fixed-bottom .navbar-nav > li > #audio-menu, .navbar-fixed-bottom .nav-content > li > #audio-menu, .navbar-fixed-bottom .nav-left-1 > li > #audio-menu, .navbar-fixed-bottom .nav-left-2 > li > #audio-menu, .navbar-fixed-bottom .nav-right-1 > li > #audio-menu, .navbar-fixed-bottom .nav-right-2 > li > #audio-menu {
   margin-bottom: 0;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -4037,10 +4190,10 @@ tbody.collapse.in {
 .navbar-btn, .menu-buttons {
   margin-top: 8px;
   margin-bottom: 8px; }
-  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .menu-buttons, .btn-group-sm > .navbar-btn.label-btn, .btn-sm.menu-buttons {
+  .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn, .btn-group-sm > .menu-buttons, .btn-group-sm > .navbar-btn.label-btn, .btn-group-sm > .navbar-btn#audio-dropdown, .btn-group-sm > #audio-dropdown.menu-buttons, .btn-sm.menu-buttons {
     margin-top: 10px;
     margin-bottom: 10px; }
-  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .menu-buttons, .btn-group-xs > .navbar-btn.label-btn, .btn-xs.menu-buttons {
+  .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn, .btn-group-xs > .menu-buttons, .btn-group-xs > .navbar-btn.label-btn, .btn-group-xs > .navbar-btn#audio-dropdown, .btn-group-xs > #audio-dropdown.menu-buttons, .btn-xs.menu-buttons {
     margin-top: 14px;
     margin-bottom: 14px; }
 
@@ -4097,15 +4250,15 @@ tbody.collapse.in {
     background-color: #e7e7e7;
     color: #555; }
   @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a, #navbar .navbar-nav .open .dropdown-menu > li > a, .navbar-default .nav-content .open .dropdown-menu > li > a, #navbar .nav-content .open .dropdown-menu > li > a, .navbar-default .nav-left-1 .open .dropdown-menu > li > a, #navbar .nav-left-1 .open .dropdown-menu > li > a, .navbar-default .nav-left-2 .open .dropdown-menu > li > a, #navbar .nav-left-2 .open .dropdown-menu > li > a, .navbar-default .nav-right-1 .open .dropdown-menu > li > a, #navbar .nav-right-1 .open .dropdown-menu > li > a, .navbar-default .nav-right-2 .open .dropdown-menu > li > a, #navbar .nav-right-2 .open .dropdown-menu > li > a {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a, #navbar .navbar-nav .open .dropdown-menu > li > a, .navbar-default .nav-content .open .dropdown-menu > li > a, #navbar .nav-content .open .dropdown-menu > li > a, .navbar-default .nav-left-1 .open .dropdown-menu > li > a, #navbar .nav-left-1 .open .dropdown-menu > li > a, .navbar-default .nav-left-2 .open .dropdown-menu > li > a, #navbar .nav-left-2 .open .dropdown-menu > li > a, .navbar-default .nav-right-1 .open .dropdown-menu > li > a, #navbar .nav-right-1 .open .dropdown-menu > li > a, .navbar-default .nav-right-2 .open .dropdown-menu > li > a, #navbar .nav-right-2 .open .dropdown-menu > li > a, .navbar-default .navbar-nav .open #audio-menu > li > a, #navbar .navbar-nav .open #audio-menu > li > a, .navbar-default .nav-content .open #audio-menu > li > a, #navbar .nav-content .open #audio-menu > li > a, .navbar-default .nav-left-1 .open #audio-menu > li > a, #navbar .nav-left-1 .open #audio-menu > li > a, .navbar-default .nav-left-2 .open #audio-menu > li > a, #navbar .nav-left-2 .open #audio-menu > li > a, .navbar-default .nav-right-1 .open #audio-menu > li > a, #navbar .nav-right-1 .open #audio-menu > li > a, .navbar-default .nav-right-2 .open #audio-menu > li > a, #navbar .nav-right-2 .open #audio-menu > li > a {
       color: #777; }
-      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, #navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .nav-content .open .dropdown-menu > li > a:hover, #navbar .nav-content .open .dropdown-menu > li > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > li > a:hover, #navbar .nav-left-1 .open .dropdown-menu > li > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > li > a:hover, #navbar .nav-left-2 .open .dropdown-menu > li > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > li > a:hover, #navbar .nav-right-1 .open .dropdown-menu > li > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > li > a:hover, #navbar .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, #navbar .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .nav-content .open .dropdown-menu > li > a:focus, #navbar .nav-content .open .dropdown-menu > li > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > li > a:focus, #navbar .nav-left-1 .open .dropdown-menu > li > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > li > a:focus, #navbar .nav-left-2 .open .dropdown-menu > li > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > li > a:focus, #navbar .nav-right-1 .open .dropdown-menu > li > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > li > a:focus, #navbar .nav-right-2 .open .dropdown-menu > li > a:focus {
+      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, #navbar .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .nav-content .open .dropdown-menu > li > a:hover, #navbar .nav-content .open .dropdown-menu > li > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > li > a:hover, #navbar .nav-left-1 .open .dropdown-menu > li > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > li > a:hover, #navbar .nav-left-2 .open .dropdown-menu > li > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > li > a:hover, #navbar .nav-right-1 .open .dropdown-menu > li > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > li > a:hover, #navbar .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open #audio-menu > li > a:hover, #navbar .navbar-nav .open #audio-menu > li > a:hover, .navbar-default .nav-content .open #audio-menu > li > a:hover, #navbar .nav-content .open #audio-menu > li > a:hover, .navbar-default .nav-left-1 .open #audio-menu > li > a:hover, #navbar .nav-left-1 .open #audio-menu > li > a:hover, .navbar-default .nav-left-2 .open #audio-menu > li > a:hover, #navbar .nav-left-2 .open #audio-menu > li > a:hover, .navbar-default .nav-right-1 .open #audio-menu > li > a:hover, #navbar .nav-right-1 .open #audio-menu > li > a:hover, .navbar-default .nav-right-2 .open #audio-menu > li > a:hover, #navbar .nav-right-2 .open #audio-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, #navbar .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .nav-content .open .dropdown-menu > li > a:focus, #navbar .nav-content .open .dropdown-menu > li > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > li > a:focus, #navbar .nav-left-1 .open .dropdown-menu > li > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > li > a:focus, #navbar .nav-left-2 .open .dropdown-menu > li > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > li > a:focus, #navbar .nav-right-1 .open .dropdown-menu > li > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > li > a:focus, #navbar .nav-right-2 .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open #audio-menu > li > a:focus, #navbar .navbar-nav .open #audio-menu > li > a:focus, .navbar-default .nav-content .open #audio-menu > li > a:focus, #navbar .nav-content .open #audio-menu > li > a:focus, .navbar-default .nav-left-1 .open #audio-menu > li > a:focus, #navbar .nav-left-1 .open #audio-menu > li > a:focus, .navbar-default .nav-left-2 .open #audio-menu > li > a:focus, #navbar .nav-left-2 .open #audio-menu > li > a:focus, .navbar-default .nav-right-1 .open #audio-menu > li > a:focus, #navbar .nav-right-1 .open #audio-menu > li > a:focus, .navbar-default .nav-right-2 .open #audio-menu > li > a:focus, #navbar .nav-right-2 .open #audio-menu > li > a:focus {
         color: #333;
         background-color: transparent; }
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, #navbar .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .nav-content .open .dropdown-menu > .active > a, #navbar .nav-content .open .dropdown-menu > .active > a, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a, #navbar .nav-left-1 .open .dropdown-menu > .active > a, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a, #navbar .nav-left-2 .open .dropdown-menu > .active > a, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a, #navbar .nav-right-1 .open .dropdown-menu > .active > a, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a, #navbar .nav-right-2 .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, #navbar .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .nav-content .open .dropdown-menu > .active > a:hover, #navbar .nav-content .open .dropdown-menu > .active > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a:hover, #navbar .nav-left-1 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a:hover, #navbar .nav-left-2 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a:hover, #navbar .nav-right-1 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a:hover, #navbar .nav-right-2 .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus, #navbar .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-default .nav-content .open .dropdown-menu > .active > a:focus, #navbar .nav-content .open .dropdown-menu > .active > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a:focus, #navbar .nav-left-1 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a:focus, #navbar .nav-left-2 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a:focus, #navbar .nav-right-1 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a:focus, #navbar .nav-right-2 .open .dropdown-menu > .active > a:focus {
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, #navbar .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .nav-content .open .dropdown-menu > .active > a, #navbar .nav-content .open .dropdown-menu > .active > a, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a, #navbar .nav-left-1 .open .dropdown-menu > .active > a, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a, #navbar .nav-left-2 .open .dropdown-menu > .active > a, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a, #navbar .nav-right-1 .open .dropdown-menu > .active > a, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a, #navbar .nav-right-2 .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open #audio-menu > .active > a, #navbar .navbar-nav .open #audio-menu > .active > a, .navbar-default .nav-content .open #audio-menu > .active > a, #navbar .nav-content .open #audio-menu > .active > a, .navbar-default .nav-left-1 .open #audio-menu > .active > a, #navbar .nav-left-1 .open #audio-menu > .active > a, .navbar-default .nav-left-2 .open #audio-menu > .active > a, #navbar .nav-left-2 .open #audio-menu > .active > a, .navbar-default .nav-right-1 .open #audio-menu > .active > a, #navbar .nav-right-1 .open #audio-menu > .active > a, .navbar-default .nav-right-2 .open #audio-menu > .active > a, #navbar .nav-right-2 .open #audio-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, #navbar .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .nav-content .open .dropdown-menu > .active > a:hover, #navbar .nav-content .open .dropdown-menu > .active > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a:hover, #navbar .nav-left-1 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a:hover, #navbar .nav-left-2 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a:hover, #navbar .nav-right-1 .open .dropdown-menu > .active > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a:hover, #navbar .nav-right-2 .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open #audio-menu > .active > a:hover, #navbar .navbar-nav .open #audio-menu > .active > a:hover, .navbar-default .nav-content .open #audio-menu > .active > a:hover, #navbar .nav-content .open #audio-menu > .active > a:hover, .navbar-default .nav-left-1 .open #audio-menu > .active > a:hover, #navbar .nav-left-1 .open #audio-menu > .active > a:hover, .navbar-default .nav-left-2 .open #audio-menu > .active > a:hover, #navbar .nav-left-2 .open #audio-menu > .active > a:hover, .navbar-default .nav-right-1 .open #audio-menu > .active > a:hover, #navbar .nav-right-1 .open #audio-menu > .active > a:hover, .navbar-default .nav-right-2 .open #audio-menu > .active > a:hover, #navbar .nav-right-2 .open #audio-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus, #navbar .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-default .nav-content .open .dropdown-menu > .active > a:focus, #navbar .nav-content .open .dropdown-menu > .active > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > .active > a:focus, #navbar .nav-left-1 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > .active > a:focus, #navbar .nav-left-2 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > .active > a:focus, #navbar .nav-right-1 .open .dropdown-menu > .active > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > .active > a:focus, #navbar .nav-right-2 .open .dropdown-menu > .active > a:focus, .navbar-default .navbar-nav .open #audio-menu > .active > a:focus, #navbar .navbar-nav .open #audio-menu > .active > a:focus, .navbar-default .nav-content .open #audio-menu > .active > a:focus, #navbar .nav-content .open #audio-menu > .active > a:focus, .navbar-default .nav-left-1 .open #audio-menu > .active > a:focus, #navbar .nav-left-1 .open #audio-menu > .active > a:focus, .navbar-default .nav-left-2 .open #audio-menu > .active > a:focus, #navbar .nav-left-2 .open #audio-menu > .active > a:focus, .navbar-default .nav-right-1 .open #audio-menu > .active > a:focus, #navbar .nav-right-1 .open #audio-menu > .active > a:focus, .navbar-default .nav-right-2 .open #audio-menu > .active > a:focus, #navbar .nav-right-2 .open #audio-menu > .active > a:focus {
       color: #555;
       background-color: #e7e7e7; }
-    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, #navbar .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .nav-content .open .dropdown-menu > .disabled > a, #navbar .nav-content .open .dropdown-menu > .disabled > a, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:hover, #navbar .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:focus, #navbar .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a:focus {
+    .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, #navbar .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .nav-content .open .dropdown-menu > .disabled > a, #navbar .nav-content .open .dropdown-menu > .disabled > a, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open #audio-menu > .disabled > a, #navbar .navbar-nav .open #audio-menu > .disabled > a, .navbar-default .nav-content .open #audio-menu > .disabled > a, #navbar .nav-content .open #audio-menu > .disabled > a, .navbar-default .nav-left-1 .open #audio-menu > .disabled > a, #navbar .nav-left-1 .open #audio-menu > .disabled > a, .navbar-default .nav-left-2 .open #audio-menu > .disabled > a, #navbar .nav-left-2 .open #audio-menu > .disabled > a, .navbar-default .nav-right-1 .open #audio-menu > .disabled > a, #navbar .nav-right-1 .open #audio-menu > .disabled > a, .navbar-default .nav-right-2 .open #audio-menu > .disabled > a, #navbar .nav-right-2 .open #audio-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:hover, #navbar .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a:hover, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a:hover, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open #audio-menu > .disabled > a:hover, #navbar .navbar-nav .open #audio-menu > .disabled > a:hover, .navbar-default .nav-content .open #audio-menu > .disabled > a:hover, #navbar .nav-content .open #audio-menu > .disabled > a:hover, .navbar-default .nav-left-1 .open #audio-menu > .disabled > a:hover, #navbar .nav-left-1 .open #audio-menu > .disabled > a:hover, .navbar-default .nav-left-2 .open #audio-menu > .disabled > a:hover, #navbar .nav-left-2 .open #audio-menu > .disabled > a:hover, .navbar-default .nav-right-1 .open #audio-menu > .disabled > a:hover, #navbar .nav-right-1 .open #audio-menu > .disabled > a:hover, .navbar-default .nav-right-2 .open #audio-menu > .disabled > a:hover, #navbar .nav-right-2 .open #audio-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus, #navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-content .open .dropdown-menu > .disabled > a:focus, #navbar .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-left-1 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-left-1 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-left-2 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-left-2 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-right-1 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-right-1 .open .dropdown-menu > .disabled > a:focus, .navbar-default .nav-right-2 .open .dropdown-menu > .disabled > a:focus, #navbar .nav-right-2 .open .dropdown-menu > .disabled > a:focus, .navbar-default .navbar-nav .open #audio-menu > .disabled > a:focus, #navbar .navbar-nav .open #audio-menu > .disabled > a:focus, .navbar-default .nav-content .open #audio-menu > .disabled > a:focus, #navbar .nav-content .open #audio-menu > .disabled > a:focus, .navbar-default .nav-left-1 .open #audio-menu > .disabled > a:focus, #navbar .nav-left-1 .open #audio-menu > .disabled > a:focus, .navbar-default .nav-left-2 .open #audio-menu > .disabled > a:focus, #navbar .nav-left-2 .open #audio-menu > .disabled > a:focus, .navbar-default .nav-right-1 .open #audio-menu > .disabled > a:focus, #navbar .nav-right-1 .open #audio-menu > .disabled > a:focus, .navbar-default .nav-right-2 .open #audio-menu > .disabled > a:focus, #navbar .nav-right-2 .open #audio-menu > .disabled > a:focus {
       color: #ccc;
       background-color: transparent; } }
   .navbar-default .navbar-link, #navbar .navbar-link {
@@ -4158,19 +4311,19 @@ tbody.collapse.in {
     background-color: #090909;
     color: #fff; }
   @media (max-width: 767px) {
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-content .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-left-1 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-left-2 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-right-1 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-right-2 .open .dropdown-menu > .dropdown-header {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-content .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-left-1 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-left-2 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-right-1 .open .dropdown-menu > .dropdown-header, .navbar-inverse .nav-right-2 .open .dropdown-menu > .dropdown-header, .navbar-inverse .navbar-nav .open #audio-menu > .dropdown-header, .navbar-inverse .nav-content .open #audio-menu > .dropdown-header, .navbar-inverse .nav-left-1 .open #audio-menu > .dropdown-header, .navbar-inverse .nav-left-2 .open #audio-menu > .dropdown-header, .navbar-inverse .nav-right-1 .open #audio-menu > .dropdown-header, .navbar-inverse .nav-right-2 .open #audio-menu > .dropdown-header {
       border-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu .divider, .navbar-inverse .nav-content .open .dropdown-menu .divider, .navbar-inverse .nav-left-1 .open .dropdown-menu .divider, .navbar-inverse .nav-left-2 .open .dropdown-menu .divider, .navbar-inverse .nav-right-1 .open .dropdown-menu .divider, .navbar-inverse .nav-right-2 .open .dropdown-menu .divider {
+    .navbar-inverse .navbar-nav .open .dropdown-menu .divider, .navbar-inverse .nav-content .open .dropdown-menu .divider, .navbar-inverse .nav-left-1 .open .dropdown-menu .divider, .navbar-inverse .nav-left-2 .open .dropdown-menu .divider, .navbar-inverse .nav-right-1 .open .dropdown-menu .divider, .navbar-inverse .nav-right-2 .open .dropdown-menu .divider, .navbar-inverse .navbar-nav .open #audio-menu .divider, .navbar-inverse .nav-content .open #audio-menu .divider, .navbar-inverse .nav-left-1 .open #audio-menu .divider, .navbar-inverse .nav-left-2 .open #audio-menu .divider, .navbar-inverse .nav-right-1 .open #audio-menu .divider, .navbar-inverse .nav-right-2 .open #audio-menu .divider {
       background-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .nav-content .open .dropdown-menu > li > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a, .navbar-inverse .nav-content .open .dropdown-menu > li > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a, .navbar-inverse .navbar-nav .open #audio-menu > li > a, .navbar-inverse .nav-content .open #audio-menu > li > a, .navbar-inverse .nav-left-1 .open #audio-menu > li > a, .navbar-inverse .nav-left-2 .open #audio-menu > li > a, .navbar-inverse .nav-right-1 .open #audio-menu > li > a, .navbar-inverse .nav-right-2 .open #audio-menu > li > a {
       color: #9d9d9d; }
-      .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a:focus {
+      .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open #audio-menu > li > a:hover, .navbar-inverse .nav-content .open #audio-menu > li > a:hover, .navbar-inverse .nav-left-1 .open #audio-menu > li > a:hover, .navbar-inverse .nav-left-2 .open #audio-menu > li > a:hover, .navbar-inverse .nav-right-1 .open #audio-menu > li > a:hover, .navbar-inverse .nav-right-2 .open #audio-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > li > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > li > a:focus, .navbar-inverse .navbar-nav .open #audio-menu > li > a:focus, .navbar-inverse .nav-content .open #audio-menu > li > a:focus, .navbar-inverse .nav-left-1 .open #audio-menu > li > a:focus, .navbar-inverse .nav-left-2 .open #audio-menu > li > a:focus, .navbar-inverse .nav-right-1 .open #audio-menu > li > a:focus, .navbar-inverse .nav-right-2 .open #audio-menu > li > a:focus {
         color: #fff;
         background-color: transparent; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .nav-content .open .dropdown-menu > .active > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a:focus {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .nav-content .open .dropdown-menu > .active > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open #audio-menu > .active > a, .navbar-inverse .nav-content .open #audio-menu > .active > a, .navbar-inverse .nav-left-1 .open #audio-menu > .active > a, .navbar-inverse .nav-left-2 .open #audio-menu > .active > a, .navbar-inverse .nav-right-1 .open #audio-menu > .active > a, .navbar-inverse .nav-right-2 .open #audio-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open #audio-menu > .active > a:hover, .navbar-inverse .nav-content .open #audio-menu > .active > a:hover, .navbar-inverse .nav-left-1 .open #audio-menu > .active > a:hover, .navbar-inverse .nav-left-2 .open #audio-menu > .active > a:hover, .navbar-inverse .nav-right-1 .open #audio-menu > .active > a:hover, .navbar-inverse .nav-right-2 .open #audio-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > .active > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > .active > a:focus, .navbar-inverse .navbar-nav .open #audio-menu > .active > a:focus, .navbar-inverse .nav-content .open #audio-menu > .active > a:focus, .navbar-inverse .nav-left-1 .open #audio-menu > .active > a:focus, .navbar-inverse .nav-left-2 .open #audio-menu > .active > a:focus, .navbar-inverse .nav-right-1 .open #audio-menu > .active > a:focus, .navbar-inverse .nav-right-2 .open #audio-menu > .active > a:focus {
       color: #fff;
       background-color: #090909; }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a:focus {
+    .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a, .navbar-inverse .navbar-nav .open #audio-menu > .disabled > a, .navbar-inverse .nav-content .open #audio-menu > .disabled > a, .navbar-inverse .nav-left-1 .open #audio-menu > .disabled > a, .navbar-inverse .nav-left-2 .open #audio-menu > .disabled > a, .navbar-inverse .nav-right-1 .open #audio-menu > .disabled > a, .navbar-inverse .nav-right-2 .open #audio-menu > .disabled > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open #audio-menu > .disabled > a:hover, .navbar-inverse .nav-content .open #audio-menu > .disabled > a:hover, .navbar-inverse .nav-left-1 .open #audio-menu > .disabled > a:hover, .navbar-inverse .nav-left-2 .open #audio-menu > .disabled > a:hover, .navbar-inverse .nav-right-1 .open #audio-menu > .disabled > a:hover, .navbar-inverse .nav-right-2 .open #audio-menu > .disabled > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-content .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-left-1 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-left-2 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-right-1 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .nav-right-2 .open .dropdown-menu > .disabled > a:focus, .navbar-inverse .navbar-nav .open #audio-menu > .disabled > a:focus, .navbar-inverse .nav-content .open #audio-menu > .disabled > a:focus, .navbar-inverse .nav-left-1 .open #audio-menu > .disabled > a:focus, .navbar-inverse .nav-left-2 .open #audio-menu > .disabled > a:focus, .navbar-inverse .nav-right-1 .open #audio-menu > .disabled > a:focus, .navbar-inverse .nav-right-2 .open #audio-menu > .disabled > a:focus {
       color: #444;
       background-color: transparent; } }
   .navbar-inverse .navbar-link {
@@ -4337,7 +4490,7 @@ tbody.collapse.in {
   border-radius: .25em; }
   .label:empty {
     display: none; }
-  .btn .label, .menu-buttons .label, .label-btn .label {
+  .btn .label, .menu-buttons .label, .label-btn .label, #audio-dropdown .label {
     position: relative;
     top: -1px; }
 
@@ -4391,13 +4544,14 @@ a.label:hover, a.label:focus {
   border-radius: 10px; }
   .badge:empty {
     display: none; }
-  .btn .badge, .menu-buttons .badge, .label-btn .badge {
+  .btn .badge, .menu-buttons .badge, .label-btn .badge, #audio-dropdown .badge {
     position: relative;
     top: -1px; }
-  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .menu-buttons .badge, .btn-group-xs > .label-btn .badge,
+  .btn-xs .badge, .btn-group-xs > .btn .badge, .btn-group-xs > .menu-buttons .badge, .btn-group-xs > .label-btn .badge, .btn-group-xs > #audio-dropdown .badge,
   .btn-group-xs > .btn .badge,
   .btn-group-xs > .menu-buttons .badge,
-  .btn-group-xs > .label-btn .badge {
+  .btn-group-xs > .label-btn .badge,
+  .btn-group-xs > #audio-dropdown .badge {
     top: 0;
     padding: 1px 5px; }
   .list-group-item.active > .badge,
@@ -4635,12 +4789,12 @@ a.thumbnail.active {
     max-width: none; }
 
 .media-right,
-.media > .pull-right {
+.media > .pull-right,
+.media > #mail-container {
   padding-left: 10px; }
 
 .media-left,
-.media > .pull-left,
-.media > #mail-container {
+.media > .pull-left {
   padding-right: 10px; }
 
 .media-left,
@@ -4845,7 +4999,7 @@ button.list-group-item-danger {
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
-  .panel-heading > .dropdown .dropdown-toggle {
+  .panel-heading > .dropdown .dropdown-toggle, .panel-heading > .dropdown #audio-dropdown {
     color: inherit; }
 
 .panel-title {
@@ -5288,10 +5442,10 @@ button.close {
     display: table; }
   .modal-footer:after {
     clear: both; }
-  .modal-footer .btn + .btn, .modal-footer .menu-buttons + .btn, .modal-footer .label-btn + .btn, .modal-footer .btn + .menu-buttons, .modal-footer .menu-buttons + .menu-buttons, .modal-footer .label-btn + .menu-buttons, .modal-footer .btn + .label-btn, .modal-footer .menu-buttons + .label-btn, .modal-footer .label-btn + .label-btn {
+  .modal-footer .btn + .btn, .modal-footer .menu-buttons + .btn, .modal-footer .label-btn + .btn, .modal-footer #audio-dropdown + .btn, .modal-footer .btn + .menu-buttons, .modal-footer .menu-buttons + .menu-buttons, .modal-footer .label-btn + .menu-buttons, .modal-footer #audio-dropdown + .menu-buttons, .modal-footer .btn + .label-btn, .modal-footer .menu-buttons + .label-btn, .modal-footer .label-btn + .label-btn, .modal-footer #audio-dropdown + .label-btn, .modal-footer .btn + #audio-dropdown, .modal-footer .menu-buttons + #audio-dropdown, .modal-footer .label-btn + #audio-dropdown, .modal-footer #audio-dropdown + #audio-dropdown {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .menu-buttons + .btn, .modal-footer .btn-group .label-btn + .btn, .modal-footer .btn-group .btn + .menu-buttons, .modal-footer .btn-group .menu-buttons + .menu-buttons, .modal-footer .btn-group .label-btn + .menu-buttons, .modal-footer .btn-group .btn + .label-btn, .modal-footer .btn-group .menu-buttons + .label-btn, .modal-footer .btn-group .label-btn + .label-btn {
+  .modal-footer .btn-group .btn + .btn, .modal-footer #audio-container .btn + .btn, .modal-footer .btn-group .menu-buttons + .btn, .modal-footer #audio-container .menu-buttons + .btn, .modal-footer .btn-group .label-btn + .btn, .modal-footer #audio-container .label-btn + .btn, .modal-footer .btn-group #audio-dropdown + .btn, .modal-footer #audio-container #audio-dropdown + .btn, .modal-footer .btn-group .btn + .menu-buttons, .modal-footer #audio-container .btn + .menu-buttons, .modal-footer .btn-group .menu-buttons + .menu-buttons, .modal-footer #audio-container .menu-buttons + .menu-buttons, .modal-footer .btn-group .label-btn + .menu-buttons, .modal-footer #audio-container .label-btn + .menu-buttons, .modal-footer .btn-group #audio-dropdown + .menu-buttons, .modal-footer #audio-container #audio-dropdown + .menu-buttons, .modal-footer .btn-group .btn + .label-btn, .modal-footer #audio-container .btn + .label-btn, .modal-footer .btn-group .menu-buttons + .label-btn, .modal-footer #audio-container .menu-buttons + .label-btn, .modal-footer .btn-group .label-btn + .label-btn, .modal-footer #audio-container .label-btn + .label-btn, .modal-footer .btn-group #audio-dropdown + .label-btn, .modal-footer #audio-container #audio-dropdown + .label-btn, .modal-footer .btn-group .btn + #audio-dropdown, .modal-footer #audio-container .btn + #audio-dropdown, .modal-footer .btn-group .menu-buttons + #audio-dropdown, .modal-footer #audio-container .menu-buttons + #audio-dropdown, .modal-footer .btn-group .label-btn + #audio-dropdown, .modal-footer #audio-container .label-btn + #audio-dropdown, .modal-footer .btn-group #audio-dropdown + #audio-dropdown, .modal-footer #audio-container #audio-dropdown + #audio-dropdown {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
@@ -5713,7 +5867,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
-  .carousel-caption .btn, .carousel-caption .menu-buttons, .carousel-caption .label-btn {
+  .carousel-caption .btn, .carousel-caption .menu-buttons, .carousel-caption .label-btn, .carousel-caption #audio-dropdown {
     text-shadow: none; }
 
 @media screen and (min-width: 768px) {
@@ -5750,10 +5904,10 @@ button.close {
   margin-left: auto;
   margin-right: auto; }
 
-.pull-right {
+.pull-right, #mail-container {
   float: right !important; }
 
-.pull-left, #mail-container {
+.pull-left {
   float: left !important; }
 
 .hide {
@@ -5971,12 +6125,19 @@ button.close {
   .child-spacing-sm li > p, .nav-left-2 li > p, .nav-right-2 li > p {
     padding-right: 7px; } }
 
+.right-margin {
+  margin-right: 5px; }
+
 #navbar {
   min-width: 403px !important; }
 
 #logo {
   width: 50px;
   height: 50px; }
+
+.menu-buttons {
+  background-color: #2496cf;
+  border: none; }
 
 .nav-content, .nav-left-1, .nav-left-2, .nav-right-1, .nav-right-2 {
   height: 4em;
@@ -6041,13 +6202,35 @@ button.close {
   white-space: nowrap;
   overflow: hidden; }
 
-#sidebar-list {
+#sidebar-container {
   position: fixed; }
+
+.label-btn {
+  max-width: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  border: none;
+  text-align: left; }
+
+.label-btn:hover {
+  background-color: #2496cf;
+  color: white; }
+
+#content-container {
+  margin-top: 7px; }
+
+.threads-LI {
+  max-width: auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; }
 
 body {
   padding-top: 4em;
   min-width: 767px !important;
-  overflow-x: hidden !important; }
+  overflow-x: hidden; }
   @media (min-width: 767px) and (max-width: 1145px) {
     body {
       padding-top: 8em; } }

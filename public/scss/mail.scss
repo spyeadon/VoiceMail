@@ -3,9 +3,11 @@
 }
 
 #mail-container {
-@extend .col-xs-6;
-@extend .col-md-8;
+@extend .col-xs-9;
+@extend .col-sm-9;
+@extend .col-md-10;
 @extend .col-lg-10;
+@extend .pull-right;
 }
 
 .threads-container {
@@ -13,5 +15,5 @@
 }
 
 .threads-LI {
-
+  @include text-overflow(auto);
 }

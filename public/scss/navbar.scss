@@ -1,35 +1,3 @@
-.collapse-sm {
-  @media (max-width: $break-sm) {
-    display: none !important;
-  }
-}
-
-.display-sm {
-  @media (min-width: $break-sm) {
-    display: none !important;
-  }
-}
-
-.collapse-md {
-  @media (max-width: $break-md) {
-    display: none !important;
-  }
-}
-
-.float-right-md {
-  @media (max-width: $break-md) {
-    float: right !important;
-  }
-}
-
-.child-spacing-sm {
-  li > p {
-    @media (max-width: $break-sm) {
-      padding-right: 7px;
-    }
-  }
-}
-
 #navbar {
   @extend .navbar-default;
   @extend .navbar;
@@ -44,8 +12,10 @@
 
 .menu-buttons {
   @extend .btn;
-  @extend .btn-default;
+  @extend .btn-primary;
   @extend .navbar-btn;
+  background-color: $main-blue;
+  border: none;
 }
 
 .nav-content {
@@ -129,13 +99,6 @@
   height: 40px;
   border-radius: 30px;
   margin-left: 10px;
-}
-
-@mixin text-overflow($max-width) {
-  max-width: $max-width;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .nav-labelId {

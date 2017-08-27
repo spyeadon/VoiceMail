@@ -1,5 +1,6 @@
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
 @import 'variables';
+@import 'utilities';
 @import 'navbar';
 @import 'sidebar';
 @import 'mailbox';
@@ -8,7 +9,7 @@
 body {
   padding-top: $nav-height;
   min-width: $break-sm !important;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   @media (min-width: $break-sm) and (max-width: $break-md) {
     padding-top: $nav-height * 2;
   }

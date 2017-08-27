@@ -1,14 +1,15 @@
 #sidebar-container {
-  @extend .col-xs-6;
-  @extend .col-md-4;
+  @extend .col-xs-3;
+  @extend .col-sm-3;
+  @extend .col-md-2;
   @extend .col-lg-2;
+  position: fixed;
 }
 
 #sidebar-list {
   @extend .nav;
   @extend .nav-pills;
   @extend .nav-stacked;
-  position: fixed;
 }
 
 .label-LI {
@@ -17,9 +18,32 @@
 
 .label-btn {
   @extend .btn;
-  @extend .btn-primary;
+  @extend .btn-default;
+  @include text-overflow(auto);
+  width: 100%;
+  border: none;
+  text-align: left;
+}
+
+.label-btn:hover {
+  background-color: $main-blue;
+  color: $white;
 }
 
 #audio-container {
+  @extend .dropdown;
+}
+
+#audio-dropdown {
+  @extend .btn;
+  @extend .btn-default;
+  @extend .dropdown-toggle;
+}
+
+#audio-menu {
+  @extend .dropdown-menu;
+}
+
+.audio-menu-btn {
 
 }
