@@ -3283,7 +3283,8 @@ tbody.collapse.in {
   border-left: 4px solid transparent; }
 
 .dropup,
-.dropdown {
+.dropdown,
+#audio-container {
   position: relative; }
 
 .dropdown-toggle:focus, #audio-dropdown:focus {
@@ -3382,7 +3383,8 @@ tbody.collapse.in {
   left: auto; }
 
 .dropup .caret,
-.navbar-fixed-bottom .dropdown .caret {
+.navbar-fixed-bottom .dropdown .caret,
+.navbar-fixed-bottom #audio-container .caret {
   border-top: 0;
   border-bottom: 4px dashed;
   border-bottom: 4px solid \9;
@@ -3390,7 +3392,9 @@ tbody.collapse.in {
 
 .dropup .dropdown-menu, .dropup #audio-menu,
 .navbar-fixed-bottom .dropdown .dropdown-menu,
-.navbar-fixed-bottom .dropdown #audio-menu {
+.navbar-fixed-bottom #audio-container .dropdown-menu,
+.navbar-fixed-bottom .dropdown #audio-menu,
+.navbar-fixed-bottom #audio-container #audio-menu {
   top: auto;
   bottom: 100%;
   margin-bottom: 2px; }
@@ -3403,19 +3407,19 @@ tbody.collapse.in {
     left: 0;
     right: auto; } }
 
-.btn-group, #audio-container,
+.btn-group,
 .btn-group-vertical {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btn-group > .btn, #audio-container > .btn, .btn-group > .menu-buttons, #audio-container > .menu-buttons, .btn-group > .label-btn, #audio-container > .label-btn, .btn-group > #audio-dropdown, #audio-container > #audio-dropdown,
+  .btn-group > .btn, .btn-group > .menu-buttons, .btn-group > .label-btn, .btn-group > #audio-dropdown,
   .btn-group-vertical > .btn,
   .btn-group-vertical > .menu-buttons,
   .btn-group-vertical > .label-btn,
   .btn-group-vertical > #audio-dropdown {
     position: relative;
     float: left; }
-    .btn-group > .btn:hover, #audio-container > .btn:hover, .btn-group > .menu-buttons:hover, #audio-container > .menu-buttons:hover, .btn-group > .label-btn:hover, #audio-container > .label-btn:hover, .btn-group > #audio-dropdown:hover, #audio-container > #audio-dropdown:hover, .btn-group > .btn:focus, #audio-container > .btn:focus, .btn-group > .menu-buttons:focus, #audio-container > .menu-buttons:focus, .btn-group > .label-btn:focus, #audio-container > .label-btn:focus, .btn-group > #audio-dropdown:focus, #audio-container > #audio-dropdown:focus, .btn-group > .btn:active, #audio-container > .btn:active, .btn-group > .menu-buttons:active, #audio-container > .menu-buttons:active, .btn-group > .label-btn:active, #audio-container > .label-btn:active, .btn-group > #audio-dropdown:active, #audio-container > #audio-dropdown:active, .btn-group > .btn.active, #audio-container > .btn.active, .btn-group > .active.menu-buttons, #audio-container > .active.menu-buttons, .btn-group > .active.label-btn, #audio-container > .active.label-btn, .btn-group > .active#audio-dropdown, #audio-container > .active#audio-dropdown,
+    .btn-group > .btn:hover, .btn-group > .menu-buttons:hover, .btn-group > .label-btn:hover, .btn-group > #audio-dropdown:hover, .btn-group > .btn:focus, .btn-group > .menu-buttons:focus, .btn-group > .label-btn:focus, .btn-group > #audio-dropdown:focus, .btn-group > .btn:active, .btn-group > .menu-buttons:active, .btn-group > .label-btn:active, .btn-group > #audio-dropdown:active, .btn-group > .btn.active, .btn-group > .active.menu-buttons, .btn-group > .active.label-btn, .btn-group > .active#audio-dropdown,
     .btn-group-vertical > .btn:hover,
     .btn-group-vertical > .menu-buttons:hover,
     .btn-group-vertical > .label-btn:hover,
@@ -3434,27 +3438,16 @@ tbody.collapse.in {
     .btn-group-vertical > .active#audio-dropdown {
       z-index: 2; }
 
-.btn-group .btn + .btn, #audio-container .btn + .btn, .btn-group .menu-buttons + .btn, #audio-container .menu-buttons + .btn, .btn-group .label-btn + .btn, #audio-container .label-btn + .btn, .btn-group #audio-dropdown + .btn, #audio-container #audio-dropdown + .btn, .btn-group .btn + .menu-buttons, #audio-container .btn + .menu-buttons, .btn-group .menu-buttons + .menu-buttons, #audio-container .menu-buttons + .menu-buttons, .btn-group .label-btn + .menu-buttons, #audio-container .label-btn + .menu-buttons, .btn-group #audio-dropdown + .menu-buttons, #audio-container #audio-dropdown + .menu-buttons, .btn-group .btn + .label-btn, #audio-container .btn + .label-btn, .btn-group .menu-buttons + .label-btn, #audio-container .menu-buttons + .label-btn, .btn-group .label-btn + .label-btn, #audio-container .label-btn + .label-btn, .btn-group #audio-dropdown + .label-btn, #audio-container #audio-dropdown + .label-btn, .btn-group .btn + #audio-dropdown, #audio-container .btn + #audio-dropdown, .btn-group .menu-buttons + #audio-dropdown, #audio-container .menu-buttons + #audio-dropdown, .btn-group .label-btn + #audio-dropdown, #audio-container .label-btn + #audio-dropdown, .btn-group #audio-dropdown + #audio-dropdown, #audio-container #audio-dropdown + #audio-dropdown,
-.btn-group .btn + .btn-group, #audio-container .btn + .btn-group,
-.btn-group .menu-buttons + .btn-group, #audio-container .menu-buttons + .btn-group,
-.btn-group .label-btn + .btn-group, #audio-container .label-btn + .btn-group,
-.btn-group #audio-dropdown + .btn-group, #audio-container #audio-dropdown + .btn-group,
-.btn-group .btn + #audio-container, #audio-container .btn + #audio-container,
-.btn-group .menu-buttons + #audio-container, #audio-container .menu-buttons + #audio-container,
-.btn-group .label-btn + #audio-container, #audio-container .label-btn + #audio-container,
-.btn-group #audio-dropdown + #audio-container, #audio-container #audio-dropdown + #audio-container,
-.btn-group .btn-group + .btn, #audio-container .btn-group + .btn,
-.btn-group #audio-container + .btn, #audio-container #audio-container + .btn,
-.btn-group .btn-group + .menu-buttons, #audio-container .btn-group + .menu-buttons,
-.btn-group #audio-container + .menu-buttons, #audio-container #audio-container + .menu-buttons,
-.btn-group .btn-group + .label-btn, #audio-container .btn-group + .label-btn,
-.btn-group #audio-container + .label-btn, #audio-container #audio-container + .label-btn,
-.btn-group .btn-group + #audio-dropdown, #audio-container .btn-group + #audio-dropdown,
-.btn-group #audio-container + #audio-dropdown, #audio-container #audio-container + #audio-dropdown,
-.btn-group .btn-group + .btn-group, #audio-container .btn-group + .btn-group,
-.btn-group #audio-container + .btn-group, #audio-container #audio-container + .btn-group,
-.btn-group .btn-group + #audio-container, #audio-container .btn-group + #audio-container,
-.btn-group #audio-container + #audio-container, #audio-container #audio-container + #audio-container {
+.btn-group .btn + .btn, .btn-group .menu-buttons + .btn, .btn-group .label-btn + .btn, .btn-group #audio-dropdown + .btn, .btn-group .btn + .menu-buttons, .btn-group .menu-buttons + .menu-buttons, .btn-group .label-btn + .menu-buttons, .btn-group #audio-dropdown + .menu-buttons, .btn-group .btn + .label-btn, .btn-group .menu-buttons + .label-btn, .btn-group .label-btn + .label-btn, .btn-group #audio-dropdown + .label-btn, .btn-group .btn + #audio-dropdown, .btn-group .menu-buttons + #audio-dropdown, .btn-group .label-btn + #audio-dropdown, .btn-group #audio-dropdown + #audio-dropdown,
+.btn-group .btn + .btn-group,
+.btn-group .menu-buttons + .btn-group,
+.btn-group .label-btn + .btn-group,
+.btn-group #audio-dropdown + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .menu-buttons,
+.btn-group .btn-group + .label-btn,
+.btn-group .btn-group + #audio-dropdown,
+.btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
 .btn-toolbar {
@@ -3466,65 +3459,61 @@ tbody.collapse.in {
     clear: both; }
   .btn-toolbar .btn, .btn-toolbar .menu-buttons, .btn-toolbar .label-btn, .btn-toolbar #audio-dropdown,
   .btn-toolbar .btn-group,
-  .btn-toolbar #audio-container,
   .btn-toolbar .input-group {
     float: left; }
   .btn-toolbar > .btn, .btn-toolbar > .menu-buttons, .btn-toolbar > .label-btn, .btn-toolbar > #audio-dropdown,
   .btn-toolbar > .btn-group,
-  .btn-toolbar > #audio-container,
   .btn-toolbar > .input-group {
     margin-left: 5px; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .menu-buttons:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .menu-buttons:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .label-btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .label-btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > #audio-dropdown:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > #audio-dropdown:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .menu-buttons:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .label-btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > #audio-dropdown:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#audio-dropdown) {
   border-radius: 0; }
 
-.btn-group > .btn:first-child, #audio-container > .btn:first-child, .btn-group > .menu-buttons:first-child, #audio-container > .menu-buttons:first-child, .btn-group > .label-btn:first-child, #audio-container > .label-btn:first-child, .btn-group > #audio-dropdown:first-child, #audio-container > #audio-dropdown:first-child {
+.btn-group > .btn:first-child, .btn-group > .menu-buttons:first-child, .btn-group > .label-btn:first-child, .btn-group > #audio-dropdown:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .menu-buttons:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .menu-buttons:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .label-btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > .label-btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > #audio-dropdown:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), #audio-container > #audio-dropdown:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .menu-buttons:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > .label-btn:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown), .btn-group > #audio-dropdown:first-child:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
-.btn-group > .btn:last-child:not(:first-child), #audio-container > .btn:last-child:not(:first-child), .btn-group > .menu-buttons:last-child:not(:first-child), #audio-container > .menu-buttons:last-child:not(:first-child), .btn-group > .label-btn:last-child:not(:first-child), #audio-container > .label-btn:last-child:not(:first-child), .btn-group > #audio-dropdown:last-child:not(:first-child), #audio-container > #audio-dropdown:last-child:not(:first-child),
-.btn-group > .dropdown-toggle:not(:first-child), #audio-container > .dropdown-toggle:not(:first-child),
-.btn-group > #audio-dropdown:not(:first-child), #audio-container > #audio-dropdown:not(:first-child) {
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .menu-buttons:last-child:not(:first-child), .btn-group > .label-btn:last-child:not(:first-child), .btn-group > #audio-dropdown:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child),
+.btn-group > #audio-dropdown:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group > .btn-group, #audio-container > .btn-group, .btn-group > #audio-container, #audio-container > #audio-container {
+.btn-group > .btn-group {
   float: left; }
 
-.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, #audio-container > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > #audio-container:not(:first-child):not(:last-child) > .btn, #audio-container > #audio-container:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, #audio-container > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group > #audio-container:not(:first-child):not(:last-child) > .menu-buttons, #audio-container > #audio-container:not(:first-child):not(:last-child) > .menu-buttons, .btn-group > .btn-group:not(:first-child):not(:last-child) > .label-btn, #audio-container > .btn-group:not(:first-child):not(:last-child) > .label-btn, .btn-group > #audio-container:not(:first-child):not(:last-child) > .label-btn, #audio-container > #audio-container:not(:first-child):not(:last-child) > .label-btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown, #audio-container > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown, .btn-group > #audio-container:not(:first-child):not(:last-child) > #audio-dropdown, #audio-container > #audio-container:not(:first-child):not(:last-child) > #audio-dropdown {
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group > .btn-group:not(:first-child):not(:last-child) > .label-btn, .btn-group > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown {
   border-radius: 0; }
 
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, #audio-container > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > #audio-container:first-child:not(:last-child) > .btn:last-child, #audio-container > #audio-container:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, #audio-container > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group > #audio-container:first-child:not(:last-child) > .menu-buttons:last-child, #audio-container > #audio-container:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .label-btn:last-child, #audio-container > .btn-group:first-child:not(:last-child) > .label-btn:last-child, .btn-group > #audio-container:first-child:not(:last-child) > .label-btn:last-child, #audio-container > #audio-container:first-child:not(:last-child) > .label-btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child, #audio-container > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child, .btn-group > #audio-container:first-child:not(:last-child) > #audio-dropdown:last-child, #audio-container > #audio-container:first-child:not(:last-child) > #audio-dropdown:last-child,
-.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle, #audio-container > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
-.btn-group > #audio-container:first-child:not(:last-child) > .dropdown-toggle, #audio-container > #audio-container:first-child:not(:last-child) > .dropdown-toggle,
-.btn-group > .btn-group:first-child:not(:last-child) > #audio-dropdown, #audio-container > .btn-group:first-child:not(:last-child) > #audio-dropdown,
-.btn-group > #audio-container:first-child:not(:last-child) > #audio-dropdown, #audio-container > #audio-container:first-child:not(:last-child) > #audio-dropdown {
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group > .btn-group:first-child:not(:last-child) > .label-btn:last-child, .btn-group > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
+.btn-group > .btn-group:first-child:not(:last-child) > #audio-dropdown {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, #audio-container > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > #audio-container:last-child:not(:first-child) > .btn:first-child, #audio-container > #audio-container:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, #audio-container > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group > #audio-container:last-child:not(:first-child) > .menu-buttons:first-child, #audio-container > #audio-container:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .label-btn:first-child, #audio-container > .btn-group:last-child:not(:first-child) > .label-btn:first-child, .btn-group > #audio-container:last-child:not(:first-child) > .label-btn:first-child, #audio-container > #audio-container:last-child:not(:first-child) > .label-btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child, #audio-container > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child, .btn-group > #audio-container:last-child:not(:first-child) > #audio-dropdown:first-child, #audio-container > #audio-container:last-child:not(:first-child) > #audio-dropdown:first-child {
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group > .btn-group:last-child:not(:first-child) > .label-btn:first-child, .btn-group > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group .dropdown-toggle:active, #audio-container .dropdown-toggle:active, .btn-group #audio-dropdown:active, #audio-container #audio-dropdown:active,
-.btn-group.open .dropdown-toggle, .open#audio-container .dropdown-toggle,
-.btn-group.open #audio-dropdown, .open#audio-container #audio-dropdown {
+.btn-group .dropdown-toggle:active, .btn-group #audio-dropdown:active,
+.btn-group.open .dropdown-toggle,
+.btn-group.open #audio-dropdown {
   outline: 0; }
 
-.btn-group > .btn + .dropdown-toggle, #audio-container > .btn + .dropdown-toggle, .btn-group > .menu-buttons + .dropdown-toggle, #audio-container > .menu-buttons + .dropdown-toggle, .btn-group > .label-btn + .dropdown-toggle, #audio-container > .label-btn + .dropdown-toggle, .btn-group > #audio-dropdown + .dropdown-toggle, #audio-container > #audio-dropdown + .dropdown-toggle, .btn-group > .btn + #audio-dropdown, #audio-container > .btn + #audio-dropdown, .btn-group > .menu-buttons + #audio-dropdown, #audio-container > .menu-buttons + #audio-dropdown, .btn-group > .label-btn + #audio-dropdown, #audio-container > .label-btn + #audio-dropdown, .btn-group > #audio-dropdown + #audio-dropdown, #audio-container > #audio-dropdown + #audio-dropdown {
+.btn-group > .btn + .dropdown-toggle, .btn-group > .menu-buttons + .dropdown-toggle, .btn-group > .label-btn + .dropdown-toggle, .btn-group > #audio-dropdown + .dropdown-toggle, .btn-group > .btn + #audio-dropdown, .btn-group > .menu-buttons + #audio-dropdown, .btn-group > .label-btn + #audio-dropdown, .btn-group > #audio-dropdown + #audio-dropdown {
   padding-left: 8px;
   padding-right: 8px; }
 
-.btn-group > .btn-lg + .dropdown-toggle, #audio-container > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg#audio-container > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .menu-buttons + .dropdown-toggle, .btn-group-lg#audio-container > .menu-buttons + .dropdown-toggle, .btn-group-lg.btn-group > .label-btn + .dropdown-toggle, .btn-group-lg#audio-container > .label-btn + .dropdown-toggle, .btn-group-lg.btn-group > #audio-dropdown + .dropdown-toggle, .btn-group-lg#audio-container > #audio-dropdown + .dropdown-toggle, .btn-group > .btn-lg + #audio-dropdown, #audio-container > .btn-lg + #audio-dropdown, .btn-group-lg.btn-group > .btn + #audio-dropdown, .btn-group-lg#audio-container > .btn + #audio-dropdown, .btn-group-lg.btn-group > .menu-buttons + #audio-dropdown, .btn-group-lg#audio-container > .menu-buttons + #audio-dropdown, .btn-group-lg.btn-group > .label-btn + #audio-dropdown, .btn-group-lg#audio-container > .label-btn + #audio-dropdown, .btn-group-lg.btn-group > #audio-dropdown + #audio-dropdown, .btn-group-lg#audio-container > #audio-dropdown + #audio-dropdown {
+.btn-group > .btn-lg + .dropdown-toggle, .btn-group-lg.btn-group > .btn + .dropdown-toggle, .btn-group-lg.btn-group > .menu-buttons + .dropdown-toggle, .btn-group-lg.btn-group > .label-btn + .dropdown-toggle, .btn-group-lg.btn-group > #audio-dropdown + .dropdown-toggle, .btn-group > .btn-lg + #audio-dropdown, .btn-group-lg.btn-group > .btn + #audio-dropdown, .btn-group-lg.btn-group > .menu-buttons + #audio-dropdown, .btn-group-lg.btn-group > .label-btn + #audio-dropdown, .btn-group-lg.btn-group > #audio-dropdown + #audio-dropdown {
   padding-left: 12px;
   padding-right: 12px; }
 
-.btn-group.open .dropdown-toggle, .open#audio-container .dropdown-toggle, .btn-group.open #audio-dropdown, .open#audio-container #audio-dropdown {
+.btn-group.open .dropdown-toggle, .btn-group.open #audio-dropdown {
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .btn-group.open .dropdown-toggle.btn-link, .open#audio-container .dropdown-toggle.btn-link, .btn-group.open .btn-link#audio-dropdown, .open#audio-container .btn-link#audio-dropdown {
+  .btn-group.open .dropdown-toggle.btn-link, .btn-group.open .btn-link#audio-dropdown {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
@@ -3540,28 +3529,23 @@ tbody.collapse.in {
 
 .btn-group-vertical > .btn, .btn-group-vertical > .menu-buttons, .btn-group-vertical > .label-btn, .btn-group-vertical > #audio-dropdown,
 .btn-group-vertical > .btn-group,
-.btn-group-vertical > #audio-container,
 .btn-group-vertical > .btn-group > .btn,
-.btn-group-vertical > #audio-container > .btn,
 .btn-group-vertical > .btn-group > .menu-buttons,
-.btn-group-vertical > #audio-container > .menu-buttons,
 .btn-group-vertical > .btn-group > .label-btn,
-.btn-group-vertical > #audio-container > .label-btn,
-.btn-group-vertical > .btn-group > #audio-dropdown,
-.btn-group-vertical > #audio-container > #audio-dropdown {
+.btn-group-vertical > .btn-group > #audio-dropdown {
   display: block;
   float: none;
   width: 100%;
   max-width: 100%; }
 
-.btn-group-vertical > .btn-group:before, .btn-group-vertical > #audio-container:before, .btn-group-vertical > .btn-group:after, .btn-group-vertical > #audio-container:after {
+.btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after {
   content: " ";
   display: table; }
 
-.btn-group-vertical > .btn-group:after, .btn-group-vertical > #audio-container:after {
+.btn-group-vertical > .btn-group:after {
   clear: both; }
 
-.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > #audio-container > .btn, .btn-group-vertical > .btn-group > .menu-buttons, .btn-group-vertical > #audio-container > .menu-buttons, .btn-group-vertical > .btn-group > .label-btn, .btn-group-vertical > #audio-container > .label-btn, .btn-group-vertical > .btn-group > #audio-dropdown, .btn-group-vertical > #audio-container > #audio-dropdown {
+.btn-group-vertical > .btn-group > .btn, .btn-group-vertical > .btn-group > .menu-buttons, .btn-group-vertical > .btn-group > .label-btn, .btn-group-vertical > .btn-group > #audio-dropdown {
   float: none; }
 
 .btn-group-vertical > .btn + .btn, .btn-group-vertical > .menu-buttons + .btn, .btn-group-vertical > .label-btn + .btn, .btn-group-vertical > #audio-dropdown + .btn, .btn-group-vertical > .btn + .menu-buttons, .btn-group-vertical > .menu-buttons + .menu-buttons, .btn-group-vertical > .label-btn + .menu-buttons, .btn-group-vertical > #audio-dropdown + .menu-buttons, .btn-group-vertical > .btn + .label-btn, .btn-group-vertical > .menu-buttons + .label-btn, .btn-group-vertical > .label-btn + .label-btn, .btn-group-vertical > #audio-dropdown + .label-btn, .btn-group-vertical > .btn + #audio-dropdown, .btn-group-vertical > .menu-buttons + #audio-dropdown, .btn-group-vertical > .label-btn + #audio-dropdown, .btn-group-vertical > #audio-dropdown + #audio-dropdown,
@@ -3569,22 +3553,11 @@ tbody.collapse.in {
 .btn-group-vertical > .menu-buttons + .btn-group,
 .btn-group-vertical > .label-btn + .btn-group,
 .btn-group-vertical > #audio-dropdown + .btn-group,
-.btn-group-vertical > .btn + #audio-container,
-.btn-group-vertical > .menu-buttons + #audio-container,
-.btn-group-vertical > .label-btn + #audio-container,
-.btn-group-vertical > #audio-dropdown + #audio-container,
 .btn-group-vertical > .btn-group + .btn,
-.btn-group-vertical > #audio-container + .btn,
 .btn-group-vertical > .btn-group + .menu-buttons,
-.btn-group-vertical > #audio-container + .menu-buttons,
 .btn-group-vertical > .btn-group + .label-btn,
-.btn-group-vertical > #audio-container + .label-btn,
 .btn-group-vertical > .btn-group + #audio-dropdown,
-.btn-group-vertical > #audio-container + #audio-dropdown,
-.btn-group-vertical > .btn-group + .btn-group,
-.btn-group-vertical > #audio-container + .btn-group,
-.btn-group-vertical > .btn-group + #audio-container,
-.btn-group-vertical > #audio-container + #audio-container {
+.btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0; }
 
@@ -3603,18 +3576,16 @@ tbody.collapse.in {
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px; }
 
-.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > .menu-buttons, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .label-btn, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > .label-btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown, .btn-group-vertical > #audio-container:not(:first-child):not(:last-child) > #audio-dropdown {
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .menu-buttons, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .label-btn, .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > #audio-dropdown {
   border-radius: 0; }
 
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .label-btn:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > .label-btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child, .btn-group-vertical > #audio-container:first-child:not(:last-child) > #audio-dropdown:last-child,
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .menu-buttons:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > .label-btn:last-child, .btn-group-vertical > .btn-group:first-child:not(:last-child) > #audio-dropdown:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
-.btn-group-vertical > #audio-container:first-child:not(:last-child) > .dropdown-toggle,
-.btn-group-vertical > .btn-group:first-child:not(:last-child) > #audio-dropdown,
-.btn-group-vertical > #audio-container:first-child:not(:last-child) > #audio-dropdown {
+.btn-group-vertical > .btn-group:first-child:not(:last-child) > #audio-dropdown {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .label-btn:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > .label-btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child, .btn-group-vertical > #audio-container:last-child:not(:first-child) > #audio-dropdown:first-child {
+.btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .menu-buttons:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > .label-btn:first-child, .btn-group-vertical > .btn-group:last-child:not(:first-child) > #audio-dropdown:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3624,14 +3595,13 @@ tbody.collapse.in {
   table-layout: fixed;
   border-collapse: separate; }
   .btn-group-justified > .btn, .btn-group-justified > .menu-buttons, .btn-group-justified > .label-btn, .btn-group-justified > #audio-dropdown,
-  .btn-group-justified > .btn-group,
-  .btn-group-justified > #audio-container {
+  .btn-group-justified > .btn-group {
     float: none;
     display: table-cell;
     width: 1%; }
-  .btn-group-justified > .btn-group .btn, .btn-group-justified > #audio-container .btn, .btn-group-justified > .btn-group .menu-buttons, .btn-group-justified > #audio-container .menu-buttons, .btn-group-justified > .btn-group .label-btn, .btn-group-justified > #audio-container .label-btn, .btn-group-justified > .btn-group #audio-dropdown, .btn-group-justified > #audio-container #audio-dropdown {
+  .btn-group-justified > .btn-group .btn, .btn-group-justified > .btn-group .menu-buttons, .btn-group-justified > .btn-group .label-btn, .btn-group-justified > .btn-group #audio-dropdown {
     width: 100%; }
-  .btn-group-justified > .btn-group .dropdown-menu, .btn-group-justified > #audio-container .dropdown-menu, .btn-group-justified > .btn-group #audio-menu, .btn-group-justified > #audio-container #audio-menu {
+  .btn-group-justified > .btn-group .dropdown-menu, .btn-group-justified > .btn-group #audio-menu {
     left: auto; }
 
 [data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .menu-buttons input[type="radio"], [data-toggle="buttons"] > .label-btn input[type="radio"], [data-toggle="buttons"] > #audio-dropdown input[type="radio"],
@@ -3640,21 +3610,13 @@ tbody.collapse.in {
 [data-toggle="buttons"] > .label-btn input[type="checkbox"],
 [data-toggle="buttons"] > #audio-dropdown input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
-[data-toggle="buttons"] > #audio-container > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .menu-buttons input[type="radio"],
-[data-toggle="buttons"] > #audio-container > .menu-buttons input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .label-btn input[type="radio"],
-[data-toggle="buttons"] > #audio-container > .label-btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > #audio-dropdown input[type="radio"],
-[data-toggle="buttons"] > #audio-container > #audio-dropdown input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
-[data-toggle="buttons"] > #audio-container > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .menu-buttons input[type="checkbox"],
-[data-toggle="buttons"] > #audio-container > .menu-buttons input[type="checkbox"],
 [data-toggle="buttons"] > .btn-group > .label-btn input[type="checkbox"],
-[data-toggle="buttons"] > #audio-container > .label-btn input[type="checkbox"],
-[data-toggle="buttons"] > .btn-group > #audio-dropdown input[type="checkbox"],
-[data-toggle="buttons"] > #audio-container > #audio-dropdown input[type="checkbox"] {
+[data-toggle="buttons"] > .btn-group > #audio-dropdown input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
@@ -3732,13 +3694,9 @@ tbody.collapse.in {
 .input-group-btn:first-child > .label-btn,
 .input-group-btn:first-child > #audio-dropdown,
 .input-group-btn:first-child > .btn-group > .btn,
-.input-group-btn:first-child > #audio-container > .btn,
 .input-group-btn:first-child > .btn-group > .menu-buttons,
-.input-group-btn:first-child > #audio-container > .menu-buttons,
 .input-group-btn:first-child > .btn-group > .label-btn,
-.input-group-btn:first-child > #audio-container > .label-btn,
 .input-group-btn:first-child > .btn-group > #audio-dropdown,
-.input-group-btn:first-child > #audio-container > #audio-dropdown,
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:first-child > #audio-dropdown,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown),
@@ -3746,13 +3704,9 @@ tbody.collapse.in {
 .input-group-btn:last-child > .label-btn:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown),
 .input-group-btn:last-child > #audio-dropdown:not(:last-child):not(.dropdown-toggle):not(#audio-dropdown),
 .input-group-btn:last-child > .btn-group:not(:last-child) > .btn,
-.input-group-btn:last-child > #audio-container:not(:last-child) > .btn,
 .input-group-btn:last-child > .btn-group:not(:last-child) > .menu-buttons,
-.input-group-btn:last-child > #audio-container:not(:last-child) > .menu-buttons,
 .input-group-btn:last-child > .btn-group:not(:last-child) > .label-btn,
-.input-group-btn:last-child > #audio-container:not(:last-child) > .label-btn,
-.input-group-btn:last-child > .btn-group:not(:last-child) > #audio-dropdown,
-.input-group-btn:last-child > #audio-container:not(:last-child) > #audio-dropdown {
+.input-group-btn:last-child > .btn-group:not(:last-child) > #audio-dropdown {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
@@ -3766,13 +3720,9 @@ tbody.collapse.in {
 .input-group-btn:last-child > .label-btn,
 .input-group-btn:last-child > #audio-dropdown,
 .input-group-btn:last-child > .btn-group > .btn,
-.input-group-btn:last-child > #audio-container > .btn,
 .input-group-btn:last-child > .btn-group > .menu-buttons,
-.input-group-btn:last-child > #audio-container > .menu-buttons,
 .input-group-btn:last-child > .btn-group > .label-btn,
-.input-group-btn:last-child > #audio-container > .label-btn,
 .input-group-btn:last-child > .btn-group > #audio-dropdown,
-.input-group-btn:last-child > #audio-container > #audio-dropdown,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:last-child > #audio-dropdown,
 .input-group-btn:first-child > .btn:not(:first-child),
@@ -3780,13 +3730,9 @@ tbody.collapse.in {
 .input-group-btn:first-child > .label-btn:not(:first-child),
 .input-group-btn:first-child > #audio-dropdown:not(:first-child),
 .input-group-btn:first-child > .btn-group:not(:first-child) > .btn,
-.input-group-btn:first-child > #audio-container:not(:first-child) > .btn,
 .input-group-btn:first-child > .btn-group:not(:first-child) > .menu-buttons,
-.input-group-btn:first-child > #audio-container:not(:first-child) > .menu-buttons,
 .input-group-btn:first-child > .btn-group:not(:first-child) > .label-btn,
-.input-group-btn:first-child > #audio-container:not(:first-child) > .label-btn,
-.input-group-btn:first-child > .btn-group:not(:first-child) > #audio-dropdown,
-.input-group-btn:first-child > #audio-container:not(:first-child) > #audio-dropdown {
+.input-group-btn:first-child > .btn-group:not(:first-child) > #audio-dropdown {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
@@ -3804,12 +3750,10 @@ tbody.collapse.in {
     .input-group-btn > .btn:hover, .input-group-btn > .menu-buttons:hover, .input-group-btn > .label-btn:hover, .input-group-btn > #audio-dropdown:hover, .input-group-btn > .btn:focus, .input-group-btn > .menu-buttons:focus, .input-group-btn > .label-btn:focus, .input-group-btn > #audio-dropdown:focus, .input-group-btn > .btn:active, .input-group-btn > .menu-buttons:active, .input-group-btn > .label-btn:active, .input-group-btn > #audio-dropdown:active {
       z-index: 2; }
   .input-group-btn:first-child > .btn, .input-group-btn:first-child > .menu-buttons, .input-group-btn:first-child > .label-btn, .input-group-btn:first-child > #audio-dropdown,
-  .input-group-btn:first-child > .btn-group,
-  .input-group-btn:first-child > #audio-container {
+  .input-group-btn:first-child > .btn-group {
     margin-right: -1px; }
   .input-group-btn:last-child > .btn, .input-group-btn:last-child > .menu-buttons, .input-group-btn:last-child > .label-btn, .input-group-btn:last-child > #audio-dropdown,
-  .input-group-btn:last-child > .btn-group,
-  .input-group-btn:last-child > #audio-container {
+  .input-group-btn:last-child > .btn-group {
     z-index: 2;
     margin-left: -1px; }
 
@@ -3892,7 +3836,7 @@ tbody.collapse.in {
     .nav-justified > li > a, .nav-tabs.nav-justified > li > a {
       text-align: center;
       margin-bottom: 5px; }
-  .nav-justified > .dropdown .dropdown-menu, .nav-justified > .dropdown #audio-menu {
+  .nav-justified > .dropdown .dropdown-menu, .nav-justified > #audio-container .dropdown-menu, .nav-justified > .dropdown #audio-menu, .nav-justified > #audio-container #audio-menu {
     top: auto;
     left: auto; }
   @media (min-width: 768px) {
@@ -4999,7 +4943,7 @@ button.list-group-item-danger {
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
-  .panel-heading > .dropdown .dropdown-toggle, .panel-heading > .dropdown #audio-dropdown {
+  .panel-heading > .dropdown .dropdown-toggle, .panel-heading > #audio-container .dropdown-toggle, .panel-heading > .dropdown #audio-dropdown, .panel-heading > #audio-container #audio-dropdown {
     color: inherit; }
 
 .panel-title {
@@ -5445,7 +5389,7 @@ button.close {
   .modal-footer .btn + .btn, .modal-footer .menu-buttons + .btn, .modal-footer .label-btn + .btn, .modal-footer #audio-dropdown + .btn, .modal-footer .btn + .menu-buttons, .modal-footer .menu-buttons + .menu-buttons, .modal-footer .label-btn + .menu-buttons, .modal-footer #audio-dropdown + .menu-buttons, .modal-footer .btn + .label-btn, .modal-footer .menu-buttons + .label-btn, .modal-footer .label-btn + .label-btn, .modal-footer #audio-dropdown + .label-btn, .modal-footer .btn + #audio-dropdown, .modal-footer .menu-buttons + #audio-dropdown, .modal-footer .label-btn + #audio-dropdown, .modal-footer #audio-dropdown + #audio-dropdown {
     margin-left: 5px;
     margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn, .modal-footer #audio-container .btn + .btn, .modal-footer .btn-group .menu-buttons + .btn, .modal-footer #audio-container .menu-buttons + .btn, .modal-footer .btn-group .label-btn + .btn, .modal-footer #audio-container .label-btn + .btn, .modal-footer .btn-group #audio-dropdown + .btn, .modal-footer #audio-container #audio-dropdown + .btn, .modal-footer .btn-group .btn + .menu-buttons, .modal-footer #audio-container .btn + .menu-buttons, .modal-footer .btn-group .menu-buttons + .menu-buttons, .modal-footer #audio-container .menu-buttons + .menu-buttons, .modal-footer .btn-group .label-btn + .menu-buttons, .modal-footer #audio-container .label-btn + .menu-buttons, .modal-footer .btn-group #audio-dropdown + .menu-buttons, .modal-footer #audio-container #audio-dropdown + .menu-buttons, .modal-footer .btn-group .btn + .label-btn, .modal-footer #audio-container .btn + .label-btn, .modal-footer .btn-group .menu-buttons + .label-btn, .modal-footer #audio-container .menu-buttons + .label-btn, .modal-footer .btn-group .label-btn + .label-btn, .modal-footer #audio-container .label-btn + .label-btn, .modal-footer .btn-group #audio-dropdown + .label-btn, .modal-footer #audio-container #audio-dropdown + .label-btn, .modal-footer .btn-group .btn + #audio-dropdown, .modal-footer #audio-container .btn + #audio-dropdown, .modal-footer .btn-group .menu-buttons + #audio-dropdown, .modal-footer #audio-container .menu-buttons + #audio-dropdown, .modal-footer .btn-group .label-btn + #audio-dropdown, .modal-footer #audio-container .label-btn + #audio-dropdown, .modal-footer .btn-group #audio-dropdown + #audio-dropdown, .modal-footer #audio-container #audio-dropdown + #audio-dropdown {
+  .modal-footer .btn-group .btn + .btn, .modal-footer .btn-group .menu-buttons + .btn, .modal-footer .btn-group .label-btn + .btn, .modal-footer .btn-group #audio-dropdown + .btn, .modal-footer .btn-group .btn + .menu-buttons, .modal-footer .btn-group .menu-buttons + .menu-buttons, .modal-footer .btn-group .label-btn + .menu-buttons, .modal-footer .btn-group #audio-dropdown + .menu-buttons, .modal-footer .btn-group .btn + .label-btn, .modal-footer .btn-group .menu-buttons + .label-btn, .modal-footer .btn-group .label-btn + .label-btn, .modal-footer .btn-group #audio-dropdown + .label-btn, .modal-footer .btn-group .btn + #audio-dropdown, .modal-footer .btn-group .menu-buttons + #audio-dropdown, .modal-footer .btn-group .label-btn + #audio-dropdown, .modal-footer .btn-group #audio-dropdown + #audio-dropdown {
     margin-left: -1px; }
   .modal-footer .btn-block + .btn-block {
     margin-left: 0; }
