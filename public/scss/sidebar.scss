@@ -1,19 +1,18 @@
 #sidebar-container {
-  @extend .col-xs-3;
+  @extend .col-xs-4;
   @extend .col-sm-3;
   @extend .col-md-2;
   @extend .col-lg-2;
   position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 #sidebar-list {
   @extend .nav;
   @extend .nav-pills;
   @extend .nav-stacked;
-}
-
-.label-LI {
-
 }
 
 .label-btn {
@@ -44,6 +43,7 @@
   @extend .dropdown-menu;
 }
 
-.audio-menu-btn {
-
+.audio-menu-btn:hover {
+  background-color: $main-blue !important;
+  color: $white !important;
 }
