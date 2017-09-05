@@ -5,6 +5,15 @@
   overflow: hidden;
 }
 
+@mixin fixed-text-overflow($width) {
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: clip;
+  min-width: $width;
+  max-width: $width;
+}
+
 .collapse-sm {
   @media (max-width: $break-sm) {
     display: none !important;

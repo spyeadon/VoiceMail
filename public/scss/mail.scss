@@ -1,5 +1,5 @@
 #mail-loading-container {
-
+  background:url("/loading.gif") no-repeat center center white;
 }
 
 #mail-container {
@@ -10,10 +10,65 @@
 @extend .pull-right;
 }
 
-.threads-container {
+.td-spacer {
+  width: 7px;
+}
 
+#threads-table {
+  @extend .table;
+  @extend .table-hover;
 }
 
 .threads-LI {
   @include text-overflow(auto);
+}
+
+.threads-from-address {
+  @include fixed-text-overflow(175px);
+  font-weight: bold;
+}
+
+.threads-sl-snippet {
+
+}
+
+.threads-subject-line {
+  font-weight: bold;
+  @extend .right-margin;
+}
+
+.threads-snippet {
+  @include text-overflow(auto);
+}
+
+.thread {
+
+}
+
+.thread-subject-line {
+
+}
+
+.message-body {
+
+}
+
+.message-body-from-address {
+
+}
+
+.message-body-text-body {
+
+}
+
+.message-header {
+
+}
+
+.message-header-from-address {
+
+}
+
+.message-header-snippet {
+
 }
