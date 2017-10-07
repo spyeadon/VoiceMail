@@ -48,13 +48,15 @@ const Mail = props => {
             }
             <td className="td-spacer" />
           {props.currentThreadId === thread.threadId ?
-            <Thread
-              currentThread={thread}
-              currentThreadId={props.currentThreadId}
-              setCurrentThread={props.setCurrentThread}
-              setCurrentMessage={props.setCurrentMessage}
-              currentMessageId={props.currentMessageId}
-            />
+            <td>
+              <Thread
+                currentThread={thread}
+                currentThreadId={props.currentThreadId}
+                setCurrentThread={props.setCurrentThread}
+                setCurrentMessage={props.setCurrentMessage}
+                currentMessageId={props.currentMessageId}
+              />
+            </td>
             :
             <td className="threads-sl-snippet">
               <span className="threads-subject-line">

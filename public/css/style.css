@@ -6116,7 +6116,7 @@ button.close {
   .child-spacing-sm li > p, .nav-left-2 li > p, .nav-right-2 li > p {
     padding-right: 7px; } }
 
-.right-margin, .threads-subject-line {
+.right-margin, .threads-LI {
   margin-right: 5px; }
 
 #navbar {
@@ -6216,11 +6216,12 @@ button.close {
   background-color: #2496cf !important;
   color: white !important; }
 
-#content-container {
-  margin-top: 7px; }
-
 #mail-loading-container {
   background: url("/loading.gif") no-repeat center center white; }
+
+#mail-container {
+  position: relative;
+  z-index: 1 !important; }
 
 .td-spacer {
   width: 7px; }
@@ -6240,14 +6241,37 @@ button.close {
   max-width: 175px;
   font-weight: bold; }
 
+.threads-sl-snippet {
+  white-space: nowrap;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: clip;
+  min-width: auto;
+  max-width: auto; }
+
 .threads-subject-line {
   font-weight: bold; }
 
-.threads-snippet {
-  max-width: auto;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden; }
+.thread {
+  border-left: 1px solid black;
+  padding: 1em;
+  position: absolute;
+  left: 175px;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2 !important;
+  background-color: white;
+  overflow-y: scroll; }
+
+.message-body {
+  position: relative;
+  z-index: 3 !important; }
+
+.message-header {
+  position: relative;
+  z-index: 3 !important; }
 
 body {
   padding-top: 4em;

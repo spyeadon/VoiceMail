@@ -3,11 +3,13 @@
 }
 
 #mail-container {
-@extend .col-xs-8;
-@extend .col-sm-9;
-@extend .col-md-10;
-@extend .col-lg-10;
-@extend .pull-right;
+  @extend .col-xs-8;
+  @extend .col-sm-9;
+  @extend .col-md-10;
+  @extend .col-lg-10;
+  @extend .pull-right;
+  position: relative;
+  z-index: 1 !important;
 }
 
 .td-spacer {
@@ -21,6 +23,7 @@
 
 .threads-LI {
   @include text-overflow(auto);
+  @extend .right-margin;
 }
 
 .threads-from-address {
@@ -29,28 +32,38 @@
 }
 
 .threads-sl-snippet {
-
+  @include fixed-text-overflow(auto);
 }
 
 .threads-subject-line {
   font-weight: bold;
-  @extend .right-margin;
 }
 
 .threads-snippet {
-  @include text-overflow(auto);
+  // @include text-overflow(auto);
 }
 
 .thread {
-
+  border-left: 1px solid black;
+  padding: 1em;
+  position: absolute;
+  left: 175px;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2 !important;
+  background-color: white;
+  overflow-y: scroll;
 }
 
 .thread-subject-line {
-
+  font-weight: bold;
 }
 
 .message-body {
-
+  position: relative;
+  z-index: 3 !important;
 }
 
 .message-body-from-address {
@@ -62,7 +75,8 @@
 }
 
 .message-header {
-
+  position: relative;
+  z-index: 3 !important;
 }
 
 .message-header-from-address {
