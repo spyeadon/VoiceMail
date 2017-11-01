@@ -12,27 +12,37 @@
   z-index: 1 !important;
 }
 
-.td-spacer {
-  width: 7px;
-}
-
-#threads-table {
-  @extend .table;
-  @extend .table-hover;
+.threads-container {
+  overflow-wrap: break-word;
 }
 
 .threads-LI {
-  @include text-overflow(auto);
-  @extend .right-margin;
+  @include fixed-text-overflow(auto, $thread-height);
+  line-height: $thread-height;
+  border-bottom: 1px solid #ededed;
+  cursor: default;
+  > * {
+    min-height: $thread-height;
+    max-height: $thread-height;
+    line-height: $thread-height;
+    display: inline-grid;
+  }
+}
+
+.threads-LI:hover {
+  background-color: #ededed;
 }
 
 .threads-from-address {
-  @include fixed-text-overflow(175px);
+  @include fixed-text-overflow(175px, $thread-height);
   font-weight: bold;
+  padding-left: 5px;
 }
 
-.threads-sl-snippet {
-  @include fixed-text-overflow(auto);
+.threads-from-address-HL {
+  @extend .threads-from-address;
+  background-color: #ededed;
+  border-left: 3px solid black;
 }
 
 .threads-subject-line {
@@ -40,18 +50,20 @@
 }
 
 .threads-snippet {
-  // @include text-overflow(auto);
+
 }
 
 .thread {
   border-left: 1px solid black;
   padding: 1em;
-  position: absolute;
-  left: 175px;
+  position: fixed;
+  left: 375px;
   right: 0;
   bottom: 0;
-  top: 0;
-  width: 100%;
+  top: $nav-height;
+  @media (min-width: $break-sm) and (max-width: $break-md) {
+    top: $nav-height * 2 !important;
+  }
   z-index: 2 !important;
   background-color: white;
   overflow-y: scroll;

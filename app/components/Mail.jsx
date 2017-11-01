@@ -12,10 +12,6 @@ const Mail = props => {
     props.numThreads,
     currentThreads.threadGroup
   )
-  const style = {
-    backgroundColor: '#ededed',
-    borderLeft: '3px solid black'
-  }
 
   if (!threads.length || props.mailLoading) {
     return <div id="mail-loading-container" />
@@ -38,7 +34,7 @@ const Mail = props => {
               }
             }}>
             {props.currentThreadId === thread.threadId ?
-              <span style={style} className="threads-from-address">
+              <span className="threads-from-address-HL">
                 {thread.messages[0].headers.From.split('<')[0] || thread.messages[0].headers['Return-Path']}
               </span> :
               <span className="threads-from-address">
@@ -51,7 +47,6 @@ const Mail = props => {
             <span className="threads-snippet">
               {thread.snippet}
             </span>
-            <hr />
           </div>
           {props.currentThreadId === thread.threadId ?
             <Thread

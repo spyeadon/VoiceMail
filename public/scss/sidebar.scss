@@ -7,6 +7,10 @@
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100%;
+  top: $nav-height + 0.7em;
+  @media (min-width: $break-sm) and (max-width: $break-md) {
+    top: $nav-height * 2 + 0.7em !important;
+  }
 }
 
 #sidebar-list {

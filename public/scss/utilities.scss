@@ -5,13 +5,15 @@
   overflow: hidden;
 }
 
-@mixin fixed-text-overflow($width) {
+@mixin fixed-text-overflow($width, $height) {
   white-space: nowrap;
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: clip;
   min-width: $width;
   max-width: $width;
+  min-height: $height;
+  max-height: $height;
 }
 
 .collapse-sm {
@@ -48,4 +50,8 @@
 
 .right-margin {
   margin-right: 5px;
+}
+
+.hr-custom {
+  margin: 0px auto;
 }
