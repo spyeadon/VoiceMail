@@ -3,13 +3,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  word-wrap: break-word;
 }
 
 @mixin fixed-text-overflow($width, $height) {
   white-space: nowrap;
   word-wrap: break-word;
   overflow: hidden;
-  text-overflow: clip;
+  text-overflow: ellipsis;
   min-width: $width;
   max-width: $width;
   min-height: $height;

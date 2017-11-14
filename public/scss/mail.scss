@@ -13,20 +13,15 @@
 }
 
 .threads-container {
-  overflow-wrap: break-word;
+  //no CSS seemed to be required for this class but keeping it as a placeholder for now...
 }
 
 .threads-LI {
+  display: block;
   @include fixed-text-overflow(auto, $thread-height);
   line-height: $thread-height;
   border-bottom: 1px solid #ededed;
   cursor: default;
-  > * {
-    min-height: $thread-height;
-    max-height: $thread-height;
-    line-height: $thread-height;
-    display: inline-grid;
-  }
 }
 
 .threads-LI:hover {
@@ -34,9 +29,11 @@
 }
 
 .threads-from-address {
-  @include fixed-text-overflow(175px, $thread-height);
+  @include fixed-text-overflow(190px, $thread-height);
+  display: inline-flex;
   font-weight: bold;
   padding-left: 5px;
+  margin-right: 20px;
 }
 
 .threads-from-address-HL {
@@ -47,23 +44,22 @@
 
 .threads-subject-line {
   font-weight: bold;
+  @include fixed-text-overflow(auto, $thread-height);
 }
 
 .threads-snippet {
-
+  @include fixed-text-overflow(auto, $thread-height);
 }
 
 .thread {
   border-left: 1px solid black;
   padding: 1em;
   position: fixed;
-  left: 375px;
-  right: 0;
-  bottom: 0;
-  top: $nav-height;
-  @media (min-width: $break-sm) and (max-width: $break-md) {
-    top: $nav-height * 2 !important;
-  }
+  // position: absolute;
+  // left: 200px;
+  // right: 0;
+  // bottom: 0;
+  // top: 0;
   z-index: 2 !important;
   background-color: white;
   overflow-y: scroll;
