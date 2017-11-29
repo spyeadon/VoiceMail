@@ -6183,7 +6183,6 @@ button.close {
   background: url("/loading.gif") no-repeat center center white; }
 
 #mail-container {
-  position: relative;
   z-index: 1 !important; }
 
 .threads-LI {
@@ -6219,7 +6218,8 @@ button.close {
 
 .threads-from-address-HL {
   background-color: #ededed;
-  border-left: 3px solid black; }
+  border-left: 3px solid black;
+  padding-right: 500px; }
 
 .threads-subject-line {
   font-weight: bold;
@@ -6245,14 +6245,17 @@ button.close {
 .thread {
   border-left: 1px solid black;
   padding: 1em;
-  position: absolute;
-  left: 200px;
-  right: 0;
-  bottom: 0;
-  top: 0;
   z-index: 2 !important;
   background-color: white;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  position: fixed;
+  left: 450px;
+  right: 0;
+  bottom: 0;
+  top: 4em; }
+  @media (min-width: 767px) and (max-width: 1145px) {
+    .thread {
+      top: 8em !important; } }
 
 .thread-subject-line {
   font-weight: bold; }

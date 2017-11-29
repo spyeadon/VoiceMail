@@ -8,7 +8,6 @@
   @extend .col-md-10;
   @extend .col-lg-10;
   @extend .pull-right;
-  position: relative;
   z-index: 1 !important;
 }
 
@@ -40,6 +39,7 @@
   @extend .threads-from-address;
   background-color: #ededed;
   border-left: 3px solid black;
+  padding-right: 500px;
 }
 
 .threads-subject-line {
@@ -54,15 +54,17 @@
 .thread {
   border-left: 1px solid black;
   padding: 1em;
-  position: fixed;
-  // position: absolute;
-  // left: 200px;
-  // right: 0;
-  // bottom: 0;
-  // top: 0;
   z-index: 2 !important;
   background-color: white;
   overflow-y: scroll;
+  position: fixed;
+  left: 450px;
+  right: 0;
+  bottom: 0;
+  top: $nav-height;
+  @media (min-width: $break-sm) and (max-width: $break-md) {
+    top: $nav-height * 2 !important;
+  }
 }
 
 .thread-subject-line {
