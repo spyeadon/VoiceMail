@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Thread from './Thread.jsx'
 import {setCurrentThreadId, setCurrentMessageId, changeThreadGroup, getThreads} from '../action-creators/gmail.jsx'
-import {threadsToRender, displayBool, highlightBool} from '../utils.jsx'
+import {threadsToRender, displayBool} from '../utils.jsx'
 
 const Mail = props => {
 
@@ -13,7 +13,6 @@ const Mail = props => {
     currentThreads.threadGroup
   )
   const displayNone = displayBool(props.currentThreadId)
-  const highlight = highlightBool(props.currentThreadId)
 
   if (!threads.length || props.mailLoading) {
     return <div id="mail-loading-container" />

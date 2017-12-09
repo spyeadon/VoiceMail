@@ -6268,6 +6268,15 @@ button.close {
   position: relative;
   z-index: 3 !important; }
 
+#LP-container {
+  margin: auto;
+  width: 600px;
+  text-align: center;
+  background-color: #ededed;
+  padding: 60px 0px;
+  margin-top: 50px;
+  border-radius: 10px; }
+
 body {
   padding-top: 4em;
   min-width: 767px !important;
