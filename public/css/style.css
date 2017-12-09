@@ -6287,3 +6287,6 @@ body {
   @media (max-width: 767px) {
     body {
       padding-top: 4em; } }
+
+#thread-count-form {
+  width: 75%; }
