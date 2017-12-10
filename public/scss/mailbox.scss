@@ -1,0 +1,7 @@
+#content-container {
+  @extend .container-fluid;
+}
+
+#mailbox-container {
+  @extend .row;
+}

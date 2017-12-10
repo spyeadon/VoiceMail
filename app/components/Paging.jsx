@@ -13,17 +13,11 @@ const Paging = props => {
   )
 
   return (
-    <div id="thread-group-toggle" >
-      <div id="paging-labels">
-        <div className="current-label-page">{props.currentLabel}</div>
-        <div className="current-label-page">
-          <span>Page </span>
-          <span>{labelThreads.threadGroup}</span>
-        </div>
-      </div>
-      <div>
-        <button
-          className="paging-buttons"
+      <ul className="nav-left-2">
+        <li><p className="nav-labelId">{props.currentLabel}</p></li>
+        <li><p className="navbar-text">Page {labelThreads.threadGroup}</p></li>
+        <li><button
+          className="menu-buttons right-margin"
           disabled={labelThreads.threadGroup === 1}
           onClick={() => {
             if (labelThreads.threadGroup === 2 && props.currentLabel !== 'search') {
@@ -35,10 +29,10 @@ const Paging = props => {
             props.setThreadGroup('previous', props.currentLabel)
           }}
         >
-          Previous
-        </button>
-        <button
-          className="paging-buttons"
+          <i className="fa fa-chevron-left" aria-hidden="true" />
+        </button></li>
+        <li><button
+          className="menu-buttons"
           disabled={
             !threads.length || props.currentLabel === 'search' &&
             props.threads.search.threadGroup === props.threads.search.maxThreadGroup
@@ -54,10 +48,9 @@ const Paging = props => {
             props.setThreadGroup('next', props.currentLabel)
           }}
         >
-          Next
-        </button>
-      </div>
-    </div>
+          <i className="fa fa-chevron-right" aria-hidden="true" />
+        </button></li>
+      </ul>
   )
 }
 

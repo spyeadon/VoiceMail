@@ -1,10 +1,13 @@
 import React from 'react'
 
 export const WhoAmI = ({ user, logout }) => (
-  <div className="whoami">
-    <span className="whoami-user-name">{user && user.name}</span>
-    <button className="logout" onClick={logout}>Logout</button>
-  </div>
+  <ul className="nav-right-2">
+    <li><p className="nav-username">{user && user.name}</p></li>
+    <li><button className="menu-buttons" onClick={logout}>Logout</button></li>
+    <li className="collapse-sm">
+      <img src={user.img_url} id="profile-photo" />
+    </li>
+  </ul>
 )
 
 import {logout} from 'APP/app/reducers/auth'

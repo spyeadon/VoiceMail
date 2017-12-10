@@ -12,27 +12,36 @@ class MessageFilter extends React.Component {
     evt.preventDefault()
     this.props.initiateSearch({
       q: evt.target.search.value,
-      maxResults: 50
+      maxResults: this.props.numThreads
     })
   }
 
   render() {
     return (
-      <form onSubmit={this.searchSubmission} id="search-form">
-        <input
-          name="search"
-          type="search"
-          className="form-control input-lg"
-          id="search-input"
-        />
-        <button
-          id="search-btn"
-          type="submit"
-          className="btn btn-default btn-lg">
-          <i className="fa fa-search" aria-hidden="true" />
-        </button>
-      </form>
+      <ul className="nav-right-1">
+        <form onSubmit={this.searchSubmission} id="search-form">
+          <div className="form-group">
+            <input
+              name="search"
+              placeholder="Search"
+              type="search"
+              id="search-input"
+            />
+            <button
+              type="submit"
+              className="menu-buttons">
+              <i className="fa fa-search" aria-hidden="true" />
+            </button>
+          </div>
+        </form>
+      </ul>
     )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    numThreads: state.gmail.threadsPerPage
   }
 }
 
@@ -44,6 +53,6 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const FilterContainer = connect(null, mapDispatchToProps)(MessageFilter)
+const FilterContainer = connect(mapStateToProps, mapDispatchToProps)(MessageFilter)
 
 export default FilterContainer;

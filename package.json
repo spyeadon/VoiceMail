@@ -1,7 +1,7 @@
 {
   "name": "voicemail",
   "version": "0.0.1",
-  "description": "A pseudo email client with audio message capabilities.",
+  "description": "An email client built for the browser with the gmail API, Node.js, Express, Sequelize and React Redux.",
   "main": "index.js",
   "engines": {
     "node": ">= 7.0.0"
@@ -17,7 +17,7 @@
     "build-dev": "cross-env NODE_ENV=development npm run build-watch",
     "build-branch": "bin/build-branch.sh",
     "start": "node server/start.js",
-    "start-watch": "nodemon server/start.js --watch server --watch db --watch index.js --watch package.json",
+    "start-watch": "npm run build-css && nodemon server/start.js --watch server --watch db --watch index.js --watch package.json",
     "start-dev": "cross-env NODE_ENV=development npm run start-watch",
     "test": "mocha --compilers js:babel-register --watch-extensions js,jsx app/**/*.test.js app/**/*.test.jsx server/**/*.test.js db/**/*.test.js",
     "test-watch": "npm run test -- --watch --reporter=min",
@@ -25,7 +25,8 @@
     "deploy-heroku": "bin/deploy-heroku.sh",
     "lint": "esw . --ignore-path .gitignore --ext '.js,.jsx'",
     "lint-watch": "npm run lint -- -w",
-    "prepush": "npm run lint && npm run test"
+    "prepush": "npm run lint && npm run test",
+    "build-css": "node-sass public/scss/style.scss --output public/css"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "bcryptjs": "^2.4.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.15.2",
+    "bootstrap-sass": "^3.3.7",
     "chai-enzyme": "^0.5.2",
     "chalk": "^1.1.3",
     "check-node-version": "^1.1.2",
@@ -60,7 +62,9 @@
     "google-batch": "^0.0.7",
     "googleapis": "^19.0.0",
     "homedir": "^0.6.0",
+    "jquery": "^3.2.1",
     "node-gmail-api": "^0.6.0",
+    "node-sass": "^4.5.3",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-github2": "^0.1.10",

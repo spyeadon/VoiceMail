@@ -6,32 +6,35 @@ import AudioContainer from './AudioContainer.jsx'
 
 const SidebarComponent = props =>
   (
-    <div id="sidebar-container" >
-      {
-        props.labels.map(label =>
-          <button
-            key={label}
-            className="label-LI"
-            disabled={props.mailLoading}
-            onClick={() => {
-              if (props.threads[label].maxThreadGroup > 1) {
-                props.getLabelThreads({
-                  labelIds: `${label}`,
-                  maxResults: props.numThreads
-                }, false)
-              }
-              else {
-                props.getLabelThreads({
-                  labelIds: `${label}`,
-                  maxResults: props.numThreads
-                })
-              }
-              props.setThreadGroup('firstPage', label)
-            }}
-          >{label}</button>
-        )
-      }
-      <AudioContainer />
+    <div id="sidebar-container">
+      <ul id="sidebar-list" >
+        {
+          props.labels.map(label =>
+            <li key={label} className="label-LI">
+              <button
+                key={label}
+                className="label-btn"
+                onClick={() => {
+                  if (props.threads[label].maxThreadGroup > 1) {
+                    props.getLabelThreads({
+                      labelIds: `${label}`,
+                      maxResults: props.numThreads
+                    }, false)
+                  }
+                  else {
+                    props.getLabelThreads({
+                      labelIds: `${label}`,
+                      maxResults: props.numThreads
+                    })
+                  }
+                  props.setThreadGroup('firstPage', label)
+                }}
+              >{label}</button>
+            </li>
+          )
+        }
+        <AudioContainer />
+      </ul>
     </div>
   )
 

@@ -51,6 +51,12 @@ module.exports = app
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
 
+  //Serve static files from bootstrap javascript dir in node_modules
+  .use(express.static(resolve(__dirname, '..', 'node_modules/bootstrap-sass/assets/javascripts')))
+
+  //Serve static files from jquery dir in node_modules
+  .use(express.static(resolve(__dirname, '..', 'node_modules/jquery/dist')))
+
   // Serve our api - ./api also requires in ../db, which syncs with our database
   .use('/api', require('./routes/api.js'))
 

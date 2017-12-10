@@ -1,0 +1,112 @@
+#navbar {
+  @extend .navbar-default;
+  @extend .navbar;
+  @extend .navbar-fixed-top;
+  min-width: 403px !important;
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+}
+
+.menu-buttons {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .navbar-btn;
+  background-color: $main-blue;
+  border: none;
+}
+
+.nav-content {
+  @extend .nav;
+  @extend .navbar-nav;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  @media (max-width: $break-sm) {
+    margin: auto !important;
+  }
+}
+
+.nav-left-container {
+  float: left;
+  @media (max-width: $break-md) {
+    width: 100%;
+  }
+  @media (max-width: $break-sm) {
+    width: auto;
+  }
+}
+
+.nav-left-1 {
+  @extend .navbar-left;
+  @extend .nav-content;
+  @extend .collapse-sm;
+}
+
+.nav-left-2 {
+  @extend .nav-content;
+  @extend .float-right-md;
+  @extend .child-spacing-sm;
+}
+
+.nav-right-container {
+  float: right;
+  @media (max-width: $break-md) {
+    width: 100%;
+  }
+  @media (max-width: $break-sm) {
+    width: auto;
+  }
+}
+
+.nav-right-1 {
+  @extend .nav-content;
+  @media (max-width: $break-md) {
+    float: left !important;
+  }
+}
+
+.nav-right-2 {
+  @extend .nav-content;
+  @extend .child-spacing-sm;
+  @extend .navbar-right;
+  margin-right: 0px;
+}
+
+#search-form {
+  @extend .navbar-form;
+  @extend .collapse-sm;
+}
+
+#search-input {
+  @extend .form-control;
+  min-width: 430px;
+  @media (min-width: $nav-form-break-2) and (max-width: $nav-form-break-1) {
+    min-width: 300px;
+  }
+  @media (min-width: $break-md) and (max-width: $nav-form-break-2) {
+    min-width: 200px;
+  }
+  @media (max-width: $break-md) {
+    min-width: 416px;
+  }
+}
+
+#profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  margin-left: 10px;
+}
+
+.nav-labelId {
+  @extend .navbar-text;
+  @include text-overflow(68px);
+}
+
+.nav-username {
+  @extend .navbar-text;
+  @include text-overflow(95px);
+}

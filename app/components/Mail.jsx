@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Thread from './Thread.jsx'
 import {setCurrentThreadId, setCurrentMessageId, changeThreadGroup, getThreads} from '../action-creators/gmail.jsx'
-import {threadsToRender} from '../utils.jsx'
+import {threadsToRender, displayBool} from '../utils.jsx'
 
 const Mail = props => {
 
@@ -12,10 +12,7 @@ const Mail = props => {
     props.numThreads,
     currentThreads.threadGroup
   )
-  const style = {
-    backgroundColor: '#ededed',
-    borderLeft: '3px solid black'
-  }
+  const displayNone = displayBool(props.currentThreadId)
 
   if (!threads.length && !props.mailLoading) {
     return <div id="empty-label" />
@@ -27,46 +24,47 @@ const Mail = props => {
     <div id="mail-container">
       {
         threads.map(thread =>
-        <div className="threads-container" key={thread.threadId} >
           <div
-            className="threads-LI"
-            onClick={() => {
-              if (props.currentThreadId === thread.threadId){
-                props.setCurrentThread()
-                props.setCurrentMessage()
+            className="threads-container"
+            key={thread.threadId}>
+            <div
+              className="threads-LI"
+              onClick={() => {
+                if (props.currentThreadId === thread.threadId){
+                  props.setCurrentThread()
+                  props.setCurrentMessage()
+                }
+                else {
+                  props.setCurrentThread(thread.threadId)
+                  props.setCurrentMessage()
+                }
+              }}>
+              {props.currentThreadId === thread.threadId ?
+                <span className="threads-from-address-HL">
+                  {thread.messages[0].headers.From.split('<')[0] || thread.messages[0].headers['Return-Path']}
+                </span> :
+                <span className="threads-from-address">
+                  {thread.messages[0].headers.From.split('<')[0] || thread.messages[0].headers['Return-Path']}
+                </span>
               }
-              else {
-                props.setCurrentThread(thread.threadId)
-                props.setCurrentMessage()
-              }
-            }}>
-            {props.currentThreadId === thread.threadId ?
-              <span style={style} className="threads-from-address">
-                {thread.messages[0].headers.From.split('<')[0] || thread.messages[0].headers['Return-Path']}
-              </span> :
-              <span className="threads-from-address">
-                {thread.messages[0].headers.From.split('<')[0] || thread.messages[0].headers['Return-Path']}
+              <span className="threads-subject-line" style={displayNone}>
+                {thread.messages[0].headers.Subject} &mdash;
               </span>
+              <span className="threads-snippet" style={displayNone}>
+                {thread.snippet}
+              </span>
+            </div>
+            {props.currentThreadId === thread.threadId ?
+              <Thread
+                currentThread={thread}
+                currentThreadId={props.currentThreadId}
+                setCurrentThread={props.setCurrentThread}
+                setCurrentMessage={props.setCurrentMessage}
+                currentMessageId={props.currentMessageId}
+              />
+              : null
             }
-            <span className="threads-subject-line">
-              {thread.messages[0].headers.Subject} &mdash;
-            </span>
-            <span className="threads-snippet">
-              {thread.snippet}
-            </span>
-            <hr />
           </div>
-          {props.currentThreadId === thread.threadId ?
-            <Thread
-              currentThread={thread}
-              currentThreadId={props.currentThreadId}
-              setCurrentThread={props.setCurrentThread}
-              setCurrentMessage={props.setCurrentMessage}
-              currentMessageId={props.currentMessageId}
-            />
-            : null
-          }
-        </div>
         )
       }
     </div>

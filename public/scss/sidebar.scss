@@ -1,0 +1,53 @@
+#sidebar-container {
+  @extend .col-xs-4;
+  @extend .col-sm-4;
+  @extend .col-md-2;
+  @extend .col-lg-2;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  top: $nav-height + 0.7em;
+  @media (min-width: $break-sm) and (max-width: $break-md) {
+    top: $nav-height * 2 + 0.7em !important;
+  }
+}
+
+#sidebar-list {
+  @extend .nav;
+  @extend .nav-pills;
+  @extend .nav-stacked;
+}
+
+.label-btn {
+  @extend .btn;
+  @extend .btn-default;
+  @include text-overflow(auto);
+  width: 100%;
+  border: none;
+  text-align: left;
+}
+
+.label-btn:hover {
+  background-color: $main-blue;
+  color: $white;
+}
+
+#audio-container {
+  @extend .dropdown;
+}
+
+#audio-dropdown {
+  @extend .btn;
+  @extend .btn-default;
+  @extend .dropdown-toggle;
+}
+
+#audio-menu {
+  @extend .dropdown-menu;
+}
+
+.audio-menu-btn:hover {
+  background-color: $main-blue !important;
+  color: $white !important;
+}
