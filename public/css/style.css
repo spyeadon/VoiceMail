@@ -6179,8 +6179,11 @@ button.close {
   background-color: #2496cf !important;
   color: white !important; }
 
+#empty-label {
+  background: url("/img/empty-mailbox.jpg") no-repeat center center white; }
+
 #mail-loading-container {
-  background: url("/loading.gif") no-repeat center center white; }
+  background: url("/img/loading.gif") no-repeat center center white; }
 
 #mail-container {
   z-index: 1 !important; }
