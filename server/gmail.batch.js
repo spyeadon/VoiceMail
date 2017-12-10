@@ -51,7 +51,7 @@ class gmailBatchAPI {
   getThreads(opts, token) {
     var getOptions = {userId: this.email, googleBatch: true}
     var listOptions = Object.assign({userId: this.email, googleBatch: true}, opts)
-    const formattedThreadList = {}
+    const formattedThreadList = {threads: {}}
     if (listOptions.labelIds) formattedThreadList.labelId = listOptions.labelIds
     if (listOptions.labelIds && defaultLabels.indexOf(listOptions.labelIds.toUpperCase()) !== -1) listOptions.labelIds = listOptions.labelIds.toUpperCase()
     this.batch.add(this.gmail.users.threads.list(listOptions))
@@ -63,23 +63,28 @@ class gmailBatchAPI {
       }
       if (token) formattedThreadList.nextPageToken = responses[0].body.nextPageToken
       this.batch.clear()
-      responses[0].body.threads.forEach(thread => {
-        getOptions.id = thread.id
-        this.batch.add(this.gmail.users.threads.get(getOptions))
-      })
-      this.batch.exec((error, resps, errorDeets) => {
-        if (error) {
-          console.log('The batch API returned an error: ' + error)
-          this.next(error)
-          return
-        }
-        console.log('batch for all threads now executing')
-        formattedThreadList.threads = decodeAndFmtThreadsReduce(resps, googleBatch)
-        for (var threadID in formattedThreadList.threads) {
-          formattedThreadList.threads[threadID].date = formattedThreadList.threads[threadID].messages[0].headers['Date']
-        }
+      if (responses[0].body.threads) {
+        responses[0].body.threads.forEach(thread => {
+          getOptions.id = thread.id
+          this.batch.add(this.gmail.users.threads.get(getOptions))
+        })
+        this.batch.exec((error, resps, errorDeets) => {
+          if (error) {
+            console.log('The batch API returned an error: ' + errorDeets.toString())
+            this.next(error)
+            return
+          }
+          console.log('batch for all threads now executing')
+          formattedThreadList.threads = decodeAndFmtThreadsReduce(resps, googleBatch)
+          for (var threadID in formattedThreadList.threads) {
+            formattedThreadList.threads[threadID].date = formattedThreadList.threads[threadID].messages[0].headers['Date']
+          }
+          this.res.json(formattedThreadList)
+        })
+      }
+      else {
         this.res.json(formattedThreadList)
-      })
+      }
       this.batch.clear()
     })
   }

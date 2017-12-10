@@ -72,6 +72,17 @@ input:focus {
   background:url("/loading.gif") no-repeat center center white
 }
 
+#empty-label {
+  order: 2;
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background:url("/empty-mailbox.jpg") no-repeat center center white
+}
+
 #mail-container {
   order: 2;
   display: flex;

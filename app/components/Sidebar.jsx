@@ -42,7 +42,8 @@ function mapStateToProps(state) {
   return {
     labels: state.gmail.labels,
     numThreads: state.gmail.threadsPerPage,
-    threads: state.gmail.threads
+    threads: state.gmail.threads,
+    mailLoading: state.gmail.mailLoading
   }
 }
 
