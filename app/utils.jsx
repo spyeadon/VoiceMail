@@ -21,8 +21,3 @@ export function displayBool(currentThread) {
   if (currentThread) return {display: 'none'}
   else return null
 }
-
-export function highlightBool(currentThread) {
-  if (currentThread) return {backgroundColor: '#ededed'}
-  else return null
-}

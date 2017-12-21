@@ -6180,10 +6180,23 @@ button.close {
   color: white !important; }
 
 #empty-label {
-  background: url("/img/empty-mailbox.jpg") no-repeat center center white; }
+  background: url("../empty-mailbox.jpg") no-repeat center center white;
+  background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  height: 35em;
+  margin: auto; }
 
 #mail-loading-container {
-  background: url("/img/loading.gif") no-repeat center center white; }
+  background: url("../loading.gif") no-repeat center center white;
+  background-size: auto auto;
+  background-position: center;
+  margin-top: 200px;
+  height: 8em;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain; }
 
 #mail-container {
   z-index: 1 !important; }
