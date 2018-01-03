@@ -10,10 +10,6 @@
 * npm run dev to build webpack bundle and start server
 * npm run seed syncs and seeds DB (currently adds no data)
 
-### Image of App in current SCSS re-styling pull request
-
-<img width="1440" alt="voicemail screenshot 10-26" src="https://user-images.githubusercontent.com/21244859/32077443-1524265c-ba69-11e7-9a4a-28c776f56fe3.png">
-
 ## Current state of the app:
 
 ### Features
@@ -35,19 +31,19 @@
 * React Redux
 * [Gmail API](https://developers.google.com/gmail/api/guides/)
 * [Google Batch API](https://github.com/pradeep-mishra/google-batch)
+* SCSS with Node-Sass
 
 ## In progress:
 
 ### Features
 * Audio recording and message attachment in browser
-* Rendering email body text
+* Rendering email body text (both plain text and HTML)
 * Retrieval and editing of messages in _drafts_ label
 * Composing and sending new messages
 * Add local signup/login so user only has to OAuth with google when they create an account
 * Push notifications
 
 ### Styling
-* Color scheme
 * CSS Transitions
 
 ### Technologies to use
